@@ -1,0 +1,20 @@
+{
+  "productos": [
+    {
+      "id": "93f8",
+      "title": "triple bacon",
+      "category": "pollo",
+      "description": "hamburguesa triple con bacon",
+      "stock": "111",
+      "urlImg": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": "f31a",
+      "title": "triple",
+      "category": "vegetariana",
+      "description": "tres medallones",
+      "stock": "1000",
+      "urlImg": "URLLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ]
+}
