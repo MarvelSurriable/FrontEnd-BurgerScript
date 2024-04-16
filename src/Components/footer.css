@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.back{
+background-color: #ed4548 ;
+}
+
+.footer_font {
+    font-family: "Oswald", sans-serif;
+    color: antiquewhite;
+    text-decoration: none;  
+}
+
+.grid{
+    display:inline-flex;
+}
