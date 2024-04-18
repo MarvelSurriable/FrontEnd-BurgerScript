@@ -1,43 +1,139 @@
 {
   "productos": [
     {
-      "id": "93f8",
-      "title": "triple bacon",
-      "category": "pollo",
-      "description": "hamburguesa triple con bacon",
-      "stock": "111",
-      "urlImg": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    },
-    {
-      "id": "f31a",
-      "title": "triple",
-      "category": "vegetariana",
-      "description": "tres medallones",
-      "stock": "1000",
-      "urlImg": "URLLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    },
-    {
-      "id": "afb1",
-      "title": "prueba",
-      "category": "pollo",
-      "description": "prueba de imagen",
+      "id": "315f",
+      "title": "Burger 1",
+      "category": "carne",
+      "description": "Alguna descripcion",
       "stock": "11",
-      "urlImg": "https://e7.pngegg.com/pngimages/692/669/png-clipart-big-burger-hamburger-fast-food.png"
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
     },
     {
-      "id": "ca3f",
-      "title": "aaaaaa",
-      "category": "vegetariana",
-      "description": "aaaaaaaaaaaaaaaa",
-      "stock": "aa",
-      "urlImg": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg"
-    },
-    {
-      "id": "4252",
-      "title": "qqqq",
+      "id": "e8d0",
+      "title": "Burger 2",
       "category": "pollo",
-      "description": "qqqqqqqqqqqqqqq",
-      "stock": "qqq",
+      "description": "alguna descripcion",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "f1a0",
+      "title": "Burger 3",
+      "category": "vegetariana",
+      "description": "alguna descripcion",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "95cf",
+      "title": "Burger 4",
+      "category": "pollo",
+      "description": "alguna descripcion",
+      "stock": "1",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "fe63",
+      "title": "Burger 5",
+      "category": "carne",
+      "description": "alguna descripcion",
+      "stock": "12",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "1f7e",
+      "title": "Burger 6",
+      "category": "carne",
+      "description": "alguna descripcion",
+      "stock": "12",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "46fa",
+      "title": "Burger 7",
+      "category": "carne",
+      "description": "alguna descipcion",
+      "stock": "123",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "6c31",
+      "title": "Burger 8",
+      "category": "carne",
+      "description": "alguna descripcion",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "0772",
+      "title": "Burger 9",
+      "category": "pollo",
+      "description": "otra descripcion",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "8381",
+      "title": "Burger 10",
+      "category": "carne",
+      "description": "otra descripcion",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "cf61",
+      "title": "Burger 11",
+      "category": "carne",
+      "description": "otra descripcion",
+      "stock": "1",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "01bc",
+      "title": "Burger 12",
+      "category": "pollo",
+      "description": "otra descripcion",
+      "stock": "13",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "9184",
+      "title": "Burger 13",
+      "category": "carne",
+      "description": "otra descripcion",
+      "stock": "12",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "0519",
+      "title": "Burger 14",
+      "category": "carne",
+      "description": "descripcion alguna",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "74ba",
+      "title": "Burger 15",
+      "category": "carne",
+      "description": "otra descripcuion",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "6cd5",
+      "title": "Burger 16",
+      "category": "carne",
+      "description": "descripcion de burger",
+      "stock": "11",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
+    },
+    {
+      "id": "1dff",
+      "title": "Burger 17",
+      "category": "pollo",
+      "description": "otra descripcion",
+      "stock": "11",
       "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
     }
   ]
