@@ -30,7 +30,7 @@ const ListarProductos = () => {
         <h1>Listado de Productos</h1>
       </div>
       <div>
-        <Table striped bordered hover variant="dark">
+        <Table striped bordered hover variant="dark" responsive>
           <thead>
             <tr>
               <th>Id</th>

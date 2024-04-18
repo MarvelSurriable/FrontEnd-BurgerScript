@@ -3,11 +3,49 @@ import { Link } from "react-router-dom";
 import "../Home/home.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { useEffect, useState } from "react";
+import CardProductos from "../../Sections/CardProductos";
+import axios from "axios";
 
 function Home() {
-  const totalCardsLG = 15;
-  const totalCardsMd = 12;
-  const totalCardsSm = 10;
+  const [productos, setProductos] = useState([]);
+  const [totalCards, setTotalCards] = useState(15);
+  const API = import.meta.env.VITE_API;
+
+  const getProductos = async () => {
+    try {
+      const response = await axios.get(`${API}/productos`);
+      setProductos(response.data);
+    } catch (error) {
+      console.log("ERROR ==> ", error);
+    }
+  };
+
+  useEffect(() => {
+    getProductos();
+    return () => {
+      setProductos([]);
+    };
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 992) {
+        setTotalCards(15);
+      } else if (window.innerWidth < 992 && window.innerWidth >= 768) {
+        setTotalCards(12);
+      } else if (window.innerWidth < 968) {
+        setTotalCards(10);
+      } else {
+        setTotalCards(10);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  
 
   const settings = {
     dots: true,
@@ -171,7 +209,7 @@ function Home() {
             </Col>
           </Row>
         </Container>
-      </section>      
+      </section>
       <section>
         <Container fluid>
           <Row className="align-items-center category">
@@ -261,26 +299,12 @@ function Home() {
         <h2 className="text-center p-4 title_burger">Burgers</h2>
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">
-            <Row xs={2} sm={2} md={3} lg={5} xl={5} xxl={5}>
-              {[...Array(totalCardsLG)].map((_, index) => (
-                <Col key={index} xs={6} sm={6} md={4} lg={3} className="my-2">
-                  <Card className="img_fluid">
-                    <Card.Img
-                      variant="top"
-                      src="/src/assets/Images/Cards/1_Cheese_Burger_A.jpg"
-                    />
-                    <Card.Body>
-                      <Card.Title className="title_card text-center fs-4">
-                        Card Burger {index + 1}
-                      </Card.Title>
-                      <Card.Text className="description_card">
-                        Descripción de los ingredientes de la burger {index + 1}
-                        .
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
+            <Row xs={2} sm={2} md={3} lg={5} xl={5}>
+              {productos.slice(0, totalCards).map((element, index) => {
+                return (
+                  <CardProductos producto={element} key={index}></CardProductos>
+                );
+              })}
             </Row>
           </Container>
         </div>
