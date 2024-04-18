@@ -8,17 +8,19 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-         <Container fluid className="back p-0">
-          <div className='d-none d-md-block '>
+         <Container fluid className="back ">
+          <div className='d-none d-md-block p-0'>
           <Row>
          <Col xs={12} md={4} className='grid'>
-          <Row className='ms-5 px-4 pt-2'>
-          <Image
+          <Row className=' px-4 pt-2'>
+            <div>
+             <Image
                      src="/src/assets/Logo/logoBurgerScript.png"
-                     width="100"
-                     height="100"
+                     width="80"
+                     height="80"
                      alt="Logo BurgerScript"
                    />
+            </div>
           </Row>
           <Row className='pt-2 ' >
           <div >
@@ -32,39 +34,42 @@ const Footer = () => {
              <div>
              <Link to="/Burgers" className="Link footer_font ms-1 fs-5">Burgers</Link>
              </div>
-          </Row>    
+          </Row>
 
          </Col>
           <Col>
          <p className='text-center footer_font mt-5 pt-5 d-none d-sm-block'>Todos los derechos reservados</p>
          </Col> 
          <Col xs={12} md={4} >
-             <div className=' grid text-center'>
-             <Row className=' py-2 px-5'>
+             <div className=' grid text-center '>
+             <Row className=' py-2 px-5 '>
            <Link> <Facebook className="footer_font grid fs-5"/></Link>
            </Row>
-           <Row className=' py-2 px-5'>
+           <Row className=' py-2 pe-5'>
           <Link> <Instagram className="footer_font grid fs-5"/></Link>
            </Row>
-           <Row  className='py-2 px-5'>
+           <Row  className='py-2 '>
           <Link> <TwitterX className="footer_font grid fs-5"/></Link>
           </Row>
             </div>
-          
-           <Row className=' footer_font pt-2'>
+
+           <Row className=' footer_font pt-2 '>
            <Col>
             <a > <TelephoneFill className='fs-7 ' /> 3816778899</a>
              <p > <Envelope className='fs-7 '/> BurgerScript@gmail.com </p>
-            
+
             </Col>
             <Col>
-            <Image
+            <div >
+              <Image
                     src="https://qrcg-free-editor.qr-code-generator.com/main/assets/images/websiteQRCode_noFrame.png"
                      width="80"
                      height="80"
                     alt="Data Fiscal"
                   />
-            </Col>             
+            </div>
+
+            </Col>
             </Row>
         </Col>
      </Row>
@@ -78,18 +83,18 @@ const Footer = () => {
                      height="80"
                      alt="Logo BurgerScript"
                    />
-            </div>          
+            </div>
            </Row>
            <Row >
             <Col><Link> <Facebook className="footer_font grid fs-5"/></Link></Col>
             <Col><Link> <Instagram className="footer_font grid fs-5"/></Link></Col>
-            <Col><Link> <TwitterX className="footer_font grid fs-5"/></Link></Col>  
+            <Col><Link> <TwitterX className="footer_font grid fs-5"/></Link></Col>
             </Row>
             <Row >
            <p className='pt-5'>Todos los derechos reservados</p>
            </Row>
           </div>
- 
+
    </Container>
 
     );
