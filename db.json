@@ -15,6 +15,30 @@
       "description": "tres medallones",
       "stock": "1000",
       "urlImg": "URLLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": "afb1",
+      "title": "prueba",
+      "category": "pollo",
+      "description": "prueba de imagen",
+      "stock": "11",
+      "urlImg": "https://e7.pngegg.com/pngimages/692/669/png-clipart-big-burger-hamburger-fast-food.png"
+    },
+    {
+      "id": "ca3f",
+      "title": "aaaaaa",
+      "category": "vegetariana",
+      "description": "aaaaaaaaaaaaaaaa",
+      "stock": "aa",
+      "urlImg": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg"
+    },
+    {
+      "id": "4252",
+      "title": "qqqq",
+      "category": "pollo",
+      "description": "qqqqqqqqqqqqqqq",
+      "stock": "qqq",
+      "urlImg": "https://www.cnature.es/wp-content/uploads/2021/12/hamburguesa-con-guacamole.jpg"
     }
   ]
 }
