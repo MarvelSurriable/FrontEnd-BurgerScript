@@ -16,7 +16,7 @@ import {
     return (
       <div>
         <header>
-          <Container fluid className="header_icons bg-warning py-0">
+          {/* <Container fluid className="header_icons bg-warning py-0">
             <Nav className="justify-content-end">
               <Nav.Link href="#home" className="py-0"><Facebook className="text-black"/></Nav.Link>
               <Nav.Link href="#features" className="py-0"><Instagram className="text-black instagram"/></Nav.Link>
@@ -24,14 +24,14 @@ import {
               <Nav.Link href="#" className="py-0"><QuestionCircle className="text-black"/></Nav.Link>          
             </Nav>
             
-          </Container>
+          </Container> */}
           {["md"].map((expand) => (
             <Navbar
               key={expand}
               expand={expand}
               className="sticky mb-3 py-0"                  
               data-bs-theme="dark"
-              sticky="top"                 
+              fixed="top"                 
             >
               <Container fluid className="navbar_bg">
                 <Navbar.Brand href="#" className="ps-lg-4 ps-sm-2">

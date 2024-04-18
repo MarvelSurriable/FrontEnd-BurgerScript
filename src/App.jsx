@@ -1,6 +1,6 @@
 import Navbar from "./Components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Inicio from "./Components/pages/Inicio";
+import Inicio from "./Components/pages/Home/Home";
 import Administracion from "./Components/pages/Administracion";
 import Contacto from "./Components/pages/Contacto";
 import Footer from "./Components/Footer";
@@ -21,7 +21,7 @@ function App() {
           </Routes>
         </main>
         <footer> 
-          <Footer/>         
+          {/* <Footer/>          */}
         </footer>
       </BrowserRouter>
     </>
