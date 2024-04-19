@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 
+
 const Footer = () => {
     return (
          <Container fluid className="back ">
@@ -25,7 +26,7 @@ const Footer = () => {
           <Row className='pt-2 ' >
           <div >
            <Link to="/" className="Link footer_font ms-1 fs-5">Inicio</Link>
-          <Link to="/contacto" className="Link ps-5 footer_font pe-3 fs-5">Sucursales</Link>
+          <Link to="/error" className="Link ps-5 footer_font pe-3 fs-5">Sucursales</Link>
              </div>
             <div>
              <Link to="/destacados" className="Link footer_font ms-1 fs-5">Contacto</Link>
