@@ -47,7 +47,6 @@ const CrearProductos = () => {
     validateOnChange: true,
 
     onSubmit: (values) => {
-      console.log("Valores de formik ", values);
       Swal.fire({
         title: "¿Estas seguro que quieres crear el producto?",
         icon: "warning",
@@ -130,7 +129,6 @@ const CrearProductos = () => {
             <option value="carne">Carne</option>
             <option value="pollo">Pollo</option>
             <option value="vegetariana">Vegetariana</option>
-            <option value="combo">Combo</option>
           </Form.Select>
           {formik.touched.category && formik.errors.category && (
             <div className="mt-2 text-danger">
