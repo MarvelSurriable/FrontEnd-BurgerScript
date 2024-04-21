@@ -90,7 +90,7 @@ function Home() {
             <Row className="justify-content-center align-items-center pt-5">
               <Col lg={6} md={12}>
                 <img
-                  className="d-block w-100 h-auto mt-5 img-fluid"
+                  className="d-block w-100 h-auto mt-2 img-fluid"
                   src="/src/assets/Images/Slider/burgerbeef.png"
                   alt="Hamburguesa de carne"
                 />
@@ -113,7 +113,7 @@ function Home() {
             <Row className="justify-content-center align-items-center pt-5">
               <Col lg={6} md={12}>
                 <img
-                  className="d-block w-100 h-auto mt-5 img-fluid"
+                  className="d-block w-100 h-auto mt-2 img-fluid"
                   src="/src/assets/Images/Slider/burgerchicken.png"
                   alt="Hamburguesa de pollo"
                 />
@@ -136,7 +136,7 @@ function Home() {
             <Row className="justify-content-center align-items-center pt-5">
               <Col lg={6} md={12}>
                 <img
-                  className="d-block w-100 h-auto mt-5 img-fluid"
+                  className="d-block w-100 h-auto mt-2 img-fluid"
                   src="/src/assets/Images/Slider/burgerveggie.png"
                   alt="Hamburguesa vegetariana"
                 />
