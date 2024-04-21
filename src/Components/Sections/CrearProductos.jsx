@@ -4,18 +4,23 @@ import clsx from "clsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const CrearProductos = () => {
-
   const API = import.meta.env.VITE_API;
   const navigate = useNavigate();
+  const fecha = new Date(); // Obtener la fecha y hora actual
+  const año = fecha.getFullYear(); // Obtener el año
+  const mes = String(fecha.getMonth() + 1).padStart(2, "0"); // Obtener el mes (añadir 1 porque los meses están indexados desde 0)
+  const dia = String(fecha.getDate()).padStart(2, "0");
+  const hora = String(fecha.getHours()).padStart(2, '0'); // Obtener las horas
+const minutos = String(fecha.getMinutes()).padStart(2, '0');
 
   const ProductSchema = Yup.object().shape({
     title: Yup.string()
       .min(4, "Mínimo 4 caracteres")
-      .max(20, "Maximo 20 caracteres")
+      .max(50, "Maximo 50 caracteres")
       .required("El título es requerido"),
     category: Yup.string().required("La categoría es requerida"),
     description: Yup.string()
@@ -24,12 +29,18 @@ const CrearProductos = () => {
       .required("La descripcion es requerida"),
     stock: Yup.string()
       .min(1, "Ingrese al menos un numero")
-      .max(4, "Maximo 4")
-      .required("El stock es requerido"),
+      .max(6, "Maximo 6")
+      .required("El stock es requerido")
+      .matches(/^[0-9]*$/, "Solo valores numericos"),
     urlImg: Yup.string()
       .min(10, "ingrese la URL")
       .max(500, "ingrese la URL")
-      .required("La URL de la imagen es requerida"),
+      .required("La URL de la imagen es requerida")
+      .matches(
+        /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/,
+        "URL invalida"
+      ),
+    controlStock: Yup.string().required(),
   });
 
   const initialValues = {
@@ -37,7 +48,8 @@ const CrearProductos = () => {
     category: "",
     description: "",
     stock: "",
-    urlImg:""
+    urlImg: "",
+    controlStock: `${dia}/${mes}/${año} ${hora}:${minutos}`
   };
 
   const formik = useFormik({
@@ -47,6 +59,7 @@ const CrearProductos = () => {
     validateOnChange: true,
 
     onSubmit: (values) => {
+      values.controlStock = `${dia}/${mes}/${año} ${hora}:${minutos}`;
       Swal.fire({
         title: "¿Estas seguro que quieres crear el producto?",
         icon: "warning",
@@ -54,19 +67,19 @@ const CrearProductos = () => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Crear",
-        cancelButtonText: "Cancelar"
-      }).then(async(result) => {
+        cancelButtonText: "Cancelar",
+      }).then(async (result) => {
         if (result.isConfirmed) {
           try {
             const response = await axios.post(`${API}/productos`, values);
-            if(response.status===201){
+            if (response.status === 201) {
               formik.resetForm();
               Swal.fire({
                 title: "¡Exito!",
                 text: "Se creo el producto",
-                icon: "success"
+                icon: "success",
               });
-              navigate("/administracion")
+              navigate("/administracion");
             }
           } catch (error) {
             console.log("ERROR => ", error);
@@ -89,7 +102,7 @@ const CrearProductos = () => {
               type="text"
               placeholder="Ingrese el titulo"
               minLength={4}
-              maxLength={20}
+              maxLength={50}
               required
               name="title"
               {...formik.getFieldProps("title")}
@@ -171,7 +184,7 @@ const CrearProductos = () => {
               placeholder="Ingrese el stock"
               required
               minLength={1}
-              maxLength={4}
+              maxLength={6}
               name="title"
               {...formik.getFieldProps("stock")}
               className={clsx(
@@ -220,7 +233,15 @@ const CrearProductos = () => {
           <Button variant="primary" type="submit">
             Guardar
           </Button>
-          <Button className="mx-3" variant="secondary" onClick={()=>{navigate(-1)}}>Volver</Button>
+          <Button
+            className="mx-3"
+            variant="secondary"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Volver
+          </Button>
         </Form>
       </div>
     </div>
