@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.back-body{
+    background: url(/src/assets/Images/Background/bg-section.jpg) repeat center center;    
+    font-family: "Oswald", sans-serif;
+}
+
+.back-div{
+    background-color:rgb(247, 191, 38, 0.85);
+    border-radius: 20px;
+}
+
