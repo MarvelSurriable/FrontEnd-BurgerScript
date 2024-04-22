@@ -103,7 +103,7 @@ function App() {
                       >
                         Administración
                       </NavLink>                      
-                      <Nav.Link href="#" className="pe-2 py-1 login_nav">
+                      <Nav.Link onClick={handleShow} className="pe-2 py-1 login_nav">
                         <PersonCircle className="icon_link fs-3" />
                       </Nav.Link>
                     </Nav>
