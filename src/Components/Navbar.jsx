@@ -104,9 +104,9 @@ function App() {
                       >
                         Administración
                       </NavLink>                      
-                      <Nav.Link onClick={handleShow} className="pe-2 py-1 login_nav"
+                      <Nav.Link onClick={handleShow} className="pe-2 py-1 login_nav">                      
                       <PersonCircle className="icon_link fs-3" />
-                      </NavLink>
+                      </Nav.Link>
                     </Nav>
                     <Nav className="col justify-content-end">
                       <Form
@@ -157,7 +157,7 @@ function App() {
               <OverlayTrigger
                placement="top"
                overlay={<Tooltip id="tooltip">Iniciar Sesión</Tooltip>}>
-                <NavLink to="#" className="pe-3 py-1 login_nav">               
+                <NavLink onClick={handleShow} className="pe-3 py-1 login_nav">               
                   <PersonCircle className="icon_link fs-3" />
                 </NavLink>
               </OverlayTrigger>
@@ -171,7 +171,7 @@ function App() {
               <OverlayTrigger
                placement="top"                             
                overlay={<Tooltip id="tooltip">Ayuda</Tooltip>}>
-                <NavLink to="/error404" className="me-4 py-1 question_nav">
+                <NavLink to="/error" className="me-4 py-1 question_nav">
                 <QuestionCircle className="icon_link fs-3" />
               </NavLink>
               </OverlayTrigger>            
