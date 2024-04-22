@@ -104,8 +104,8 @@ function App() {
                       >
                         Administración
                       </NavLink>                      
-                      <NavLink to="#" className="pe-2 py-1 login_nav">
-                        <PersonCircle className="icon_link fs-3" />
+                      <Nav.Link onClick={handleShow} className="pe-2 py-1 login_nav"
+                      <PersonCircle className="icon_link fs-3" />
                       </NavLink>
                     </Nav>
                     <Nav className="col justify-content-end">
