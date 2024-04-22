@@ -37,14 +37,14 @@ const ListarProductos = () => {
               <th>Título</th>
               <th>Categoria</th>
               <th>Stock</th>
-              <th>URL Imagen</th>
+              <th>Ultimo control de Stock</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {productos.map((element)=>{
                 return(
-                    <Producto producto={element} key={element.id}/>
+                    <Producto producto={element} key={element.id} getProductos={getProductos}/>
                 )
             })}
           </tbody>

@@ -29,7 +29,7 @@ const Footer = () => {
           <Link to="/error" className="Link ps-5 footer_font pe-3 fs-5">Sucursales</Link>
              </div>
             <div>
-             <Link to="/destacados" className="Link footer_font ms-1 fs-5">Contacto</Link>
+             <Link to="/contacto" className="Link footer_font ms-1 fs-5">Contacto</Link>
              <Link to="" className="Link ps-4 footer_font  fs-5">Nosotros</Link>
              </div>
              <div>
