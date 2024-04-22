@@ -22,10 +22,20 @@ import {
 } from "react-bootstrap-icons";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import "./navbar.css";
+import Login from "./Sections/Login/Login";
+import { useState } from "react";
 
 function App() {
+  const [isOpen, setIsOpen]= useState(false);
+  const handleShow=()=>{
+    setIsOpen(true)
+  };
+  const handleClose=()=>{
+    setIsOpen(false)
+  };
   return (
     <>
+    <Login isOpen={isOpen} handleClose={handleClose}/>
       <div className="w-100">
         <Row className="w-100 mx-0">
           {["lg"].map((expand) => (
@@ -145,8 +155,9 @@ function App() {
             <Nav>
               <OverlayTrigger
                placement="top"
-               overlay={<Tooltip id="tooltip">Iniciar Sesión</Tooltip>}>
-                <Nav.Link href="#" className="py-1 login_nav">
+               overlay={<Tooltip id="tooltip" > Iniciar Sesión</Tooltip>}>
+                <Nav.Link 
+               onClick={handleShow} className="py-1 login_nav">
                   <PersonCircle className="icon_link fs-3" />
                 </Nav.Link>
               </OverlayTrigger>
