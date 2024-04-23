@@ -30,7 +30,7 @@ const Footer = () => {
              </div>
             <div>
              <Link to="/contacto" className="Link footer_font ms-1 fs-5">Contacto</Link>
-             <Link to="" className="Link ps-4 footer_font  fs-5">Nosotros</Link>
+             <Link to="/nosotros" className="Link ps-4 footer_font  fs-5">Nosotros</Link>
              </div>
              <div>
              <Link to="/Burgers" className="Link footer_font ms-1 fs-5">Burgers</Link>
