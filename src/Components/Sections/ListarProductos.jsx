@@ -11,7 +11,7 @@ const ListarProductos = () => {
 
     const getProductos= async()=>{
         try {
-            const response = await axios.get(`${API}/productos`);
+            const response = await axios.get(`${API}/products/get-products`);
             setProductos(response.data);
         } catch (error) {
             console.log("ERROR ==> ", error);
@@ -44,7 +44,7 @@ const ListarProductos = () => {
           <tbody>
             {productos.map((element)=>{
                 return(
-                    <Producto producto={element} key={element.id} getProductos={getProductos}/>
+                    <Producto producto={element} key={element._id} getProductos={getProductos}/>
                 )
             })}
           </tbody>

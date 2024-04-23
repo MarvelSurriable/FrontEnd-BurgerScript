@@ -27,20 +27,15 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
       .min(4, "Mínimo 4 caracteres")
       .max(250, "Maximo 250 caracteres")
       .required("La descripcion es requerida"),
-    stock: Yup.string()
-      .min(1, "Ingrese al menos un numero")
-      .max(6, "Maximo 6")
-      .required("El stock es requerido")
-      .matches(/^[0-9]*$/, "Solo valores numericos"),
-    urlImg: Yup.string()
+    stock: Yup.number()
+      .required("El stock es requerido"),
+    image: Yup.string()
       .min(10, "ingrese la URL")
       .max(500, "ingrese la URL")
       .required("La URL de la imagen es requerida")
-      .matches(
-        /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/,
-        "URL invalida"
-      ),
+      .matches(),
     controlStock: Yup.string().required(),
+    price: Yup.number().required("El precio es requerido")
   });
 
   const initialValues = {
@@ -48,8 +43,9 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
     category: "",
     description: "",
     stock: "",
-    urlImg: "",
-    controlStock: `${dia}/${mes}/${año} ${hora}:${minutos}`
+    image: "",
+    controlStock: "",
+    price: ""
   };
 
   const formik = useFormik({
@@ -59,7 +55,6 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
     validateOnChange: true,
 
     onSubmit: (values) => {
-      values.controlStock = `${dia}/${mes}/${año} ${hora}:${minutos}`;
       Swal.fire({
         title: "¿Estas seguro que quieres crear el producto?",
         icon: "warning",
@@ -71,7 +66,7 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
-            const response = await axios.post(`${API}/productos`, values);
+            const response = await axios.post(`${API}/products/new-product`, values);
             if (response.status === 201) {
               formik.resetForm();
               Swal.fire({
@@ -139,9 +134,9 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
             )}
           >
             <option value="">Seleccione una categoria</option>
-            <option value="carne">Carne</option>
-            <option value="pollo">Pollo</option>
-            <option value="vegetariana">Vegetariana</option>
+            <option value="Carne">Carne</option>
+            <option value="Pollo">Pollo</option>
+            <option value="Vegetarianas">Vegetariana</option>
           </Form.Select>
           {formik.touched.category && formik.errors.category && (
             <div className="mt-2 text-danger">
@@ -180,12 +175,12 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
           <Form.Group className="mb-3" controlId="stock">
             <Form.Label>Stock</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               placeholder="Ingrese el stock"
               required
               minLength={1}
               maxLength={6}
-              name="title"
+              name="stock"
               {...formik.getFieldProps("stock")}
               className={clsx(
                 "form-control",
@@ -203,7 +198,7 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
               </div>
             )}
           </Form.Group>
-          <Form.Group className="mb-3" controlId="urlImg">
+          <Form.Group className="mb-3" controlId="image">
             <Form.Label>URL imagen</Form.Label>
             <Form.Control
               type="text"
@@ -211,27 +206,53 @@ const minutos = String(fecha.getMinutes()).padStart(2, '0');
               required
               minLength={10}
               maxLength={400}
-              name="urlImg"
-              {...formik.getFieldProps("urlImg")}
+              name="image"
+              {...formik.getFieldProps("image")}
               className={clsx(
                 "form-control",
                 {
-                  "is-invalid": formik.touched.urlImg && formik.errors.urlImg,
+                  "is-invalid": formik.touched.image && formik.errors.image,
                 },
                 {
-                  "is-valid": formik.touched.urlImg && !formik.errors.urlImg,
+                  "is-valid": formik.touched.image && !formik.errors.image,
                 }
               )}
             />
-            {formik.touched.urlImg && formik.errors.urlImg && (
+            {formik.touched.image && formik.errors.image && (
               <div className="mt-2 text-danger">
-                <span role="alert">{formik.errors.urlImg}</span>
+                <span role="alert">{formik.errors.image}</span>
+              </div>
+            )}
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="price">
+            <Form.Label>Precio</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Ingrese el precio del producto"
+              required
+              minLength={2}
+              maxLength={11}
+              name="price"
+              {...formik.getFieldProps("price")}
+              className={clsx(
+                "form-control",
+                {
+                  "is-invalid": formik.touched.price && formik.errors.price,
+                },
+                {
+                  "is-valid": formik.touched.price && !formik.errors.price,
+                }
+              )}
+            />
+            {formik.touched.price && formik.errors.price && (
+              <div className="mt-2 text-danger">
+                <span role="alert">{formik.errors.price}</span>
               </div>
             )}
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            Guardar
+            Crear
           </Button>
           <Button
             className="mx-3"
