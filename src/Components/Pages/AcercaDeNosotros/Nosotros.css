@@ -1,0 +1,82 @@
+.bg_Container {
+    background: url(/src/assets/Images/Background/bg-section.jpg)repeat center center;
+}
+
+.subtitle_burger {
+    font-family: "Oswald", sans-serif;     
+}
+
+.avatar_card {
+    position: relative;
+    overflow: hidden;
+    width: 315px; 
+    height: 360px; 
+    margin-bottom: 10px; 
+    margin: 10px;    
+    border: 4px solid #f7be27;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+@media all and (max-width: 400px) {
+    .avatar_card {
+      width: 260px;
+      height: 320px;
+    }
+  }
+
+
+.avatar_img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease; 
+}
+
+.avatar_card:hover .avatar_img{
+    transform: scale(2.2); 
+}
+
+.description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.avatar_img:hover {
+    transform: scale(2.2); 
+}
+
+.avatar_card .description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.avatar_card:hover .description {
+    opacity: 1; 
+}
+
+.title_cardUs {
+    font-family: "Oswald", sans-serif;
+    color: #e3000e;    
+}
+
+.description_cardUs {
+    font-family: "Oswald", sans-serif;
+}
