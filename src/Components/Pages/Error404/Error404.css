@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+
+.back404 {
+    background: url(/src/assets/Images/Background/bg-section.jpg) repeat center center;
+    padding-block: 50px;
+}
+
+.error_font {
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;  
+}
+
+.title{
+     color: #f7be27;
+}
+

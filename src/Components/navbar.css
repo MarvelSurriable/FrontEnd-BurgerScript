@@ -12,17 +12,29 @@
     background: #f7be27;
 }
 
-.header_icons {
-    background: #f7be27;
+.header_bg {
+    /* background: rgb(10, 10, 10); */
+    background: #181717;
 }
 
-.navbar_bg {    
-    background: #181717;
+.nav_bg {
+    /* background: #e3000e; */
+    /* background: #ed4548;    */
+    background: #2e2d2d;
+}
+
+.nav_link {
+    /* color: #fcfafa; */
+    font-family: "Oswald", sans-serif;   
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    font-weight: 500;  
 }
 
 .navbar_link {
     font-family: "Oswald", sans-serif;
-    color: antiquewhite;
+    color: #f1f1f1;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.125rem;
@@ -53,7 +65,7 @@
 }
 
 .icon_link {
-    color: white;
+    color: #f1f1f1;
 }
 
 .icon_link:hover {
@@ -73,7 +85,7 @@
        padding-bottom: 20px;
   }
    .login_nav {    
-     text-align: center;     
+     text-align: start;           
    }
    .question_nav {
     display: none;
@@ -81,4 +93,11 @@
    .navbar_toggle {
     background: #181717;    
    }  
+}
+
+@media screen and (min-width: 992px) {
+    .nav_toggle {
+        display: none;
+    }
+   
 }
