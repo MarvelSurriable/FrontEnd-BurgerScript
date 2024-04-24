@@ -86,16 +86,16 @@ function App() {
                       <NavLink to="/" className="navbar_link pe-4 pt-1">
                         Inicio
                       </NavLink>
-                      <NavLink
-                        to="/destacados"
+                      <Nav.Link
+                        href="#destacados"
                         className="navbar_link pe-4 pt-1"
                       >
                         Destacados
-                      </NavLink>
-                      <NavLink to="/burgers" className="navbar_link pe-4 pt-1">
+                      </Nav.Link>
+                      <Nav.Link href="#burgers" className="navbar_link pe-4 pt-0">
                         Burgers
-                      </NavLink>
-                      <NavLink to="/contacto" className="navbar_link pe-4 pt-1">
+                      </Nav.Link>
+                      <NavLink to="/contacto" className="navbar_link pe-4">
                         Contacto
                       </NavLink>
                       <NavLink
@@ -104,7 +104,7 @@ function App() {
                       >
                         Administración
                       </NavLink>                      
-                      <Nav.Link onClick={handleShow} className="pe-2 py-1 login_nav">                      
+                      <Nav.Link onClick={handleShow} className="pe-2 py-2 login_nav">                      
                       <PersonCircle className="icon_link fs-3" />
                       </Nav.Link>
                     </Nav>
@@ -145,11 +145,11 @@ function App() {
         <Navbar expand="lg" className="nav_bg py-0">
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
-              <NavLink to="/" className="navbar_link ps-4 fs-5">Inicio</NavLink>
-              <NavLink to="/destacados" className="navbar_link ps-4 fs-5">Destacados</NavLink>
-              <NavLink to="/burgers" className="navbar_link ps-4 fs-5">Burgers</NavLink>
-              <NavLink to="/contacto" className="navbar_link ps-4 fs-5">Contacto</NavLink>
-              <NavLink to="/administracion" className="navbar_link ps-4 fs-5">
+              <NavLink to="/" className="navbar_link ps-4 fs-5 pt-2">Inicio</NavLink>
+              <Nav.Link href="#destacados" className="navbar_link ps-4 fs-5">Destacados</Nav.Link>
+              <Nav.Link href="#burgers" className="navbar_link ps-4 fs-5">Burgers</Nav.Link>
+              <NavLink to="/contacto" className="navbar_link ps-4 fs-5 pt-2">Contacto</NavLink>
+              <NavLink to="/administracion" className="navbar_link ps-4 fs-5 pt-2">
                 Administración
               </NavLink>
             </Nav>
