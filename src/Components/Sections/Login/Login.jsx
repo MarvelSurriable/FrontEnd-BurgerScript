@@ -4,8 +4,13 @@ import "./Login.css"
 import clsx from 'clsx';
 import * as Yup from "yup";
 import { useFormik } from 'formik';
+import axios from 'axios';
+import Swal from "sweetalert2";
 
 const Login = ({isOpen, handleClose}) => {
+
+  const API=import.meta.env.VITE_API;
+
   const LoginSchema=Yup.object().shape({
     email: Yup.string()
     .email("Formato invalido")
@@ -14,7 +19,7 @@ const Login = ({isOpen, handleClose}) => {
     .required("El email es requerido"),
     password: Yup.string()    
     .min(8, "La contraseña debe tener al menos 8 caracteres")
-    .max(20)
+    .max(16)
     .required("La contraseña es requerida")
   });
   const initialValues = {
@@ -28,6 +33,32 @@ const Login = ({isOpen, handleClose}) => {
       validateOnChange: true,
       onSubmit:async (values) => {
         console.log("Values de Formik", values); 
+        try {
+          const response = await axios.post(`${API}/users/login`, values)
+          console.log("Respuesta login ==> ", response.data);
+          if (response.status === 200) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: `¡Bienvenido ${response.data.username}!`,
+              showConfirmButton: false,
+              timer: 2000
+            });
+            formik.resetForm();
+          handleClose();
+          }
+          
+        } catch (error) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `Ups! email o contraseña incorrecto`,
+            showConfirmButton: false,
+            timer: 2000
+          });
+          formik.resetForm();
+          console.log("ERROR: ", error);
+        }
       }
       })
 
@@ -39,9 +70,12 @@ const Login = ({isOpen, handleClose}) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
-            <Form.Group className='mb-3'controlId="Email"> 
+            <Form.Group className='mb-3'controlId="email"> 
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder='Ingresa tu email' 
+              minLength={7}
+              maxLength={128}
+              required
               name="email"
               {...formik.getFieldProps("email")}
               className={clsx(
@@ -60,9 +94,13 @@ const Login = ({isOpen, handleClose}) => {
                )}              
             </Form.Group>
 
-            <Form.Group className='mb-4'>
+            <Form.Group className='mb-4' controlId='password'>
               <Form.Label>Contraseña</Form.Label>              
-              <Form.Control type="password" placeholder='Ingresa tu contraseña' name="password"
+              <Form.Control type="password" placeholder='Ingrese su contraseña' 
+              maxLength={16}
+              minLength={8}
+              required
+              name="password"
         {...formik.getFieldProps("password")}
         className={clsx(
           "form-control",
@@ -81,8 +119,7 @@ const Login = ({isOpen, handleClose}) => {
           )}              
             </Form.Group>
 
-          </Form>
-          <div style={{ textAlign: 'right' }}>
+            <div style={{ textAlign: 'right' }}>
             <Button variant="success" type='submit' className='me-1'>
            Ingresar
           </Button>
@@ -91,12 +128,13 @@ const Login = ({isOpen, handleClose}) => {
           </Button>
           </div>          
 
+          </Form>
+          
+
           </Modal.Body>
         <Modal.Footer>  
         <p>No tenes una cuenta?</p>        
         <Button variant="link" onClick={handleClose}> Registrate</Button>
-          
-          
         </Modal.Footer>
       </Modal>
             
