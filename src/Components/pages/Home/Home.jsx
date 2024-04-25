@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import "../Home/home.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
 import axios from "axios";
+import UserContext from "../../../Context/UserContext";
 
 function Home() {
+  const {currentUser}=useContext(UserContext);
   const [productos, setProductos] = useState([]);
   const [totalCards, setTotalCards] = useState(15);
   const API = import.meta.env.VITE_API;
@@ -42,6 +44,7 @@ function Home() {
     }
     window.addEventListener("resize", handleResize);
     handleResize();
+    console.log("CURRENT USER ==> ", currentUser);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

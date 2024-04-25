@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Form, Modal, Button } from 'react-bootstrap';
 import "./Login.css"
 import clsx from 'clsx';
@@ -6,10 +6,12 @@ import * as Yup from "yup";
 import { useFormik } from 'formik';
 import axios from 'axios';
 import Swal from "sweetalert2";
+import UserContext from '../../../Context/UserContext';
 
 const Login = ({isOpen, handleClose}) => {
 
   const API=import.meta.env.VITE_API;
+  const {setCurrentUser, SaveAuth} = useContext(UserContext);
 
   const LoginSchema=Yup.object().shape({
     email: Yup.string()
@@ -37,6 +39,8 @@ const Login = ({isOpen, handleClose}) => {
           const response = await axios.post(`${API}/users/login`, values)
           console.log("Respuesta login ==> ", response.data);
           if (response.status === 200) {
+            SaveAuth(response.data)
+            setCurrentUser(response.data)
             Swal.fire({
               position: "center",
               icon: "success",
