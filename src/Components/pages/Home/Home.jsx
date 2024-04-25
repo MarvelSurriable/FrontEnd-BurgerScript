@@ -2,12 +2,18 @@ import { Carousel, Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../Home/home.css";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
 import axios from "axios";
+import UserContext from "../../../Context/UserContext";
+// import DropdownButton from "react-bootstrap/DropdownButton";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 function Home() {
+  const {currentUser}=useContext(UserContext);
   const [productos, setProductos] = useState([]);
   const [totalCards, setTotalCards] = useState(15);
   const API = import.meta.env.VITE_API;
@@ -42,50 +48,43 @@ function Home() {
     }
     window.addEventListener("resize", handleResize);
     handleResize();
+    console.log("CURRENT USER ==> ", currentUser);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  
-
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    //   responsive: [
-    //     {
-    //       breakpoint: 1024,
-    //       settings: {
-    //         slidesToShow: 3,
-    //         slidesToScroll: 1,
-    //         infinite: true,
-    //         dots: true
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 600,
-    //       settings: {
-    //         slidesToShow: 2,
-    //         slidesToScroll: 1,
-    //         initialSlide: 2
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 480,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1
-    //       }
-    //     }
-    //   ]
-    // };
-  };
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: false            
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            initialSlide: 2
+          }
+        },       
+      ]
+    };
+
+  
 
   return (
     <>
       <Carousel>
-        <Carousel.Item className="bg_slider home_slider">
+        <Carousel.Item className="bg_slider">
           <Container>
             <Row className="justify-content-center align-items-center pt-5">
               <Col lg={6} md={12}>
@@ -108,7 +107,7 @@ function Home() {
             </Row>
           </Container>
         </Carousel.Item>
-        <Carousel.Item className="bg_slider home_slider">
+        <Carousel.Item className="bg_slider">
           <Container>
             <Row className="justify-content-center align-items-center pt-5">
               <Col lg={6} md={12}>
@@ -131,7 +130,7 @@ function Home() {
             </Row>
           </Container>
         </Carousel.Item>
-        <Carousel.Item className="bg_slider home_slider">
+        <Carousel.Item className="bg_slider">
           <Container>
             <Row className="justify-content-center align-items-center pt-5">
               <Col lg={6} md={12}>
@@ -210,92 +209,123 @@ function Home() {
           </Row>
         </Container>
       </section>
+      <section id="destacados" fluid className="burgers_bg">
+        <h2 className="text-center p-4 title_burger">Destacados</h2>
+        <Container>
+          <Slider {...settings} className="text-center pb-4">
+            <div className="pe-2">
+              <Link className="text_carousel">
+              <h4>Bcrypt Burger</h4>               
+                <img
+                  src="/src/assets/Images/Destacados/Bcrypt.jpg"
+                  alt="Bcrypt Burger"
+                  className="img-fluid border_img rounded-5 w-100"
+                />                
+              </Link>
+            </div>
+            <div className="pe-2">
+              <Link className="text_carousel">
+              <h4>BigJson Burger</h4>
+                <img
+                  src="/src/assets/Images/Destacados/Big Json.jpg"
+                  alt="BigJson Burger"
+                  className="img-fluid border_img rounded-5 w-100"
+                />
+              </Link>
+            </div>
+            <div className="pe-2">
+              <Link className="text_carousel">
+              <h4>BlackApi Burger</h4>
+                <img
+                  src="/src/assets/Images/Destacados/BlackApi .jpg"
+                  alt="BlackApi Burger"
+                  className="img-fluid border_img rounded-5 w-100"
+                />
+              </Link>
+            </div>
+            <div className="pe-2">
+              <Link className="text_carousel">
+              <h4>MongoCheese Burger</h4>
+                <img
+                  src="/src/assets/Images/Destacados/MongoCheese.jpg"
+                  alt="MongoCheese Burger"
+                  className="img-fluid border_img rounded-5 w-100"
+                />
+              </Link>
+            </div>
+            <div className="pe-2">
+              <Link className="text_carousel">
+              <h4>Nodemon Burger</h4>
+                <img
+                  src="/src/assets/Images/Destacados/Nodemon Burger.jpeg"
+                  alt="Nodemon Burger"
+                  className="img-fluid border_img rounded-5 w-100"
+                />
+              </Link>
+            </div>
+            <div className="pe-2">
+              <Link className="text_carousel">
+              <h4>ChickeNode Burger</h4>
+                <img
+                  src="/src/assets/Images/Destacados/ChickeNode.jpg"
+                  alt="ChickeNode Burger"
+                  className="img-fluid border_img rounded-5 w-100"
+                />
+              </Link>
+            </div>
+          </Slider>
+        </Container>
+      </section>
       <section>
-        <Container fluid>
-          <Row className="align-items-center category">
-            <Col sm={4} md={4} lg={4} className="ps-5">
-              <h2 className="text-center title_burger pb-3 pt-3">Categorías</h2>
-              <div className="d-flex">
-                <img
+      <Container fluid>
+          <Row className="category">
+            <Col sm={12} md={4} lg={4} className="text-center">
+              <h2 className="title_burger pt-4">NUESTRO MENÚ</h2>
+              <p className="px-3 pt-2 category_text">
+                Nuestras Burgers están hechas con carne 100% vacuna; con pan
+                casero que horneamos todos los días y una selección de
+                ingredientes que las hacen únicas. Tambien ofrecemos variedades
+                de Pollo y Vegetarianas.
+              </p>
+              <Dropdown className="pt-2 ps-4 text-start">
+                <Dropdown.Toggle variant="transparent" id="dropdown-basic" className="fs-2 category_text">
+                  CATEGORÍAS
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1" active className="category_text fs-4 bg-warning"><img
                   src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
-                  alt="hamburgesa categoría Todas"
-                  className="img_category"
-                />
-                <div className="ps-2 pt-2">
-                  <Button className="button_category" variant="warning">
-                    TODAS
-                  </Button>
-                </div>
-              </div>
-              <div className="d-flex">
-                <img
+                  alt="Hamburguesa categoría Todas"
+                  className="img_category me-2"
+                /> TODAS</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1" className="category_text fs-4"><img
                   src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
-                  alt="Hamburgesa categoría Carne"
-                  className="img_category"
-                />
-                <div className="pt-2 ps-2">
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    title="CARNE"
-                    className="button_category"
-                    variant="dark"
-                  >
-                    <Dropdown.Item href="#/action-1">Simple</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-2">Doble</Dropdown.Item>
-                  </DropdownButton>
-                </div>
-              </div>
-              <div className="d-flex">
-                <img
+                  alt="Hamburguesa categoría Carne"
+                  className="img_category me-2"
+                /> CARNE</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2"className="category_text fs-4"><img
                   src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
                   alt="Hamburguesa categoría Pollo"
-                  className="img_category"
-                />
-                <div className="pt-2 ps-2">
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    title="POLLO"
-                    className="button_category"
-                    variant="dark"
-                  >
-                    <Dropdown.Item href="#/action-1">Simple</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-2">Doble</Dropdown.Item>
-                  </DropdownButton>
-                </div>
-              </div>
-              <div className="d-flex">
-                <img
+                  className="img_category me-2"
+                /> POLLO</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3"className="category_text fs-4"><img
                   src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
-                  alt="Hamburguesa categoría Vegetarianas"
-                  className="img_category"
-                />
-                <div className="pt-2 ps-2 pb-4">
-                  <DropdownButton
-                    id="dropdown-basic-button"
-                    title="VEGETARIANAS"
-                    className="button_category"
-                    variant="dark"
-                  >
-                    <Dropdown.Item href="#/action-1">Simple</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-2">Doble</Dropdown.Item>
-                  </DropdownButton>
-                </div>
-              </div>
+                  alt="Hamburguesa categoría Vegetariana"
+                  className="img_category me-2"
+                /> VEGETARIANAS</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>             
             </Col>
             <Col md={8} lg={8} className="px-0">
               <img
                 src="/src/assets/Images/Promotion/promocionBurgerScript.jpeg"
-                alt="Promoción BurgerScript"
+                alt="Imagen publicidad BurgerScript"
                 className="img_promotion w-100 img-fluid"
               />
             </Col>
           </Row>
-        </Container>
+        </Container>        
       </section>
-      <section className="burgers_bg pt-0">
+      <section id="burgers" className="burgers_bg pt-0">
         <h2 className="text-center p-4 title_burger">Burgers</h2>
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">
@@ -317,8 +347,7 @@ function Home() {
                 DESCARGÁ NUESTRA APP Y OBTENÉ UN 20% DE DESCUENTO.
               </h2>
               <p className="promotion_text py-lg-3">
-                Aliquam a augue suscipit, luctus neque purus ipsum and neque
-                dolor primis libero tempus, blandit varius
+                Promoción válida para la República Argentina, desde el 23/04/24 hasta el 23/06/24 o hasta agotar stock de 500 unidades. Aplica para Burgers de todas las categorías.
               </p>
               <Link to="/">
                 <img
