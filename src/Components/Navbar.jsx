@@ -6,7 +6,7 @@ import {
   Form,
   Button,
   Offcanvas,
-  Row, 
+  Row,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -16,25 +16,33 @@ import {
   Search,
   QuestionCircle,
   PersonCircle,
-  BoxArrowDownRight, 
+  BoxArrowDownRight,
 } from "react-bootstrap-icons";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import Login from "./Sections/Login/Login";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../Context/UserContext";
 
 function App() {
-  const [isOpen, setIsOpen]= useState(false);
-  const handleShow=()=>{
-    setIsOpen(true)
+  const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
+    useContext(UserContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleShow = () => {
+    setIsOpen(true);
   };
-  const handleClose=()=>{
-    setIsOpen(false)
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const Logout = () => {
+    RemoveAuth();
+    setCurrentUser(undefined);
   };
   return (
     <>
-    <Login isOpen={isOpen} handleClose={handleClose}/>
+      <Login isOpen={isOpen} handleClose={handleClose} />
       <div className="w-100">
         <Row className="w-100 mx-0">
           {["lg"].map((expand) => (
@@ -68,17 +76,17 @@ function App() {
                     className="navbar_bg navbar_toggle"
                     data-bs-theme="dark"
                   >
-                    <Offcanvas.Title                      
+                    <Offcanvas.Title
                       id={`offcanvasNavbarLabel-expand-${expand}`}
                     >
                       <NavLink to="/">
-                      <Image                                           
-                        src="/src/assets/Logo/logoBurgerScript.png"
-                        width="50"
-                        height="50"
-                        alt="Logo BurgerScript"
-                      />
-                      </NavLink>                      
+                        <Image
+                          src="/src/assets/Logo/logoBurgerScript.png"
+                          width="50"
+                          height="50"
+                          alt="Logo BurgerScript"
+                        />
+                      </NavLink>
                     </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body className="navbar_bg navbar_toggle">
@@ -98,15 +106,31 @@ function App() {
                       <NavLink to="/contacto" className="navbar_link pe-4">
                         Contacto
                       </NavLink>
-                      <NavLink
-                        to="/administracion"
-                        className="navbar_link pe-4 pt-1"
-                      >
-                        Administración
-                      </NavLink>                      
-                      <Nav.Link onClick={handleShow} className="pe-2 py-2 login_nav">                      
-                      <PersonCircle className="icon_link fs-3" />
-                      </Nav.Link>
+                      {currentUser !== undefined &&
+                        currentUser.role === "Admin" && (
+                          <NavLink
+                            to="/administracion"
+                            className="navbar_link pe-4 pt-1"
+                          >
+                            Administración
+                          </NavLink>
+                        )}
+                      {currentUser === undefined && (
+                        <Nav.Link
+                          onClick={handleShow}
+                          className="pe-2 py-1 login_nav"
+                        >
+                          <PersonCircle className="icon_link fs-3" />
+                        </Nav.Link>
+                      )}
+                      {currentUser !== undefined && (
+                        <NavLink
+                          className="pe-2 py-1 login_nav"
+                          onClick={Logout}
+                        >
+                          <BoxArrowDownRight className="icon_link fs-3" />
+                        </NavLink>
+                      )}                      
                     </Nav>
                     <Nav className="col justify-content-end">
                       <Form
@@ -123,14 +147,23 @@ function App() {
                           <Search className="text-white fs-2 ps-1" />
                         </Button>
                       </Form>
-                      <Nav.Link href="https://www.facebook.com/" target="_blank" className="py-0 question_nav">
+                      <Nav.Link
+                        href="https://www.facebook.com/"
+                        target="_blank"
+                        className="py-0 question_nav"
+                      >
                         <Facebook className="text-white fs-4" />
                       </Nav.Link>
-                      <Nav.Link href="https://www.instagram.com/" target="_blank" className="py-0 question_nav">
+                      <Nav.Link
+                        href="https://www.instagram.com/"
+                        target="_blank"
+                        className="py-0 question_nav"
+                      >
                         <Instagram className="text-white fs-4" />
                       </Nav.Link>
                       <Nav.Link
-                        href="https://twitter.com/" target="_blank"
+                        href="https://twitter.com/"
+                        target="_blank"
                         className="py-0 pe-4 question_nav"
                       >
                         <TwitterX className="text-white fs-4" />
@@ -141,40 +174,56 @@ function App() {
               </Container>
             </Navbar>
           ))}
-        </Row>      
+        </Row>
         <Navbar expand="lg" className="nav_bg py-0">
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
+            <Nav className="mx-auto">            
               <NavLink to="/" className="navbar_link ps-4 fs-5 pt-2">Inicio</NavLink>
               <Nav.Link href="#destacados" className="navbar_link ps-4 fs-5">Destacados</Nav.Link>
               <Nav.Link href="#burgers" className="navbar_link ps-4 fs-5">Burgers</Nav.Link>
-              <NavLink to="/contacto" className="navbar_link ps-4 fs-5 pt-2">Contacto</NavLink>
-              <NavLink to="/administracion" className="navbar_link ps-4 fs-5 pt-2">
-                Administración
-              </NavLink>
+              <NavLink to="/contacto" className="navbar_link ps-4 fs-5 pt-2">Contacto</NavLink>                           
+              {currentUser !== undefined && currentUser.role === "Admin" && (
+                <NavLink to="/administracion" className="navbar_link ps-4 fs-5">
+                  Administración
+                </NavLink>
+              )}
             </Nav>
             <Nav>
+              {currentUser === undefined && (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip id="tooltip">Iniciar Sesión</Tooltip>}
+                >
+                  <NavLink onClick={handleShow} className="pe-3 py-1 login_nav">
+                    <PersonCircle className="icon_link fs-3" />
+                  </NavLink>
+                </OverlayTrigger>
+              )}
+              {currentUser !== undefined && (
+                <span className="navbar_link fs-5 px-3 text-white">
+                  {currentUser.username}
+                </span>
+              )}
+
+              {currentUser !== undefined && (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip id="tooltip">Cerrar Sesión</Tooltip>}
+                >
+                  <NavLink className="pe-3 py-1 login_nav" onClick={Logout}>
+                    <BoxArrowDownRight className="icon_link fs-3" />
+                  </NavLink>
+                </OverlayTrigger>
+              )}
+
               <OverlayTrigger
-               placement="top"
-               overlay={<Tooltip id="tooltip">Iniciar Sesión</Tooltip>}>
-                <NavLink onClick={handleShow} className="pe-3 py-1 login_nav">               
-                  <PersonCircle className="icon_link fs-3" />
+                placement="top"
+                overlay={<Tooltip id="tooltip">Ayuda</Tooltip>}
+              >
+                <NavLink to="/error" className="me-4 py-1 question_nav">
+                  <QuestionCircle className="icon_link fs-3" />
                 </NavLink>
               </OverlayTrigger>
-              <OverlayTrigger
-               placement="top"
-               overlay={<Tooltip id="tooltip">Cerrar Sesión</Tooltip>}>
-                <NavLink to="#" className="pe-3 py-1 login_nav">
-                <BoxArrowDownRight className="icon_link fs-3" />
-              </NavLink>
-              </OverlayTrigger>
-              <OverlayTrigger
-               placement="top"                             
-               overlay={<Tooltip id="tooltip">Ayuda</Tooltip>}>
-                <NavLink to="/error" className="me-4 py-1 question_nav">
-                <QuestionCircle className="icon_link fs-3" />
-              </NavLink>
-              </OverlayTrigger>            
             </Nav>
           </Navbar.Collapse>
         </Navbar>
