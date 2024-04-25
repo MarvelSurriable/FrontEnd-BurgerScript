@@ -1,17 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-.home_slider{
-    height: 100vh;
-}
-
-@media screen and (max-width: 1200px) {
-    .home_slider {
-       height:90vh;
-  }}
-
-  @media screen and (max-width: 800px) {
-    .home_slider {
-       height: 80vh;
-  }}
 
  .text-slider {
     color: brown;
@@ -108,9 +95,14 @@
 .img_promotion {
     height: 380px;
 }
-
+/* Estilos sección categorías */
 .category {       
     background: #f1efef;
+}
+
+.category_text {
+    font-family: "Oswald", sans-serif;
+    text-align: justify;
 }
 
 .img_category {
@@ -137,7 +129,7 @@
         display: none;
     }    
 }
-
+/* Estilos sección Promotion y Destacados*/
 .bg_promotion {    
     background: #f7be27;
 }
@@ -150,3 +142,8 @@
     font-family: "Oswald", sans-serif;
 }
 
+.text_carousel {
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;
+    color: #f1efef;
+}

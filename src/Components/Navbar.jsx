@@ -94,16 +94,16 @@ function App() {
                       <NavLink to="/" className="navbar_link pe-4 pt-1">
                         Inicio
                       </NavLink>
-                      <NavLink
-                        to="/destacados"
+                      <Nav.Link
+                        href="#destacados"
                         className="navbar_link pe-4 pt-1"
                       >
                         Destacados
-                      </NavLink>
-                      <NavLink to="/burgers" className="navbar_link pe-4 pt-1">
+                      </Nav.Link>
+                      <Nav.Link href="#burgers" className="navbar_link pe-4 pt-0">
                         Burgers
-                      </NavLink>
-                      <NavLink to="/contacto" className="navbar_link pe-4 pt-1">
+                      </Nav.Link>
+                      <NavLink to="/contacto" className="navbar_link pe-4">
                         Contacto
                       </NavLink>
                       {currentUser !== undefined &&
@@ -130,7 +130,7 @@ function App() {
                         >
                           <BoxArrowDownRight className="icon_link fs-3" />
                         </NavLink>
-                      )}
+                      )}                      
                     </Nav>
                     <Nav className="col justify-content-end">
                       <Form
@@ -177,19 +177,11 @@ function App() {
         </Row>
         <Navbar expand="lg" className="nav_bg py-0">
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
-              <NavLink to="/" className="navbar_link ps-4 fs-5">
-                Inicio
-              </NavLink>
-              <NavLink to="/destacados" className="navbar_link ps-4 fs-5">
-                Destacados
-              </NavLink>
-              <NavLink to="/burgers" className="navbar_link ps-4 fs-5">
-                Burgers
-              </NavLink>
-              <NavLink to="/contacto" className="navbar_link ps-4 fs-5">
-                Contacto
-              </NavLink>
+            <Nav className="mx-auto">            
+              <NavLink to="/" className="navbar_link ps-4 fs-5 pt-2">Inicio</NavLink>
+              <Nav.Link href="#destacados" className="navbar_link ps-4 fs-5">Destacados</Nav.Link>
+              <Nav.Link href="#burgers" className="navbar_link ps-4 fs-5">Burgers</Nav.Link>
+              <NavLink to="/contacto" className="navbar_link ps-4 fs-5 pt-2">Contacto</NavLink>                           
               {currentUser !== undefined && currentUser.role === "Admin" && (
                 <NavLink to="/administracion" className="navbar_link ps-4 fs-5">
                   Administración
