@@ -7,8 +7,16 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import Swal from "sweetalert2";
 import UserContext from '../../../Context/UserContext';
-
 const Login = ({isOpen, handleClose}) => {
+
+  
+  const [isOpen1, setIsOpen1] = useState(false);
+  const handleShow1 = () => {
+    setIsOpen1(true);
+  };
+  const handleClose1 = () => {
+    setIsOpen1(false);
+  };
 
   const API=import.meta.env.VITE_API;
   const {setCurrentUser, SaveAuth} = useContext(UserContext);
@@ -75,7 +83,7 @@ const Login = ({isOpen, handleClose}) => {
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Group className='mb-3'controlId="email"> 
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Email:</Form.Label>
               <Form.Control type="email" placeholder='Ingresa tu email' 
               minLength={7}
               maxLength={128}
@@ -99,7 +107,7 @@ const Login = ({isOpen, handleClose}) => {
             </Form.Group>
 
             <Form.Group className='mb-4' controlId='password'>
-              <Form.Label>Contraseña</Form.Label>              
+              <Form.Label>Contraseña:</Form.Label>              
               <Form.Control type="password" placeholder='Ingrese su contraseña' 
               maxLength={16}
               minLength={8}
@@ -138,10 +146,79 @@ const Login = ({isOpen, handleClose}) => {
           </Modal.Body>
         <Modal.Footer>  
         <p>No tenes una cuenta?</p>        
-        <Button variant="link" onClick={handleClose}> Registrate</Button>
+        <Button variant="link" onClick={() => {
+          handleClose();
+          handleShow1();
+        }} > Registrate</Button>
         </Modal.Footer>
       </Modal>
-            
+
+      <Modal show={isOpen1} onHide={handleClose1} className='background'>
+        <Modal.Header closeButton>
+          <Modal.Title>Registrarse!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Form>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Mail:</Form.Label>
+        <Form.Control type="email" 
+        placeholder='Ingresa tu email' 
+        minLength={7}
+        maxLength={128}
+        required
+        name="email"
+        {...formik.getFieldProps("email")}
+        className={clsx(
+          "form-control",
+          {
+            "is-invalid": formik.touched.email && formik.errors.email,
+          },
+          {
+            "is-valid": formik.touched.email && !formik.errors.email,
+          }
+        )}/>
+        {formik.touched.email && formik.errors.email && (
+                 <div className="mt-2 text-danger fw-bolder">
+                   <span role="alert">{formik.errors.email}</span>
+                 </div>
+               )}
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInpunt2">
+        <Form.Label>Contraseña:</Form.Label>
+        <Form.Control type="password" placeholder='Ingrese su contraseña' 
+              maxLength={16}
+              minLength={8}
+              required
+              name="password"
+        {...formik.getFieldProps("password")}
+        className={clsx(
+          "form-control",
+          {
+            "is-invalid": formik.touched.password && formik.errors.password,
+          },
+          {
+            "is-valid": formik.touched.password && !formik.errors.password,
+          }
+        )}
+         />
+         {formik.touched.password && formik.errors.password && (
+            <div className="mt-2 text-danger fw-bolder">
+              <span role="alert">{formik.errors.password}</span>
+            </div>
+          )}              
+      </Form.Group>
+    </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={()=>{handleClose1() ; show={isOpen1}}} type='submit'>
+            Confirmar
+          </Button>
+          <Button variant="danger" onClick={handleClose1}>
+            Cancelar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
         </>
     );
 };
