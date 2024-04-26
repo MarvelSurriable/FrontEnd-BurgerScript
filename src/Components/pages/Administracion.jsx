@@ -9,8 +9,9 @@ const Administracion = () => {
     return (
         <div className='container'>
             <div className='text-center'><h1>Administracion de productos y usuarios</h1></div>
-            <ListarProductos></ListarProductos>
             <Button variant="primary" onClick={()=>{navigate("/crear-producto")}}>Crear Nuevo Producto</Button>
+            <ListarProductos></ListarProductos>
+            
         </div>
     );
 };

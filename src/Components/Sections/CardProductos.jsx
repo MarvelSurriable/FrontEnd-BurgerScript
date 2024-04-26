@@ -7,7 +7,7 @@ const CardProductos = ({ producto }) => {
       <Col className="my-2">
         <Card className="img_fluid">
           <Card.Link href="#">
-            <Card.Img variant="top" src={producto.urlImg} />
+            <Card.Img variant="top" src={producto.image} />
           </Card.Link>
 
           <Card.Body>
