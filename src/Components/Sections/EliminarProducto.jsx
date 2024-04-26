@@ -40,4 +40,5 @@ const EliminarProducto = ({id, getProductos}) => {
     );
 };
 
+
 export default EliminarProducto;
