@@ -9,8 +9,7 @@ import Swal from "sweetalert2";
 import UserContext from '../../../Context/UserContext';
 const Login = ({isOpen, handleClose}) => {
 
-  const { currentUser1, setCurrentUser1, RemoveAuth1, SaveAuth1 } =
-    useContext(UserContext);
+  
   const [isOpen1, setIsOpen1] = useState(false);
   const handleShow1 = () => {
     setIsOpen1(true);
