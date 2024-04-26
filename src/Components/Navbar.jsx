@@ -20,6 +20,7 @@ import {
 } from "react-bootstrap-icons";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import "./navbar.css";
 import Login from "./Sections/Login/Login";
 import { useContext, useState } from "react";
@@ -40,6 +41,14 @@ function App() {
     RemoveAuth();
     setCurrentUser(undefined);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <Login isOpen={isOpen} handleClose={handleClose} />
@@ -54,14 +63,16 @@ function App() {
               sticky="top"
             >
               <Container fluid className="header_bg">
-                <Navbar.Brand href="/" className="ps-lg-4 ps-sm-2">
-                  <Image
-                    src="/src/assets/Logo/logoBurgerScript.png"
-                    width="60"
-                    height="60"
-                    alt="Logo BurgerScript"
-                    className="logo_nav"
-                  />
+                <Navbar.Brand className="ps-lg-4 ps-sm-2">
+                  <NavLink to="/" onClick={scrollToTop}>
+                    <Image
+                      src="/src/assets/Logo/logoBurgerScript.png"
+                      width="60"
+                      height="60"
+                      alt="Logo BurgerScript"
+                      className="logo_nav"
+                    />
+                  </NavLink>
                 </Navbar.Brand>
                 <Navbar.Toggle
                   aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -79,11 +90,11 @@ function App() {
                     <Offcanvas.Title
                       id={`offcanvasNavbarLabel-expand-${expand}`}
                     >
-                      <NavLink to="/">
+                      <NavLink to="/" onClick={scrollToTop}>
                         <Image
                           src="/src/assets/Logo/logoBurgerScript.png"
-                          width="50"
-                          height="50"
+                          width="60"
+                          height="60"
                           alt="Logo BurgerScript"
                         />
                       </NavLink>
@@ -91,25 +102,38 @@ function App() {
                   </Offcanvas.Header>
                   <Offcanvas.Body className="navbar_bg navbar_toggle">
                     <Nav className="justify-content-end flex-grow-1 pe-4 nav_toggle">
-                      <NavLink to="/" className="navbar_link pe-4 pt-1">
+                      <NavLink
+                        to="/"
+                        onClick={scrollToTop}
+                        activeClassName="active"
+                        className="navbar_link pe-4 pt-1"
+                      >
                         Inicio
                       </NavLink>
                       <Nav.Link
-                        href="#destacados"
+                        as={Link}
+                        smooth
+                        to="/#destacados"
                         className="navbar_link pe-4 pt-1"
                       >
                         Destacados
                       </Nav.Link>
-                      <Nav.Link href="#burgers" className="navbar_link pe-4 pt-0">
+                      <Nav.Link
+                        as={Link}
+                        smooth
+                        to="/#burgers"
+                        className="navbar_link pe-4 pt-0"
+                      >
                         Burgers
                       </Nav.Link>
-                      <NavLink to="/contacto" className="navbar_link pe-4">
+                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4">
                         Contacto
                       </NavLink>
                       {currentUser !== undefined &&
                         currentUser.role === "Admin" && (
                           <NavLink
                             to="/administracion"
+                            onClick={scrollToTop}
                             className="navbar_link pe-4 pt-1"
                           >
                             Administración
@@ -130,7 +154,7 @@ function App() {
                         >
                           <BoxArrowDownRight className="icon_link fs-3" />
                         </NavLink>
-                      )}                      
+                      )}
                     </Nav>
                     <Nav className="col justify-content-end">
                       <Form
@@ -177,13 +201,45 @@ function App() {
         </Row>
         <Navbar expand="lg" className="nav_bg py-0">
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">            
-              <NavLink to="/" className="navbar_link ps-4 fs-5 pt-2">Inicio</NavLink>
-              <Nav.Link href="#destacados" className="navbar_link ps-4 fs-5">Destacados</Nav.Link>
-              <Nav.Link href="#burgers" className="navbar_link ps-4 fs-5">Burgers</Nav.Link>
-              <NavLink to="/contacto" className="navbar_link ps-4 fs-5 pt-2">Contacto</NavLink>                           
+            <Nav className="mx-auto">
+              <NavLink
+                as={Link}
+                to="/"
+                onClick={scrollToTop}
+                activeClassName="active"
+                className="navbar_link pe-2 fs-5 pt-2"
+              >
+                Inicio
+              </NavLink>
+              <Nav.Link
+                as={Link}
+                smooth
+                to="/#destacados"
+                className="navbar_link ps-4 fs-5"
+              >
+                Destacados
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                smooth
+                to="/#burgers"
+                className="navbar_link ps-4 fs-5"
+              >
+                Burgers
+              </Nav.Link>
+              <NavLink
+                to="/contacto"
+                onClick={scrollToTop}
+                className="navbar_link ps-4 fs-5 pt-2"
+              >
+                Contacto
+              </NavLink>
               {currentUser !== undefined && currentUser.role === "Admin" && (
-                <NavLink to="/administracion" className="navbar_link ps-4 fs-5 pt-2">
+                <NavLink
+                  to="/administracion"
+                  onClick={scrollToTop}
+                  className="navbar_link ps-4 fs-5 pt-2"
+                >
                   Administración
                 </NavLink>
               )}
@@ -220,7 +276,7 @@ function App() {
                 placement="top"
                 overlay={<Tooltip id="tooltip">Ayuda</Tooltip>}
               >
-                <NavLink to="/error" className="me-4 py-1 question_nav">
+                <NavLink to="/error" className="me-5 py-1 question_nav">
                   <QuestionCircle className="icon_link fs-3" />
                 </NavLink>
               </OverlayTrigger>
