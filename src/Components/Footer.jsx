@@ -13,14 +13,17 @@ const Footer = () => {
           <div className='d-none d-md-block p-0'>
           <Row>
          <Col xs={12} md={4} className='grid'>
-          <Row className=' px-4 pt-2'>
-            <div>
-             <Image
+          <Row className=' px-4 pt-2'> 
+            <div >
+              <Link to="/">
+                <Image
                      src="/src/assets/Logo/logoBurgerScript.png"
                      width="80"
                      height="80"
                      alt="Logo BurgerScript"
-                   />
+                />
+              </Link>
+             
             </div>
           </Row>
           <Row className='pt-2 ' >
@@ -44,20 +47,20 @@ const Footer = () => {
          <Col xs={12} md={4} >
              <div className=' grid text-center '>
              <Row className=' py-2 px-5 '>
-           <Link> <Facebook className="footer_font grid fs-5"/></Link>
+           <Link to="https://www.facebook.com/" target="_blank"> <Facebook className="footer_font grid fs-5"/></Link>
            </Row>
            <Row className=' py-2 pe-5'>
-          <Link> <Instagram className="footer_font grid fs-5"/></Link>
+          <Link to="https://www.instagram.com/" target="_blank" > <Instagram className="footer_font grid fs-5"/></Link>
            </Row>
            <Row  className='py-2 '>
-          <Link> <TwitterX className="footer_font grid fs-5"/></Link>
+          <Link to="https://twitter.com/" target="_blank"> <TwitterX className="footer_font grid fs-5"/></Link>
           </Row>
             </div>
 
            <Row className=' footer_font pt-2 '>
            <Col>
-            <a > <TelephoneFill className='fs-7 ' /> 3816778899</a>
-             <p > <Envelope className='fs-7 '/> BurgerScript@gmail.com </p>
+            <a > <TelephoneFill className='fs-6 ' /> 3816778899</a>
+             <p > <Envelope className='fs-6 '/> BurgerScript@gmail.com </p>
 
             </Col>
             <Col>
@@ -78,21 +81,23 @@ const Footer = () => {
           <div className='d-block d-md-none footer_font text-center  container'>
           <Row >
             <div className='pb-3'>
+              <Link to='/'>
               <Image
                      src="/src/assets/Logo/logoBurgerScript.png"
                      width="80"
                      height="80"
                      alt="Logo BurgerScript"
                    />
+              </Link>              
             </div>
            </Row>
            <Row >
-            <Col><Link> <Facebook className="footer_font grid fs-5"/></Link></Col>
-            <Col><Link> <Instagram className="footer_font grid fs-5"/></Link></Col>
-            <Col><Link> <TwitterX className="footer_font grid fs-5"/></Link></Col>
+            <Col><Link to="https://www.facebook.com/" target="_blank"> <Facebook className="footer_font grid fs-5"/></Link></Col>
+            <Col><Link to="https://www.instagram.com/" target="_blank"> <Instagram className="footer_font grid fs-5"/></Link></Col>
+            <Col><Link to="https://twitter.com/" target="_blank"> <TwitterX className="footer_font grid fs-5"/></Link></Col>
             </Row>
             <Row >
-           <p className='pt-5'>Todos los derechos reservados</p>
+           <p className='pt-5'> Todos los derechos reservados </p>
            </Row>
           </div>
 
