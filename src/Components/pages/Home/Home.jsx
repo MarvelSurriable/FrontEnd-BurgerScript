@@ -87,9 +87,9 @@ function Home() {
         <Carousel.Item className="bg_slider">
           <Container>
             <Row className="justify-content-center align-items-center pt-5">
-              <Col lg={6} md={12}>
+              <Col lg={6} md={12} className="pb-2">
                 <img
-                  className="d-block w-100 h-auto mt-2 img-fluid"
+                  className="d-block w-100 h-auto mt-3 img-fluid"
                   src="/src/assets/Images/Slider/burgerbeef.png"
                   alt="Hamburguesa de carne"
                 />
@@ -215,7 +215,7 @@ function Home() {
           <Slider {...settings} className="text-center pb-4">
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>Bcrypt Burger</h4>               
+              <h4>Bcrypt</h4>               
                 <img
                   src="/src/assets/Images/Destacados/Bcrypt.jpg"
                   alt="Bcrypt Burger"
@@ -225,7 +225,7 @@ function Home() {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>BigJson Burger</h4>
+              <h4>BigJson</h4>
                 <img
                   src="/src/assets/Images/Destacados/Big Json.jpg"
                   alt="BigJson Burger"
@@ -235,7 +235,7 @@ function Home() {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>BlackApi Burger</h4>
+              <h4>BlackApi</h4>
                 <img
                   src="/src/assets/Images/Destacados/BlackApi .jpg"
                   alt="BlackApi Burger"
@@ -245,7 +245,7 @@ function Home() {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>MongoCheese Burger</h4>
+              <h4>MongoCheese</h4>
                 <img
                   src="/src/assets/Images/Destacados/MongoCheese.jpg"
                   alt="MongoCheese Burger"
@@ -255,7 +255,7 @@ function Home() {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>Nodemon Burger</h4>
+              <h4>Nodemon</h4>
                 <img
                   src="/src/assets/Images/Destacados/Nodemon Burger.jpeg"
                   alt="Nodemon Burger"
@@ -265,7 +265,7 @@ function Home() {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>ChickeNode Burger</h4>
+              <h4>ChickeNode</h4>
                 <img
                   src="/src/assets/Images/Destacados/ChickeNode.jpg"
                   alt="ChickeNode Burger"
@@ -349,14 +349,14 @@ function Home() {
               <p className="promotion_text py-lg-3">
                 Promoción válida para la República Argentina, desde el 23/04/24 hasta el 23/06/24 o hasta agotar stock de 500 unidades. Aplica para Burgers de todas las categorías.
               </p>
-              <Link to="/">
+              <Link to="/error">
                 <img
                   src="/src/assets/Images/Promotion/appstore.png"
                   alt="appstore"
                   className="img-fluid store me-3"
                 />
               </Link>
-              <Link to="/">
+              <Link to="/error">
                 <img
                   src="/src/assets/Images/Promotion/googleplay.png"
                   alt="googleplay"
