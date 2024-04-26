@@ -17,7 +17,7 @@ const EliminarProducto = ({id, getProductos}) => {
           }).then(async (result) => {
             if (result.isConfirmed) {
               try {
-                await axios.delete(`${API}/productos/`+id)
+                await axios.delete(`${API}/products/delete-product/`+id)
                 getProductos();
                   Swal.fire({
                     title: "¡Exito!",
@@ -39,5 +39,6 @@ const EliminarProducto = ({id, getProductos}) => {
         </div>
     );
 };
+
 
 export default EliminarProducto;

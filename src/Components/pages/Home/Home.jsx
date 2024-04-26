@@ -20,7 +20,7 @@ function Home() {
 
   const getProductos = async () => {
     try {
-      const response = await axios.get(`${API}/productos`);
+      const response = await axios.get(`${API}/products/get-products`);
       setProductos(response.data);
     } catch (error) {
       console.log("ERROR ==> ", error);

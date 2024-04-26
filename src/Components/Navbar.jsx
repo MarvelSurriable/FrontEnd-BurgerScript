@@ -183,7 +183,7 @@ function App() {
               <Nav.Link href="#burgers" className="navbar_link ps-4 fs-5">Burgers</Nav.Link>
               <NavLink to="/contacto" className="navbar_link ps-4 fs-5 pt-2">Contacto</NavLink>                           
               {currentUser !== undefined && currentUser.role === "Admin" && (
-                <NavLink to="/administracion" className="navbar_link ps-4 fs-5">
+                <NavLink to="/administracion" className="navbar_link ps-4 fs-5 pt-2">
                   Administración
                 </NavLink>
               )}

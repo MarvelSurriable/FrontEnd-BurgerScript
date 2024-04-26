@@ -11,7 +11,7 @@ const ListarProductos = () => {
 
     const getProductos= async()=>{
         try {
-            const response = await axios.get(`${API}/productos`);
+            const response = await axios.get(`${API}/products/get-products`);
             setProductos(response.data);
         } catch (error) {
             console.log("ERROR ==> ", error);
@@ -33,18 +33,19 @@ const ListarProductos = () => {
         <Table striped bordered hover variant="dark" responsive>
           <thead>
             <tr>
-              <th>Id</th>
+              <th>#</th>
               <th>Título</th>
               <th>Categoria</th>
+              <th>Precio</th>
               <th>Stock</th>
               <th>Ultimo control de Stock</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {productos.map((element)=>{
+            {productos.map((element, index)=>{
                 return(
-                    <Producto producto={element} key={element.id} getProductos={getProductos}/>
+                    <Producto producto={element} key={index} index={index +1} getProductos={getProductos}/>
                 )
             })}
           </tbody>
