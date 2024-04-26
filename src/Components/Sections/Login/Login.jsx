@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import Swal from "sweetalert2";
 import UserContext from '../../../Context/UserContext';
+import Register from "../Register/Register"
 const Login = ({isOpen, handleClose}) => {
 
   
@@ -76,6 +77,7 @@ const Login = ({isOpen, handleClose}) => {
 
     return (
         <>
+        <Register isOpen={isOpen1} handleClose={handleClose1}></Register>
           <Modal show={isOpen} onHide={handleClose}  className='background'>
         <Modal.Header closeButton >
           <Modal.Title >Es hora de una Script! Ingresa y disfruta! </Modal.Title>
@@ -153,71 +155,7 @@ const Login = ({isOpen, handleClose}) => {
         </Modal.Footer>
       </Modal>
 
-      <Modal show={isOpen1} onHide={handleClose1} className='background'>
-        <Modal.Header closeButton>
-          <Modal.Title>Registrarse!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Mail:</Form.Label>
-        <Form.Control type="email" 
-        placeholder='Ingresa tu email' 
-        minLength={7}
-        maxLength={128}
-        required
-        name="email"
-        {...formik.getFieldProps("email")}
-        className={clsx(
-          "form-control",
-          {
-            "is-invalid": formik.touched.email && formik.errors.email,
-          },
-          {
-            "is-valid": formik.touched.email && !formik.errors.email,
-          }
-        )}/>
-        {formik.touched.email && formik.errors.email && (
-                 <div className="mt-2 text-danger fw-bolder">
-                   <span role="alert">{formik.errors.email}</span>
-                 </div>
-               )}
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInpunt2">
-        <Form.Label>Contraseña:</Form.Label>
-        <Form.Control type="password" placeholder='Ingrese su contraseña' 
-              maxLength={16}
-              minLength={8}
-              required
-              name="password"
-        {...formik.getFieldProps("password")}
-        className={clsx(
-          "form-control",
-          {
-            "is-invalid": formik.touched.password && formik.errors.password,
-          },
-          {
-            "is-valid": formik.touched.password && !formik.errors.password,
-          }
-        )}
-         />
-         {formik.touched.password && formik.errors.password && (
-            <div className="mt-2 text-danger fw-bolder">
-              <span role="alert">{formik.errors.password}</span>
-            </div>
-          )}              
-      </Form.Group>
-    </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="success" onClick={()=>{handleClose1() ; show={isOpen1}}} type='submit'>
-            Confirmar
-          </Button>
-          <Button variant="danger" onClick={handleClose1}>
-            Cancelar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      
 
         </>
     );
