@@ -105,7 +105,7 @@ function App() {
                       <NavLink
                         to="/"
                         onClick={scrollToTop}
-                        activeClassName="active"
+                        activeclassname="active"
                         className="navbar_link pe-4 pt-1"
                       >
                         Inicio
@@ -206,7 +206,7 @@ function App() {
                 as={Link}
                 to="/"
                 onClick={scrollToTop}
-                activeClassName="active"
+                activeclassname="active"
                 className="navbar_link pe-2 fs-5 pt-2"
               >
                 Inicio
