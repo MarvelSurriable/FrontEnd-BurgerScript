@@ -4,7 +4,7 @@
 
 .back404 {
     background: url(/src/assets/Images/Background/bg-section.jpg) repeat center center;
-    padding-block: 50px;
+   
 }
 
 .error_font {
@@ -15,4 +15,6 @@
 .title{
      color: #f7be27;
 }
+
+
 

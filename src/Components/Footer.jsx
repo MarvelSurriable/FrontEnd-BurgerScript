@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-         <Container fluid className="back ">
+         <Container fluid className="back pt-3">
           <div className='d-none d-md-block p-0'>
           <Row>
          <Col xs={12} md={4} className='grid'>
