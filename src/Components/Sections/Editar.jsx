@@ -51,7 +51,7 @@ const Editar = () => {
         .min(0, "El stock no puede ser menor a cero"),
     });
   
-    const initialValues = {
+    const initialValues =  {
       title: "",
       description: "",
       image: "",
@@ -67,6 +67,7 @@ const Editar = () => {
       validateOnChange: true,
   
       onSubmit: (values) => {
+        console.log(values);
         Swal.fire({
           title: "¿Estas seguro que quieres editar el producto?",
           icon: "warning",
@@ -78,6 +79,10 @@ const Editar = () => {
         }).then(async (result) => {
           if (result.isConfirmed) {
             try {
+          const fecha = new Date();
+          values.controlStock = {
+            timestamp: fecha,
+          };
               const response = await axios.put(`${API}/products/update-product/${id}`, values);
               if (response.status === 200) {
                 Swal.fire({
@@ -102,10 +107,10 @@ const Editar = () => {
             formik.setFieldValue("description", producto.description, true);
             formik.setFieldValue("stock", producto.stock, true);
             formik.setFieldValue("image", producto.image, true);
-            formik.setFieldValue("price", producto.price, true);
-        }
-        
+            formik.setFieldValue("price", producto.price, true);  
+        }     
     },[producto])
+
   
     return (
       <div className="container my-3 py-3">
