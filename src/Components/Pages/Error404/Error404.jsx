@@ -1,5 +1,6 @@
 import { Container, Button,Image} from 'react-bootstrap';
 import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 import './Error404.css'
 
 const Error404 = () => {
@@ -13,9 +14,10 @@ const Error404 = () => {
            
 
             <div className=' container py-5'> 
-                <a href="/" >
-                    <Button variant="warning" size="lg"  >Inicio</Button>
-                </a>
+           
+                <Link to="/"><Button variant="warning" size="lg"  >Inicio</Button></Link>
+                    
+                
             </div>
           
                     
