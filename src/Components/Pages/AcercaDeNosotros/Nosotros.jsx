@@ -25,10 +25,10 @@ const Nosotros = () => {
         </Col>
         <Col lg={4} md={6} sm={12}>
           <Card className="avatar_card">
-            <Card.Img variant="top" src="/src/assets/Images/Nosotros/Javier.jpg" className="img-fluid avatar_img" alt="foto de Marvel"/>
+            <Card.Img variant="top" src="/src/assets/Images/Nosotros/Andrea.jpeg" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description"> 
-              <Card.Title className="title_cardUs fs-2 pt-4">Javier Aguilar</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 32 años, soy Técnico en Higiene y Seguridad y estudiante de programación Fullstack. Amante de las peliculas de Terror, Ciencia Ficción, libros y videojuegos.</Card.Text>
+              <Card.Title className="title_cardUs fs-2 pt-4"> Andrea Saraza</Card.Title>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3"> Tengo 27 años. Soy Ingeniera Biomédica y estudiante de programación Full Stack. En mi tiempo libre voy a clases de baile y me gusta estar al aire libre.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -43,19 +43,19 @@ const Nosotros = () => {
         </Col>
         <Col lg={4} md={6} sm={12}>
           <Card className="avatar_card">
-            <Card.Img variant="top" src="/src/assets/Images/Nosotros/Andrea.jpeg" className="img-fluid avatar_img" alt="foto de Marvel"/>
+            <Card.Img variant="top" src="/src/assets/Images/Nosotros/Javier.jpg" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
-              <Card.Title className="title_cardUs fs-2 pt-4">Andrea Saraza</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 27 años. Soy Ingeniera Biomédica y estudiante de programación Full Stack. En mi tiempo libre voy a clases de baile y me gusta estar al aire libre.</Card.Text>
+              <Card.Title className="title_cardUs fs-2 pt-4">Javier Aguilar</Card.Title>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 32 años, soy Técnico en Higiene y Seguridad y estudiante de programación Fullstack. Amante de las peliculas de Terror, Ciencia Ficción, libros y videojuegos.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
         <Col lg={4} md={6} sm={12}>
           <Card className="avatar_card">
-            <Card.Img variant="top" src="/src/assets/Images/Nosotros/Marvel.jpeg" className="img-fluid avatar_img" alt="foto de Marvel"/>
+            <Card.Img variant="top" src="/src/assets/Images/Nosotros/Kelvin.png" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
               <Card.Title className="title_cardUs fs-2 pt-4">Kelvin Pucho</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 37 años y soy de Jujuy. Estudio programación Full Stack en Rolling Code. Me gustan los juegos de mesa, ver series y películas.</Card.Text>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Soy de Peru y soy estudiante de programacion Full Stack. Soy un una persona de pocas palabras apasionado por la tecnología </Card.Text>
             </Card.Body>
           </Card>
         </Col>
