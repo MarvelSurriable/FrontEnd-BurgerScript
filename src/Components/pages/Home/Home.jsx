@@ -48,7 +48,6 @@ function Home() {
     }
     window.addEventListener("resize", handleResize);
     handleResize();
-    console.log("CURRENT USER ==> ", currentUser);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

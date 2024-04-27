@@ -22,6 +22,11 @@ const Login = ({isOpen, handleClose}) => {
   const API=import.meta.env.VITE_API;
   const {setCurrentUser, SaveAuth} = useContext(UserContext);
 
+  const handleCloseAndReset = () => {
+    handleClose(); 
+    formik.resetForm(); 
+  };
+
   const LoginSchema=Yup.object().shape({
     email: Yup.string()
     .email("Formato invalido")
@@ -43,10 +48,8 @@ const Login = ({isOpen, handleClose}) => {
       validateOnBlur: true,
       validateOnChange: true,
       onSubmit:async (values) => {
-        console.log("Values de Formik", values); 
         try {
           const response = await axios.post(`${API}/users/login`, values)
-          console.log("Respuesta login ==> ", response.data);
           if (response.status === 200) {
             SaveAuth(response.data)
             setCurrentUser(response.data)
@@ -78,7 +81,7 @@ const Login = ({isOpen, handleClose}) => {
     return (
         <>
         <Register isOpen={isOpen1} handleClose={handleClose1}></Register>
-          <Modal show={isOpen} onHide={handleClose}  className='background'>
+          <Modal show={isOpen} onHide={handleCloseAndReset}  className='background'>
         <Modal.Header closeButton >
           <Modal.Title >Es hora de una Script! Ingresa y disfruta! </Modal.Title>
         </Modal.Header>

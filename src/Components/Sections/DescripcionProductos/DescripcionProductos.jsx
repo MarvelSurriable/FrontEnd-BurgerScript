@@ -1,10 +1,40 @@
-import React, {useState} from "react";
+
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "../DescripcionProductos/DescripcionProductos.css"
+import {useParams } from "react-router-dom";
+import { useState} from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
-function DescriptionProduct () {
+
+import React from 'react';
+
+const DescripcionProductos = () => {
+
+  const [producto, setProducto] = useState(undefined);
+    const API = import.meta.env.VITE_API;
+    const {id} = useParams();
+    useEffect(() => {
+      const getProducto = async () => {
+        try {
+          const { data } = await axios.get(`${API}/products/get-product/${id}`);
+          setProducto(data);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (error) {
+          console.log("ERROR => ", error);
+        }
+      };
+  
+      getProducto();
+  
+      return () => {
+        setProducto(undefined);
+      };
+    }, [id]);
+
+
     const [quantity, setQuantity] = useState(1);
   
     const handleDecrement = () => {
@@ -16,25 +46,24 @@ function DescriptionProduct () {
       if (quantity < 10) {
         setQuantity(prevCount => prevCount + 1);
       }
-    };
-  
-    return (
-      <>
+    }
+  return (
+    <>
         <Container>
           <Row className="justify-content-center align-items-start">
             <Col lg={6} md={12} sm={12}>
               <img
                 className="w-100 my-3 img-fluid"
-                src="https://i.ibb.co/zP78h1n/Formika.jpg"              
+                src={producto?.image}
                 alt="First slide"
               />
             </Col>
             <Col lg={6} md={12}sm={12} >
               <div className="mt-lg-5 ms-lg-4">
-              <h4 className="subtitle_burger fs-4">Hamburguesa de Carne</h4>
-              <h2 className="text-start title_card fs-1">Formika Burger</h2>
-              <h4 className="subtitle_burger fs-3 mb-3 mt-3">$ 4100</h4>
-              <p className="subtitle_burger fs-5">Medallón de carne, lechuga fresca y rodajas de tomate, todo coronado con queso cheddar derretido. Acompañado de un delicioso aderezo de cebolla que realza los sabores.</p>
+              <h4 className="subtitle_burger fs-4">Hamburguesa de {producto?.category}</h4>
+              <h2 className="text-start title_card fs-1">{producto?.title}</h2>
+              <h4 className="subtitle_burger fs-3 mb-3 mt-3">{producto?.description}</h4>
+              <p className="subtitle_burger fs-5">$ {producto?.price}</p>
               </div>
               <div className="ps-4 pt-3 mb-4">
                 <div className="d-flex col">
@@ -60,14 +89,14 @@ function DescriptionProduct () {
                 </p>
                 <Link to="/">
                   <img
-                    src="/src/assets/images/SectionPromotion/appstore.png"
+                    src="/src/assets/Images/Promotion/appstore.png"
                     alt="IOS"
                     className="img-fluid store me-3"
                   />
                 </Link>
                 <Link to="/">
                   <img
-                    src="/src/assets/images/SectionPromotion/googleplay.png"
+                    src="/src/assets/Images/Promotion/googleplay.png"
                     alt="Android"
                     className="img-fluid store me-3"
                   />
@@ -75,7 +104,7 @@ function DescriptionProduct () {
               </Col>
               <Col lg={6}>
                 <img
-                  src="/src/assets/images/SectionPromotion/e-shop.png"
+                  src="/src/assets/Images/Promotion/e-shop.png"
                   alt="e-shop"
                   className="img-fluid w-100 pt-lg-4"
                 />
@@ -84,8 +113,8 @@ function DescriptionProduct () {
           </Container>
         </section>
       </>
-    );
-  }
-  
-  export default DescriptionProduct;
-  
+  );
+};
+
+export default DescripcionProductos;
+

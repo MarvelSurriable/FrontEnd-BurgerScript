@@ -11,6 +11,8 @@ import Editar from "./Components/Sections/Editar";
 import UserContext from "./Context/UserContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DescripcionProductos from "./Components/Sections/DescripcionProductos/DescripcionProductos"
+import DescriptionProduct from "./Components/Sections/DescripcionProductos/DescripcionProductos";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);//aqui guardamos lo que recibimos del back (email, username, password, role)
@@ -60,6 +62,7 @@ function App() {
             {(currentUser !== undefined && currentUser === "Admin")&& <Route path="/editar/:id" element={<Editar></Editar>}></Route>}
             <Route path="/*" element={<Error404></Error404>}></Route>
             <Route path="/editar/:id" element={<Editar></Editar>}></Route>
+            <Route path="/descripcion/:id" element={<DescripcionProductos></DescripcionProductos>}></Route>
           </Routes>
         </main>
         <footer>

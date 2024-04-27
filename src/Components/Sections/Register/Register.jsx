@@ -10,6 +10,11 @@ import Swal from "sweetalert2";
 const Register = ({isOpen, handleClose}) => {
     const API=import.meta.env.VITE_API;
 
+    const handleCloseAndReset = () => {
+      handleClose(); 
+      formik.resetForm(); 
+    };
+
     const ProductSchema = Yup.object().shape({
         name: Yup.string()
           .min(4, "Mínimo 4 caracteres")
@@ -100,7 +105,7 @@ const Register = ({isOpen, handleClose}) => {
 
     return (
         <>
-            <Modal show={isOpen} onHide={handleClose} className='background'>
+            <Modal show={isOpen} onHide={handleCloseAndReset} className='background'>
         <Modal.Header closeButton>
           <Modal.Title>Registrarse!</Modal.Title>
         </Modal.Header>
@@ -241,7 +246,7 @@ const Register = ({isOpen, handleClose}) => {
           <Button variant="success"  type='submit' className='me-3'>
             Confirmar
           </Button>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant="danger" onClick={handleCloseAndReset}>
             Cancelar
           </Button>
         </Form>
