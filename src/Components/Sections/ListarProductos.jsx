@@ -27,18 +27,18 @@ const ListarProductos = () => {
   return (
     <div>
       <div className="text-center my-3">
-        <h1>Listado de Productos</h1>
+        <h1 className="admin_subtitle mb-4">Listado de Productos</h1>
       </div>
       <div>
-        <Table striped bordered hover variant="dark" responsive>
-          <thead>
+        <Table striped bordered hover responsive variant="light">
+          <thead className="text-center">
             <tr>
               <th>#</th>
               <th>Título</th>
-              <th>Categoria</th>
+              <th>Categoría</th>
               <th>Precio</th>
               <th>Stock</th>
-              <th>Ultimo control de Stock</th>
+              <th>Último control de Stock</th>
               <th>Acciones</th>
             </tr>
           </thead>

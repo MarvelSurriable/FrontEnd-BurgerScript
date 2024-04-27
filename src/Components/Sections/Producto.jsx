@@ -17,7 +17,7 @@ const Producto = ({producto,index, getProductos}) => {
   };
   return (
     <>
-      <tr>
+      <tr>        
         <td>{index}</td>
         <td>{producto.title}</td>
         <td>{producto.category}</td>

@@ -2,7 +2,7 @@ import CrearProductos from "./Components/Sections/CrearProductos"
 import Navbar from "./Components/Navbar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Components/pages/Home/Home"
-import Administracion from "./Components/pages/Administracion";
+import Administracion from "./Components/pages/Administracion/Administracion";
 import Contacto from "./Components/pages/Contacto/Contacto";
 import Nosotros from "./Components/pages/AcercaDeNosotros/Nosotros";
 import Footer from "./Components/Footer";
@@ -55,6 +55,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/administracion" element={<Administracion />} />}            
+            <Route path="/administracion" element={<Administracion />} />
             <Route path="/contacto" element={<Contacto />}></Route>
             <Route path="/nosotros" element={<Nosotros />}></Route>
             {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/crear-producto" element={<CrearProductos></CrearProductos>}></Route>}
