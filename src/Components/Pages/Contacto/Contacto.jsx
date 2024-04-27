@@ -38,7 +38,7 @@ const Contacto = () => {
     return (
 
         <Container fluid className='back-body py-5'>
-            <div className='container back-div '>
+            <div className='container back-div pb-3'>
                 <h1 className='text-center pt-4'>Contactanos</h1>
                 <Row className='py-5'>
                   <Col xs={12} md={6}>
