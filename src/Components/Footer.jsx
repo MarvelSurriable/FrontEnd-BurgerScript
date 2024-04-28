@@ -8,6 +8,12 @@ import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
     return (
          <Container fluid className="back pt-3">
           <div className='d-none d-md-block p-0'>
@@ -28,15 +34,15 @@ const Footer = () => {
           </Row>
           <Row className='pt-2 ' >
           <div >
-           <Link to="/" className="Link footer_font ms-1 fs-5">Inicio</Link>
-          <Link to="/error" className="Link ps-5 footer_font pe-3 fs-5">Sucursales</Link>
+           <Link to="/" className="Link footer_font ms-1 fs-5" onClick={scrollToTop}>Inicio</Link>
+          <Link to="/error" className="Link ps-5 footer_font pe-3 fs-5" onClick={scrollToTop}>Sucursales</Link>
              </div>
             <div>
-             <Link to="/contacto" className="Link footer_font ms-1 fs-5">Contacto</Link>
-             <Link to="/nosotros" className="Link ps-4 footer_font  fs-5">Nosotros</Link>
+             <Link to="/contacto" className="Link footer_font ms-1 fs-5" onClick={scrollToTop}>Contacto</Link>
+             <Link to="/nosotros" className="Link ps-4 footer_font  fs-5"onClick={scrollToTop}>Nosotros</Link>
              </div>
              <div>
-             <Link to="/Burgers" className="Link footer_font ms-1 fs-5">Burgers</Link>
+             <Link to="/Burgers" className="Link footer_font ms-1 fs-5"onClick={scrollToTop}>Burgers</Link>
              </div>
           </Row>
 
