@@ -118,14 +118,15 @@ function App() {
                       >
                         Destacados
                       </Nav.Link>
-                      <Nav.Link
+                      <NavLink
                         as={Link}
                         smooth
-                        to="/#burgers"
-                        className="navbar_link pe-4 pt-0"
+                        to="/Burgers"
+                        onClick={scrollToTop}
+                        className="navbar_link pe-4 pb-1"
                       >
                         Burgers
-                      </Nav.Link>
+                      </NavLink>
                       <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4">
                         Contacto
                       </NavLink>
@@ -219,14 +220,15 @@ function App() {
               >
                 Destacados
               </Nav.Link>
-              <Nav.Link
+              <NavLink
                 as={Link}
                 smooth
-                to="/#burgers"
-                className="navbar_link ps-4 fs-5"
+                to="/Burgers"
+                onClick={scrollToTop}
+                className="navbar_link ps-4 fs-5 pt-2"
               >
                 Burgers
-              </Nav.Link>
+              </NavLink>
               <NavLink
                 to="/contacto"
                 onClick={scrollToTop}
