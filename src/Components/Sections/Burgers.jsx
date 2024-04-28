@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from "react";
-import { Container, Row, Col, Dropdown, Form } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import axios from "axios";
 import CardProductos from "./CardProductos";
 import UserContext from "../../Context/UserContext";
@@ -59,38 +59,46 @@ const Burgers = () => {
 
   return (
     <>
-      <Container>
+      <Container fluid className="burgers_bg pt-0">
+        <h2 className="text-center p-4 title_burger">Burgers</h2>
         <Row>
           <Col lg={{ span: 8, offset: 2 }} className="text-center">
             <Dropdown onSelect={handleCategoriaChange}>
               <Dropdown.Toggle
                 variant="transparent"
                 id="dropdown-basic"
-                className="fs-2 category_text"
+                className="fs-2 category_text text-white"
               >
                 CATEGORÍAS
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item eventKey="">TODAS</Dropdown.Item>
-                <Dropdown.Item eventKey="carne">CARNE</Dropdown.Item>
-                <Dropdown.Item eventKey="pollo">POLLO</Dropdown.Item>
-                <Dropdown.Item eventKey="vegetariana">
+                <Dropdown.Item eventKey="" className="category_text fs-4 bg-warning"><img
+                  src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
+                  alt="Hamburguesa categoría Todas"
+                  className="img_category me-2"
+                /> TODAS</Dropdown.Item>
+                <Dropdown.Item eventKey="carne" className="category_text fs-4"><img
+                  src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
+                  alt="Hamburguesa categoría Carne"
+                  className="img_category me-2"
+                /> CARNE</Dropdown.Item>
+                <Dropdown.Item eventKey="pollo" className="category_text fs-4"><img
+                  src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
+                  alt="Hamburguesa categoría Pollo"
+                  className="img_category me-2"
+                /> POLLO</Dropdown.Item>
+                <Dropdown.Item eventKey="vegetariana" className="category_text fs-4"><img
+                  src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
+                  alt="Hamburguesa categoría Vegetariana"
+                  className="img_category me-2"
+                />
                   VEGETARIANA
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </Col>
-          <Col lg={{ span: 8, offset: 2 }} className="text-center mt-3">
-            <Form.Control
-              type="text"
-              placeholder="Buscar por nombre..."
-              value={busqueda}
-              onChange={handleBusquedaChange}
-            />
-          </Col>
+          </Col>         
         </Row>
       </Container>
-
       <Container fluid className="bg_aboutUs">
         <Row className="justify-content-center">{renderProductosCards()}</Row>
       </Container>
