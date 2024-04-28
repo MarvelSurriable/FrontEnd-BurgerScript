@@ -37,7 +37,7 @@ const Nosotros = () => {
             <Card.Img variant="top" src="/src/assets/Images/Nosotros/Leandro.jpeg" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
               <Card.Title className="title_cardUs fs-2 pt-4">Leandro Bader</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 33 años. Soy estudiante programacion Full Stack en Rolling Code. Me gusta jugar al futbol, tenis, padel y hacer actividades al aire libre.</Card.Text>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 33 años. Soy estudiante programación Full Stack en Rolling Code. Me gusta jugar al futbol, tenis, padel y hacer actividades al aire libre.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -55,7 +55,7 @@ const Nosotros = () => {
             <Card.Img variant="top" src="/src/assets/Images/Nosotros/Kelvin.png" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
               <Card.Title className="title_cardUs fs-2 pt-4">Kelvin Pucho</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Soy de Peru y soy estudiante de programacion Full Stack. Soy un una persona de pocas palabras apasionado por la tecnología </Card.Text>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Soy de Perú y soy estudiante de programación Full Stack. Soy una persona de pocas palabras apasionado por la tecnología </Card.Text>
             </Card.Body>
           </Card>
         </Col>
