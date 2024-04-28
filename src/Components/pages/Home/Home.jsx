@@ -16,6 +16,7 @@ function Home() {
   const {currentUser}=useContext(UserContext);
   const [productos, setProductos] = useState([]);
   const [totalCards, setTotalCards] = useState(15);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
   const API = import.meta.env.VITE_API;
 
   const getProductos = async () => {
@@ -33,6 +34,15 @@ function Home() {
       setProductos([]);
     };
   }, []);
+
+  const handleCategoriaChange = (categoria) => {
+    setCategoriaSeleccionada(categoria);
+  };
+
+  const productosFiltrados = productos.filter((producto) => {
+    if (categoriaSeleccionada === "Todas") return true;
+    return producto.category === categoriaSeleccionada;
+  });
 
   useEffect(() => {
     function handleResize() {
@@ -187,7 +197,7 @@ function Home() {
                 className="img-fluid img_aboutUs pt-2"
                 alt="imagen de hamburguesa"
               />
-              <h4 class="aboutUs_h4">PRECIO</h4>
+              <h4 className="aboutUs_h4">PRECIO</h4>
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} className="text-center">
               <img
@@ -195,7 +205,7 @@ function Home() {
                 className="img-fluid img_aboutUs pt-2"
                 alt="imagen de verduras"
               />
-              <h4 class="aboutUs_h4">CALIDAD</h4>
+              <h4 className="aboutUs_h4">CALIDAD</h4>
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} className="text-center">
               <img
@@ -203,7 +213,7 @@ function Home() {
                 className="img-fluid img_aboutUs pt-2"
                 alt="imagen de delivery"
               />
-              <h4 class="aboutUs_h4">ENVÍOS</h4>
+              <h4 className="aboutUs_h4">ENVÍOS</h4>
             </Col>
           </Row>
         </Container>
@@ -291,22 +301,22 @@ function Home() {
                   CATEGORÍAS
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1" active className="category_text fs-4 bg-warning"><img
+                  <Dropdown.Item onClick={() => handleCategoriaChange("Todas")}  className="category_text fs-4 bg-warning"><img
                   src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
                   alt="Hamburguesa categoría Todas"
                   className="img_category me-2"
                 /> TODAS</Dropdown.Item>
-                  <Dropdown.Item href="#/action-1" className="category_text fs-4"><img
+                  <Dropdown.Item onClick={() => handleCategoriaChange("Carne")}  className="category_text fs-4"><img
                   src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
                   alt="Hamburguesa categoría Carne"
                   className="img_category me-2"
                 /> CARNE</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2"className="category_text fs-4"><img
+                  <Dropdown.Item onClick={() => handleCategoriaChange("Pollo")} className="category_text fs-4"><img
                   src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
                   alt="Hamburguesa categoría Pollo"
                   className="img_category me-2"
                 /> POLLO</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3"className="category_text fs-4"><img
+                  <Dropdown.Item onClick={() => handleCategoriaChange("Vegetarianas")} className="category_text fs-4"><img
                   src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
                   alt="Hamburguesa categoría Vegetariana"
                   className="img_category me-2"
@@ -329,7 +339,7 @@ function Home() {
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">
             <Row xs={2} sm={2} md={3} lg={5} xl={5}>
-              {productos.slice(0, totalCards).map((element, index) => {
+              {productosFiltrados.slice(0, totalCards).map((element, index) => {
                 return (
                   <CardProductos producto={element} key={index}></CardProductos>
                 );
