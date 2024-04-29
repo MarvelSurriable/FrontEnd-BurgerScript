@@ -175,16 +175,16 @@ function App({getProductos, producto}) {
                         <Form.Control
                           controlId="busqueda"
                           type="search"
-                          placeholder="Buscar"
+                          placeholder="Buscar por nombre"
                           className="search_nav"
                           aria-label="Search"
                           onChange={(e)=>{
                             setBusqueda(e.currentTarget.value);
                           }}
                         />
-                        <Button className="bg-transparent border_button py-0 rounded-5">
+                        {/* <Button className="bg-transparent border_button py-0 rounded-5">
                           <Search className="text-white fs-2 ps-1" />
-                        </Button>
+                        </Button> */}
                       </Form>
                       <Nav.Link
                         href="https://www.facebook.com/"
