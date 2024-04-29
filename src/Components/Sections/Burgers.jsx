@@ -1,32 +1,21 @@
-
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
-import axios from "axios";
 import CardProductos from "./CardProductos";
 
-const Burgers = () => {
+const Burgers = ({getProductos, producto, buscador}) => {
     const API = import.meta.env.VITE_API
   const [productos, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
 
   useEffect(() => {
-    getProductos();
-  }, []);
-
-  const getProductos = async () => {
-    try {
-      const response = await axios.get(`${API}/products/get-products`);
-      setProductos(response.data);
-    } catch (error) {
-      console.log("ERROR ==> ", error);
-    }
-  };
+    getProductos(buscador);
+  }, [buscador]);
 
   const handleCategoriaChange = (categoria) => {
     setCategoriaSeleccionada(categoria);
   };
 
-  const productosFiltrados = productos.filter((producto) => {
+  const productosFiltrados = producto.filter((producto) => {
     if (categoriaSeleccionada === "Todas") return true;
     return producto.category === categoriaSeleccionada;
   });

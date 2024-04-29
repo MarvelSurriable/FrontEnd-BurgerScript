@@ -16,7 +16,10 @@ import Burgers from "./Components/Sections/Burgers";
 import CrearUsuarioAdmin from "./Components/Sections/CrearUsuarioAdmin";
 
 function App() {
+  const API = import.meta.env.VITE_API;
   const [currentUser, setCurrentUser] = useState(undefined);//aqui guardamos lo que recibimos del back (email, username, password, role)
+  const [productos, setProductos] = useState([]);
+  const [buscador, setBuscador] = useState("")
   const SaveAuth=(auth)=>{
     sessionStorage.setItem("auth", JSON.stringify(auth));
   }
@@ -45,16 +48,34 @@ function App() {
     }
   },[currentUser])
 
+  const getProductos = async (busqueda) => {
+    try {
+      setBuscador(busqueda)
+      
+      let URL = ""
+      if (busqueda !== "") {
+        URL = `${API}/products/get-products?search=${busqueda}`
+        
+      }else{
+        URL = `${API}/products/get-products`
+      }
+      const response = await axios.get(URL);
+      setProductos(response.data);
+    } catch (error) {
+      console.log("ERROR ==> ", error);
+    }
+  };
+
   return (
     <>
     <UserContext.Provider value={{currentUser, setCurrentUser, SaveAuth, GetAuth, RemoveAuth}}>
       <BrowserRouter>      
         <header className="sticky-top">
-          <Navbar />
+          <Navbar getProductos={getProductos} producto={productos}  />
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home getProductos={getProductos} producto={productos} buscador={buscador} />} />
             {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/administracion" element={<Administracion />} />}            
             <Route path="/contacto" element={<Contacto />}></Route>
             <Route path="/nosotros" element={<Nosotros />}></Route>
@@ -64,7 +85,7 @@ function App() {
             <Route path="/*" element={<Error404></Error404>}></Route>
             <Route path="/editar/:id" element={<Editar></Editar>}></Route>
             <Route path="/descripcion/:id" element={<DescripcionProductos></DescripcionProductos>}></Route>
-            <Route path="/burgers" element={<Burgers></Burgers>}></Route>
+            <Route path="/burgers" element={<Burgers getProductos={getProductos} producto={productos} buscador={buscador}></Burgers>}></Route>
             {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/crear-usuarioadm" element={<CrearUsuarioAdmin></CrearUsuarioAdmin>}></Route>}
           </Routes>
         </main>

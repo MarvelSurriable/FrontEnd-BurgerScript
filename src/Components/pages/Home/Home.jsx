@@ -4,41 +4,28 @@ import "../Home/home.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useContext, useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
-import axios from "axios";
 import UserContext from "../../../Context/UserContext";
-// import DropdownButton from "react-bootstrap/DropdownButton";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-function Home() {
+function Home({getProductos, producto, buscador}) {
   const {currentUser}=useContext(UserContext);
-  const [productos, setProductos] = useState([]);
   const [totalCards, setTotalCards] = useState(15);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
   const API = import.meta.env.VITE_API;
 
   useEffect(() => {
-    getProductos();
-  }, []);
-
-  const getProductos = async () => {
-    try {
-      const response = await axios.get(`${API}/products/get-products`);
-      setProductos(response.data);
-    } catch (error) {
-      console.log("ERROR ==> ", error);
-    }
-  };
-
+    getProductos(buscador);
+  }, [buscador]);
   
 
   const handleCategoriaChange = (categoria) => {
     setCategoriaSeleccionada(categoria);
   };
 
-  const productosFiltrados = productos.filter((producto) => {
+  const productosFiltrados = producto.filter((producto) => {
     if (categoriaSeleccionada === "Todas") return true;
     return producto.category === categoriaSeleccionada;
   });

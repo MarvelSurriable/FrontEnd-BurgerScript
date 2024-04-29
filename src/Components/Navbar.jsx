@@ -26,7 +26,7 @@ import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-function App() {
+function App({getProductos, producto}) {
   const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
     useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -50,11 +50,11 @@ function App() {
     });
   };
 
-  // useEffect(()=>{
-  //   getProductos();
-  // },[busqueda])
+  useEffect(()=>{
+    getProductos(busqueda);
+  },[busqueda])
 
-  console.log("busqueda ", busqueda);
+  
 
   return (
     <>
