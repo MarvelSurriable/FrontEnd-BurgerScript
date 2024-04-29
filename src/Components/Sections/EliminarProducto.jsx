@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import Swal from "sweetalert2";
+import { Trash3Fill } from 'react-bootstrap-icons';
 
 const EliminarProducto = ({id, getProductos}) => {
     const API = import.meta.env.VITE_API;
@@ -35,7 +36,7 @@ const EliminarProducto = ({id, getProductos}) => {
         <div>
             <Button type="button" variant="danger" className="mx-3" onClick={()=>{
                 handleDelete();
-            }}>Eliminar</Button>
+            }}><Trash3Fill/></Button>
         </div>
     );
 };

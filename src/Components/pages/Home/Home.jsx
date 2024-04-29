@@ -19,6 +19,10 @@ function Home() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
   const API = import.meta.env.VITE_API;
 
+  useEffect(() => {
+    getProductos();
+  }, []);
+
   const getProductos = async () => {
     try {
       const response = await axios.get(`${API}/products/get-products`);
@@ -28,12 +32,7 @@ function Home() {
     }
   };
 
-  useEffect(() => {
-    getProductos();
-    return () => {
-      setProductos([]);
-    };
-  }, []);
+  
 
   const handleCategoriaChange = (categoria) => {
     setCategoriaSeleccionada(categoria);
@@ -293,7 +292,7 @@ function Home() {
               <p className="px-3 pt-2 category_text">
                 Nuestras Burgers están hechas con carne 100% vacuna; con pan
                 casero que horneamos todos los días y una selección de
-                ingredientes que las hacen únicas. Tambien ofrecemos variedades
+                ingredientes que las hacen únicas. También ofrecemos variedades
                 de Pollo y Vegetarianas.
               </p>
               <Dropdown className="pt-2 ps-4 text-start">

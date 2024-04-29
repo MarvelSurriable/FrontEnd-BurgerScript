@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Container } from "react-bootstrap";
 import clsx from "clsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -18,7 +19,7 @@ const CrearProductos = () => {
       .required("El título es requerido"),
     description: Yup.string()
       .min(4, "Mínimo 4 caracteres")
-      .max(200, "Maximo 200 caracteres")
+      .max(400, "Maximo 200 caracteres")
       .required("La descripcion es requerida"),
     image: Yup.string()
       .required("La URL de la imagen es requerida")
@@ -85,9 +86,11 @@ const CrearProductos = () => {
   });
 
   return (
-    <div className="container my-3 py-3">
+    <>
+    <Container fluid className="admin_bg py-4">
+    <div className="container my-3 py-3 ">
       <div className="text-center">
-        <h1>Crear Productos</h1>
+        <h1 className="admin_subtitle">Crear Productos</h1>
       </div>
       <div>
         <Form onSubmit={formik.handleSubmit}>
@@ -149,7 +152,7 @@ const CrearProductos = () => {
               as="textarea"
               rows={3}
               minLength={4}
-              maxLength={250}
+              maxLength={400}
               placeholder="Ingrese una descripcion"
               required
               name="description"
@@ -251,7 +254,7 @@ const CrearProductos = () => {
             )}
           </Form.Group>
 
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="primary" className="admin_btn">
             Crear
           </Button>
           <Button
@@ -266,6 +269,8 @@ const CrearProductos = () => {
         </Form>
       </div>
     </div>
+    </Container>
+    </>
   );
 };
 

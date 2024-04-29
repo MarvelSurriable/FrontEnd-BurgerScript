@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import Image from 'react-bootstrap/Image';
 import { useNavigate } from "react-router-dom";
 import EliminarProducto from "./EliminarProducto";
+import { PencilFill } from "react-bootstrap-icons";
 
 const Producto = ({producto,index, getProductos}) => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Producto = ({producto,index, getProductos}) => {
         <td className="d-flex justify-content-araund">
             <Button type="button" variant="warning" className="mx-3" onClick={()=>{
               navigate(`/editar/${producto._id}`)
-            }}>Editar</Button>
+            }}><PencilFill/></Button>
             <EliminarProducto id={producto._id} getProductos={getProductos}></EliminarProducto>
         </td>
       </tr>

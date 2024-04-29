@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    font-family: "Oswald", sans-serif;
+}
+
+.admin_bg {
+    background: url(/src/assets/Images/Background/bg-section.jpg) repeat center center;
+}
+
+.admin_title {
+    color: #e3000e;
+    text-transform: uppercase;
+}
+
+.admin_subtitle {
+    color: #f1f1f1;
+    text-transform: uppercase;
+}
+
+.admin_btn {
+    background: #f7be27;
+    border: none;
+    color: black;    
+}
+
+.admin_btn:hover {
+    background: #f1f1f1;
+    color: black;
+}
+
+.admin_table {
+    background: #f7be27;
+}

@@ -30,7 +30,7 @@ const ListarUsuarios = () => {
     return (
         <div>
       <div className="text-center my-3">
-        <h1>Listado de Usuarios</h1>
+        <h1 className='admin_subtitle'>Listado de Usuarios</h1>
       </div>
       <div>
         <Table striped bordered hover variant="dark" responsive>
