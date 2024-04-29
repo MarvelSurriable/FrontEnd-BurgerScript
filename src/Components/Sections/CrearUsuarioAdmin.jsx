@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Container } from "react-bootstrap";
 import clsx from "clsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -112,9 +113,11 @@ const CrearUsuarioAdmin = () => {
   });
 
     return (
+      <>
+      <Container fluid className="admin_bg py-4">
         <div className="container my-3 py-3">
       <div className="text-center">
-        <h1>Crear Usuario Administrador</h1>
+        <h1 className="admin_subtitle">Crear Usuario Administrador</h1>
       </div>
       <div>
         <Form onSubmit={formik.handleSubmit}>
@@ -225,10 +228,10 @@ const CrearUsuarioAdmin = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="confirmPassword">
-            <Form.Label>Contraseña</Form.Label>
+            <Form.Label>Confirmar contraseña</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Ingrese la contraseña"
+              placeholder="Confirme la contraseña"
               required
               minLength={8}
               maxLength={16}
@@ -250,7 +253,7 @@ const CrearUsuarioAdmin = () => {
               </div>
             )}
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" className="admin_btn">
             Crear
           </Button>
           <Button
@@ -265,6 +268,8 @@ const CrearUsuarioAdmin = () => {
         </Form>
       </div>
     </div>
+    </Container>
+    </>
     );
 };
 

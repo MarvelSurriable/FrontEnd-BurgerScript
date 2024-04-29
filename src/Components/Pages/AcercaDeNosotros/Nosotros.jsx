@@ -9,7 +9,7 @@ const Nosotros = () => {
       <div className="container">
         <h4 fluid className="text-center py-3 mx-3  text-white subtitle_burger">
       Somos el equipo detrás de Burger Script, dedicados a fusionar nuestra pasión por las hamburguesas y la programación. 
-      Nuestro objetivo es ofrecer una experiencia gastrónomica inolvidable en una página dinamica y vibrante.
+      Nuestro objetivo es ofrecer una experiencia gastrónomica inolvidable en una página dinámica y vibrante.
       </h4>
       </div>
       
@@ -37,7 +37,7 @@ const Nosotros = () => {
             <Card.Img variant="top" src="/src/assets/Images/Nosotros/Leandro.jpeg" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
               <Card.Title className="title_cardUs fs-2 pt-4">Leandro Bader</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 33 años. Soy estudiante programación Full Stack en Rolling Code. Me gusta jugar al futbol, tenis, padel y hacer actividades al aire libre.</Card.Text>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 33 años. Soy estudiante de programación Full Stack en Rolling Code. Me gusta jugar al futbol, tenis, padel y hacer actividades al aire libre.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -46,7 +46,7 @@ const Nosotros = () => {
             <Card.Img variant="top" src="/src/assets/Images/Nosotros/Javier.jpg" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
               <Card.Title className="title_cardUs fs-2 pt-4">Javier Aguilar</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 32 años, soy Técnico en Higiene y Seguridad y estudiante de programación Fullstack. Amante de las peliculas de Terror, Ciencia Ficción, libros y videojuegos.</Card.Text>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Tengo 32 años, soy Técnico en Higiene y Seguridad y estudiante de programación Fullstack. Amante de las películas de Terror, Ciencia Ficción, libros y videojuegos.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -55,7 +55,7 @@ const Nosotros = () => {
             <Card.Img variant="top" src="/src/assets/Images/Nosotros/Kelvin.png" className="img-fluid avatar_img" alt="foto de Marvel"/>
             <Card.Body className="description">
               <Card.Title className="title_cardUs fs-2 pt-4">Kelvin Pucho</Card.Title>
-              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Soy de Perú y soy estudiante de programación Full Stack. Soy una persona de pocas palabras apasionado por la tecnología </Card.Text>
+              <Card.Text className="description_cardUs fs-5 pt-4 px-3">Soy de Perú y soy estudiante de programación Full Stack. Soy una persona de pocas palabras apasionado por la tecnología.</Card.Text>
             </Card.Body>
           </Card>
         </Col>

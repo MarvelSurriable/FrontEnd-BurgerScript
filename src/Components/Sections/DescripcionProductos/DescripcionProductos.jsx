@@ -43,7 +43,7 @@ const DescripcionProductos = () => {
       }
     };
     const handleIncrement = () => {
-      if (quantity < 10) {
+      if (quantity < producto.stock) {
         setQuantity(prevCount => prevCount + 1);
       }
     }

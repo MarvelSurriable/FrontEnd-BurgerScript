@@ -23,13 +23,14 @@ import { NavLink } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 import "./navbar.css";
 import Login from "./Sections/Login/Login";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-function App() {
+function App({getProductos, producto}) {
   const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
     useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [busqueda, setBusqueda] = useState("");
   const handleShow = () => {
     setIsOpen(true);
   };
@@ -48,6 +49,12 @@ function App() {
       behavior: "smooth",
     });
   };
+
+  useEffect(()=>{
+    getProductos(busqueda);
+  },[busqueda])
+
+  
 
   return (
     <>
@@ -161,12 +168,19 @@ function App() {
                       <Form
                         data-bs-theme="dark"
                         className="d-flex  pe-3 search_pd"
+                        onSubmit={(e)=>{
+                          e.preventDefault();
+                        }}
                       >
                         <Form.Control
+                          controlId="busqueda"
                           type="search"
                           placeholder="Buscar"
                           className="search_nav"
                           aria-label="Search"
+                          onChange={(e)=>{
+                            setBusqueda(e.currentTarget.value);
+                          }}
                         />
                         <Button className="bg-transparent border_button py-0 rounded-5">
                           <Search className="text-white fs-2 ps-1" />
@@ -225,14 +239,14 @@ function App() {
                 smooth
                 to="/Burgers"
                 onClick={scrollToTop}
-                className="navbar_link ps-4 fs-5 pt-2"
+                className="navbar_link ps-4 fs-5 pt-2 pe-1"
               >
                 Burgers
               </NavLink>
               <NavLink
                 to="/contacto"
                 onClick={scrollToTop}
-                className="navbar_link ps-4 fs-5 pt-2"
+                className="navbar_link ps-4 fs-5 pt-2 pe-1"
               >
                 Contacto
               </NavLink>

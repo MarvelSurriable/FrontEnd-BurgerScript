@@ -4,42 +4,28 @@ import "../Home/home.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useContext, useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
-import axios from "axios";
 import UserContext from "../../../Context/UserContext";
-// import DropdownButton from "react-bootstrap/DropdownButton";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-function Home() {
+function Home({getProductos, producto, buscador}) {
   const {currentUser}=useContext(UserContext);
-  const [productos, setProductos] = useState([]);
   const [totalCards, setTotalCards] = useState(15);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
   const API = import.meta.env.VITE_API;
 
-  const getProductos = async () => {
-    try {
-      const response = await axios.get(`${API}/products/get-products`);
-      setProductos(response.data);
-    } catch (error) {
-      console.log("ERROR ==> ", error);
-    }
-  };
-
   useEffect(() => {
-    getProductos();
-    return () => {
-      setProductos([]);
-    };
-  }, []);
+    getProductos(buscador);
+  }, [buscador]);
+  
 
   const handleCategoriaChange = (categoria) => {
     setCategoriaSeleccionada(categoria);
   };
 
-  const productosFiltrados = productos.filter((producto) => {
+  const productosFiltrados = producto.filter((producto) => {
     if (categoriaSeleccionada === "Todas") return true;
     return producto.category === categoriaSeleccionada;
   });
@@ -293,7 +279,7 @@ function Home() {
               <p className="px-3 pt-2 category_text">
                 Nuestras Burgers están hechas con carne 100% vacuna; con pan
                 casero que horneamos todos los días y una selección de
-                ingredientes que las hacen únicas. Tambien ofrecemos variedades
+                ingredientes que las hacen únicas. También ofrecemos variedades
                 de Pollo y Vegetarianas.
               </p>
               <Dropdown className="pt-2 ps-4 text-start">
