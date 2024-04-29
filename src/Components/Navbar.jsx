@@ -50,9 +50,9 @@ function App() {
     });
   };
 
-  useEffect(()=>{
-    getProductos();
-  },[busqueda])
+  // useEffect(()=>{
+  //   getProductos();
+  // },[busqueda])
 
   console.log("busqueda ", busqueda);
 
