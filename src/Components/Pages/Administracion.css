@@ -13,6 +13,10 @@
     text-transform: uppercase;
 }
 
+.admin_label {
+    color: #f7be27;
+}
+
 .admin_subtitle {
     color: #f1f1f1;
     text-transform: uppercase;

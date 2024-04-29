@@ -117,12 +117,12 @@ const CrearUsuarioAdmin = () => {
       <Container fluid className="admin_bg py-4">
         <div className="container my-3 py-3">
       <div className="text-center">
-        <h1 className="admin_subtitle">Crear Usuario Administrador</h1>
+        <h1 className="admin_title">Crear Usuario Administrador</h1>
       </div>
       <div>
         <Form onSubmit={formik.handleSubmit}>
           <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Nombre</Form.Label>
+            <Form.Label className="admin_label fs-5">Nombre</Form.Label>
             <Form.Control
               type="text"
               placeholder="Ingrese el nombre"
@@ -148,7 +148,7 @@ const CrearUsuarioAdmin = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="username">
-            <Form.Label>Nombre de usuario</Form.Label>
+            <Form.Label className="admin_label fs-5">Nombre de usuario</Form.Label>
             <Form.Control
               type="text"
               minLength={4}
@@ -176,7 +176,7 @@ const CrearUsuarioAdmin = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Correo Electronico</Form.Label>
+            <Form.Label className="admin_label fs-5">Correo Electronico</Form.Label>
             <Form.Control
               type="email"
               placeholder="Ingrese el email"
@@ -202,7 +202,7 @@ const CrearUsuarioAdmin = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Contraseña</Form.Label>
+            <Form.Label className="admin_label fs-5">Contraseña</Form.Label>
             <Form.Control
               type="password"
               placeholder="Ingrese la contraseña"
@@ -228,7 +228,7 @@ const CrearUsuarioAdmin = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="confirmPassword">
-            <Form.Label>Confirmar contraseña</Form.Label>
+            <Form.Label className="admin_label fs-5">Confirmar contraseña</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirme la contraseña"

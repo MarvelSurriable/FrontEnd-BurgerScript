@@ -166,7 +166,7 @@ const Register = ({isOpen, handleClose}) => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Correo Electronico *</Form.Label>
+            <Form.Label>Correo Electrónico *</Form.Label>
             <Form.Control
               type="email"
               placeholder="Ingrese el email"
@@ -221,7 +221,7 @@ const Register = ({isOpen, handleClose}) => {
             <Form.Label>Repetir contraseña *</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Ingrese la contraseña"
+              placeholder="Repetir contraseña"
               required
               minLength={8}
               maxLength={16}
@@ -252,7 +252,7 @@ const Register = ({isOpen, handleClose}) => {
         </Form>
         </Modal.Body>
         <Modal.Footer>
-          <p>Los campos marcados con una * son obligatorios</p>
+          <p>Los campos marcados con un * son obligatorios</p>
         </Modal.Footer>
       </Modal>
         </>

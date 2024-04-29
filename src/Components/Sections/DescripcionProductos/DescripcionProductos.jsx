@@ -7,11 +7,12 @@ import {useParams } from "react-router-dom";
 import { useState} from "react";
 import { useEffect } from "react";
 import axios from "axios";
-
-
+import { useNavigate } from "react-router-dom";
 import React from 'react';
 
 const DescripcionProductos = () => {
+
+  const navigate=useNavigate();
 
   const [producto, setProducto] = useState(undefined);
     const API = import.meta.env.VITE_API;
@@ -62,15 +63,15 @@ const DescripcionProductos = () => {
               <div className="mt-lg-5 ms-lg-4">
               <h4 className="subtitle_burger fs-4">Hamburguesa de {producto?.category}</h4>
               <h2 className="text-start title_card fs-1">{producto?.title}</h2>
-              <h4 className="subtitle_burger fs-3 mb-3 mt-3">{producto?.description}</h4>
-              <p className="subtitle_burger fs-5">$ {producto?.price}</p>
+              <h4 className="fs-5 mb-3 mt-3">{producto?.description}</h4>
+              <p className="fs-2">$ {producto?.price}</p>
               </div>
               <div className="ps-4 pt-3 mb-4">
                 <div className="d-flex col">
                   <button type="button" onClick={handleDecrement} className="btn_description">-</button>
                   <div className="align-content-center btn_quantity px-3">{quantity}</div>
                   <button type="button" onClick={handleIncrement} className="btn_description me-4" >+</button>  
-                  <button className="subtitle_burger btn_burger px-4">Comprar ahora</button>              
+                  <button onClick={()=>{navigate("/error")}} className="subtitle_burger btn_burger px-4 fs-5">Comprar</button>             
                 </div>              
               </div>          
             </Col>

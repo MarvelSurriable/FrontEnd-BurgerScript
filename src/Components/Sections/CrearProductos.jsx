@@ -90,15 +90,15 @@ const CrearProductos = () => {
     <Container fluid className="admin_bg py-4">
     <div className="container my-3 py-3 ">
       <div className="text-center">
-        <h1 className="admin_subtitle">Crear Productos</h1>
+        <h1 className="admin_title">Crear Productos</h1>
       </div>
       <div>
         <Form onSubmit={formik.handleSubmit}>
           <Form.Group className="mb-3" controlId="title">
-            <Form.Label>Titulo</Form.Label>
+            <Form.Label className="admin_label fs-5">Título</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ingrese el titulo"
+              placeholder="Ingrese el título"
               minLength={4}
               maxLength={50}
               required
@@ -120,7 +120,7 @@ const CrearProductos = () => {
               </div>
             )}
           </Form.Group>
-          <Form.Label>Categoria</Form.Label>
+          <Form.Label className="admin_label fs-5">Categoría</Form.Label>
           <Form.Select
             aria-label="category"
             required
@@ -136,7 +136,7 @@ const CrearProductos = () => {
               }
             )}
           >
-            <option value="">Seleccione una categoria</option>
+            <option value="">Seleccione una categoría</option>
             <option value="Carne">Carne</option>
             <option value="Pollo">Pollo</option>
             <option value="Vegetarianas">Vegetariana</option>
@@ -147,13 +147,13 @@ const CrearProductos = () => {
             </div>
           )}
           <Form.Group className="mb-3" controlId="description">
-            <Form.Label>Descripcion</Form.Label>
+            <Form.Label className="admin_label fs-5 mt-2">Descripción</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
               minLength={4}
               maxLength={400}
-              placeholder="Ingrese una descripcion"
+              placeholder="Ingrese una descripción"
               required
               name="description"
               {...formik.getFieldProps("description")}
@@ -176,7 +176,7 @@ const CrearProductos = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="stock">
-            <Form.Label>Stock</Form.Label>
+            <Form.Label className="admin_label fs-5">Stock</Form.Label>
             <Form.Control
               type="number"
               placeholder="Ingrese el stock"
@@ -202,7 +202,7 @@ const CrearProductos = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="image">
-            <Form.Label>URL imagen</Form.Label>
+            <Form.Label className="admin_label fs-5">URL imagen</Form.Label>
             <Form.Control
               type="text"
               placeholder="Ingrese la URL de la imagen"
@@ -228,7 +228,7 @@ const CrearProductos = () => {
             )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="price">
-            <Form.Label>Precio</Form.Label>
+            <Form.Label className="admin_label fs-5">Precio</Form.Label>
             <Form.Control
               type="number"
               placeholder="Ingrese el precio del producto"
