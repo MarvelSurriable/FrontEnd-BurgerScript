@@ -48,6 +48,15 @@ const Login = ({isOpen, handleClose}) => {
       validateOnBlur: true,
       validateOnChange: true,
       onSubmit:async (values) => {
+        Swal.fire({
+          title: 'Iniciando sesion...',
+          allowEscapeKey: false,
+          allowOutsideClick: false,
+          showConfirmButton: false,
+          willOpen: () => {
+            Swal.showLoading();
+          },
+        });
         try {
           const response = await axios.post(`${API}/users/login`, values)
           if (response.status === 200) {

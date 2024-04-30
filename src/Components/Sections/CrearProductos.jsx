@@ -52,7 +52,7 @@ const CrearProductos = () => {
     validateOnChange: true,
 
     onSubmit: (values) => {
-      console.log("VALUES FORMIK : ", values);
+      
       Swal.fire({
         title: "¿Estas seguro que quieres crear el producto?",
         icon: "warning",
@@ -63,7 +63,29 @@ const CrearProductos = () => {
         cancelButtonText: "Cancelar",
       }).then(async (result) => {
         if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Creando producto...',
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            willOpen: () => {
+              Swal.showLoading();
+            },
+          });
           try {
+
+            const validateRepeat = await axios.get(`${API}/products/get-products`)
+        const existeTitle = validateRepeat.data.some(producto => producto.title === values.title);
+        
+    if (existeTitle) {
+      Swal.fire({
+        title: "Error",
+        text: "El título ingresado ya está en uso",
+        icon: "error",
+      });
+      return;
+    }
+    
             const response = await axios.post(
               `${API}/products/new-product`,
               values
