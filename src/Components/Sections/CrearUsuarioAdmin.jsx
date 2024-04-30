@@ -66,6 +66,15 @@ const CrearUsuarioAdmin = () => {
             cancelButtonText: "Cancelar",
           }).then(async (result) => {
             if (result.isConfirmed) {
+              Swal.fire({
+                title: 'Creando usuario...',
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                willOpen: () => {
+                  Swal.showLoading();
+                },
+              });
 
       try {
         const validateRepeat = await axios.get(`${API}/users/get-users`)
@@ -98,7 +107,7 @@ const CrearUsuarioAdmin = () => {
           formik.resetForm();
           Swal.fire({
             title: "¡Exito!",
-            text: "Usuario registrado, por favor inicie sesion",
+            text: "Usuario creado",
             icon: "success",
           });
           formik.resetForm();

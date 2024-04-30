@@ -79,7 +79,28 @@ const Editar = () => {
           cancelButtonText: "Cancelar",
         }).then(async (result) => {
           if (result.isConfirmed) {
+            Swal.fire({
+              title: 'Editando producto...',
+              allowEscapeKey: false,
+              allowOutsideClick: false,
+              showConfirmButton: false,
+              willOpen: () => {
+                Swal.showLoading();
+              },
+            });
             try {
+              const validateRepeat = await axios.get(`${API}/products/get-products`)
+        const existeTitle = validateRepeat.data.some(producto => producto.title === values.title);
+        console.log(existeTitle);
+        
+    if (existeTitle && values.title !== producto.title) {
+      Swal.fire({
+        title: "Error",
+        text: "El título ingresado ya está en uso",
+        icon: "error",
+      });
+      return;
+    }
           const fecha = new Date();
           values.controlStock = {
             timestamp: fecha,
