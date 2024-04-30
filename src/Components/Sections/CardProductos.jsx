@@ -10,7 +10,7 @@ const CardProductos = ({ producto }) => {
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
-      return text.substring(0, maxLength) + "..."; // Agregar "..." al final si se corta el texto
+      return text.substring(0, maxLength) + "..."; 
     } else {
       return text;
     }

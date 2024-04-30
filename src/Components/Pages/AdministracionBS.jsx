@@ -1,5 +1,4 @@
 import React from "react";
-import CrearProductos from "../Sections/CrearProductos";
 import ListarProductos from "../Sections/ListarProductos";
 import { Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +12,9 @@ const Administracion = () => {
       <Container fluid className="admin_bg py-4">
         <div className="container">
           <div className="text-center">
-            <h1 className="admin_title">Administracion de productos y usuarios</h1>
+            <h1 className="admin_title">
+              Administracion de productos y usuarios
+            </h1>
           </div>
           <Button
             variant="primary"

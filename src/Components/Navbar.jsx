@@ -4,7 +4,6 @@ import {
   Image,
   Nav,
   Form,
-  Button,
   Offcanvas,
   Row,
 } from "react-bootstrap";
@@ -13,7 +12,6 @@ import {
   Facebook,
   Instagram,
   TwitterX,
-  Search,
   QuestionCircle,
   PersonCircle,
   BoxArrowDownRight,
@@ -26,9 +24,8 @@ import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-function App({getProductos, producto}) {
-  const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
-    useContext(UserContext);
+function App({ getProductos, producto }) {
+  const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const [busqueda, setBusqueda] = useState("");
   const handleShow = () => {
@@ -50,11 +47,9 @@ function App({getProductos, producto}) {
     });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getProductos(busqueda);
-  },[busqueda])
-
-  
+  }, [busqueda]);
 
   return (
     <>
@@ -134,7 +129,11 @@ function App({getProductos, producto}) {
                       >
                         Burgers
                       </NavLink>
-                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4">
+                      <NavLink
+                        to="/contacto"
+                        onClick={scrollToTop}
+                        className="navbar_link pe-4"
+                      >
                         Contacto
                       </NavLink>
                       {currentUser !== undefined &&
@@ -168,7 +167,7 @@ function App({getProductos, producto}) {
                       <Form
                         data-bs-theme="dark"
                         className="d-flex  pe-3 search_pd"
-                        onSubmit={(e)=>{
+                        onSubmit={(e) => {
                           e.preventDefault();
                         }}
                       >
@@ -178,13 +177,10 @@ function App({getProductos, producto}) {
                           placeholder="Buscar por nombre"
                           className="search_nav"
                           aria-label="Search"
-                          onChange={(e)=>{
+                          onChange={(e) => {
                             setBusqueda(e.currentTarget.value);
                           }}
                         />
-                        {/* <Button className="bg-transparent border_button py-0 rounded-5">
-                          <Search className="text-white fs-2 ps-1" />
-                        </Button> */}
                       </Form>
                       <Nav.Link
                         href="https://www.facebook.com/"

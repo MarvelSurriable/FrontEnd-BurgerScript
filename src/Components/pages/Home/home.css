@@ -1,22 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
- .text-slider {
+.text-slider {
     color: brown;
 }
 
 .bg_slider {
-    /* background: url(/src/assets/Sliders/hero-3.jpg); */
     background: #181717;
     background-size: cover;
     background-position: center;
 }
 
-.img_slider {
-    overflow: hidden;
-    height: 80%;
-    width: 80%;
-    
-}
+
 
 .slider_title {
     font-family: "Lilita One", sans-serif;
@@ -27,14 +21,15 @@
 .slider_subtitle {
     font-family: "Lilita One", sans-serif;
     color: whitesmoke;
-    line-height: 1.5; 
+    line-height: 1.5;
     letter-spacing: 2px;
 }
 
 @media screen and (max-width: 400px) {
     .titles_sm {
-       padding-top: 15px;
-  }}
+        padding-top: 15px;
+    }
+}
 
 .text_section2 {
     font-family: "Oswald", sans-serif;
@@ -50,7 +45,7 @@
 }
 
 .aboutUs_h4 {
-    font-family: "Oswald", sans-serif; 
+    font-family: "Oswald", sans-serif;
 }
 
 @media screen and (max-width: 600px) {
@@ -58,10 +53,12 @@
         width: 40px;
         height: 40px;
     }
+
     .aboutUs_h4 {
         font-size: 1rem;
-    }    
-  }
+    }
+}
+
 .burgers_bg {
     background: url(/src/assets/Images/Background/bg-section.jpg) repeat center center;
 }
@@ -77,11 +74,11 @@
 .card_burger {
     width: 300px;
     height: 450px;
-  }
+}
 
 .title_card {
     font-family: "Oswald", sans-serif;
-    color: #e3000e;    
+    color: #e3000e;
 }
 
 .border_img {
@@ -95,8 +92,9 @@
 .img_promotion {
     height: 380px;
 }
+
 /* Estilos sección categorías */
-.category {       
+.category {
     background: #f1efef;
 }
 
@@ -110,8 +108,8 @@
     height: 50px;
 }
 
-.button_category {    
-    font-family: "Oswald", sans-serif;       
+.button_category {
+    font-family: "Oswald", sans-serif;
 }
 
 @media screen and (max-width: 800px) {
@@ -127,10 +125,11 @@
 @media screen and (max-width: 576px) {
     .img_promotion {
         display: none;
-    }    
+    }
 }
+
 /* Estilos sección Promotion y Destacados*/
-.bg_promotion {    
+.bg_promotion {
     background: #f7be27;
 }
 
