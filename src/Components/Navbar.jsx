@@ -23,6 +23,7 @@ import "./navbar.css";
 import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
+import logo from '../assets/Logo/logoBurgerScript.png';
 
 function App({ getProductos, producto }) {
   const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
@@ -68,7 +69,7 @@ function App({ getProductos, producto }) {
                 <Navbar.Brand className="ps-lg-4 ps-sm-2">
                   <NavLink to="/" onClick={scrollToTop}>
                     <Image
-                      src="../src/assets/Logo/logoBurgerScript.png"
+                      src={logo}
                       width="60"
                       height="60"
                       alt="Logo BurgerScript"
