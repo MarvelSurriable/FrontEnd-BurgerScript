@@ -1,6 +1,6 @@
 import { Carousel, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../Home/home.css";
+import "./Home.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
