@@ -68,7 +68,7 @@ function App({ getProductos, producto }) {
                 <Navbar.Brand className="ps-lg-4 ps-sm-2">
                   <NavLink to="/" onClick={scrollToTop}>
                     <Image
-                      src="./src/assets/Logo/logoBurgerScript.png"
+                      src="../src/assets/Logo/logoBurgerScript.png"
                       width="60"
                       height="60"
                       alt="Logo BurgerScript"
