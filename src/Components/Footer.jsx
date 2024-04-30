@@ -87,7 +87,7 @@ const Footer = () => {
           <div className='d-block d-md-none footer_font text-center  container'>
           <Row >
             <div className='pb-3'>
-              <Link to='/'>
+              <Link to='/' onClick={scrollToTop}>
               <Image
                      src="/src/assets/Logo/logoBurgerScript.png"
                      width="80"
