@@ -16,7 +16,7 @@ const CardProductos = ({ producto }) => {
     }
   };
 
-  const maxChars = isSmallScreen ? 35 : 100;
+  const maxChars = isSmallScreen ? 28 : 50;
 
   return (
     <div>

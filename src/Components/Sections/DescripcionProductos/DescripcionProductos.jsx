@@ -61,7 +61,7 @@ const DescripcionProductos = () => {
             </Col>
             <Col lg={6} md={12}sm={12} >
               <div className="mt-lg-5 ms-lg-4">
-              <h4 className="subtitle_burger fs-4">Hamburguesa de {producto?.category}</h4>
+              <h4 className="subtitle_burger fs-4">Categoría: {producto?.category}</h4>
               <h2 className="text-start title_card fs-1">{producto?.title}</h2>
               <h4 className="fs-5 mb-3 mt-3">{producto?.description}</h4>
               <p className="fs-2">$ {producto?.price}</p>
