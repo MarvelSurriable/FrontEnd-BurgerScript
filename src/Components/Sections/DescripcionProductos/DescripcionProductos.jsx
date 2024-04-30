@@ -27,7 +27,6 @@ const DescripcionProductos = () => {
     };
 
     getProducto();
-
     return () => {
       setProducto(undefined);
     };
