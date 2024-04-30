@@ -1,7 +1,7 @@
-import CrearProductos from "./Components/Sections/CrearProductos"
+import CrearProductos from "./Components/Sections/CrearProductos";
 import Navbar from "./Components/Navbar";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./Components/Pages/Home/Home"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Pages/Home/Home";
 import Administracion from "./Components/Pages/AdministracionBS";
 import Contacto from "./Components/Pages/Contacto/Contacto";
 import Nosotros from "./Components/Pages/AcercaDeNosotros/Nosotros";
@@ -11,7 +11,7 @@ import Editar from "./Components/Sections/Editar";
 import UserContext from "./Context/UserContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import DescripcionProductos from "./Components/Sections/DescripcionProductos/DescripcionProductos"
+import DescripcionProductos from "./Components/Sections/DescripcionProductos/DescripcionProductos";
 import Burgers from "./Components/Sections/Burgers";
 import CrearUsuarioAdmin from "./Components/Sections/CrearUsuarioAdmin";
 
