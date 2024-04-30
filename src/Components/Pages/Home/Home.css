@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+.text-slider {
+    color: brown;
+}
+
+.bg_slider {
+    background: #181717;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.slider_title {
+    font-family: "Lilita One", sans-serif;
+    color: whitesmoke;
+    letter-spacing: 2.5px;
+}
+
+.slider_subtitle {
+    font-family: "Lilita One", sans-serif;
+    color: whitesmoke;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 400px) {
+    .titles_sm {
+        padding-top: 15px;
+    }
+}
+
+.text_section2 {
+    font-family: "Oswald", sans-serif;
+}
+
+.bg_aboutUs {
+    background: #f7be27;
+}
+
+.img_aboutUs {
+    width: 70px;
+    height: 70px;
+}
+
+.aboutUs_h4 {
+    font-family: "Oswald", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+    .img_aboutUs {
+        width: 40px;
+        height: 40px;
+    }
+
+    .aboutUs_h4 {
+        font-size: 1rem;
+    }
+}
+
+.burgers_bg {
+    background: url(/src/assets/Images/Background/bg-section.jpg) repeat center center;
+}
+
+.title_burger {
+    font-family: "Oswald", sans-serif;
+    color: #e3000e;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.card_burger {
+    width: 300px;
+    height: 450px;
+}
+
+.title_card {
+    font-family: "Oswald", sans-serif;
+    color: #e3000e;
+}
+
+.border_img {
+    border: 3px solid #f7be27;
+}
+
+.description_card {
+    font-family: "Oswald", sans-serif;
+}
+
+.img_promotion {
+    height: 380px;
+}
+
+/* Estilos sección categorías */
+.category {
+    background: #f1efef;
+}
+
+.category_text {
+    font-family: "Oswald", sans-serif;
+    text-align: justify;
+}
+
+.img_category {
+    width: 50px;
+    height: 50px;
+}
+
+.button_category {
+    font-family: "Oswald", sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+    .img_promotion {
+        height: 250px;
+    }
+
+    .title_burger {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .img_promotion {
+        display: none;
+    }
+}
+
+/* Estilos sección Promotion y Destacados*/
+.bg_promotion {
+    background: #f7be27;
+}
+
+.store {
+    width: 35%;
+}
+
+.promotion_text {
+    font-family: "Oswald", sans-serif;
+}
+
+.text_carousel {
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;
+    color: #f1efef;
+}
