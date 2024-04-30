@@ -12,28 +12,40 @@
     background: #f7be27;
 }
 
-.header_icons {
-    background: #f7be27;
+.header_bg {
+    background: #181717;
 }
 
-.navbar_bg {    
-    background: #181717;
+.nav_bg {
+    background: #2e2d2d;
+}
+
+.nav_link {
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    font-weight: 500;
 }
 
 .navbar_link {
     font-family: "Oswald", sans-serif;
-    color: antiquewhite;
+    color: #f1f1f1;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.125rem;
-    font-weight: 500;   
+    font-weight: 500;
 }
 
 .navbar_link:hover {
     color: #f7be27;
 }
 
-.search_nav{
+.navbar_link.active {
+    color: #f7be27;
+}
+
+.search_nav {
     border-radius: 20px;
     background: #181717;
 }
@@ -45,7 +57,7 @@
 }
 
 .bg_button {
-   background: #f7be27;
+    background: #f7be27;
 }
 
 .border_button {
@@ -53,7 +65,7 @@
 }
 
 .icon_link {
-    color: white;
+    color: #f1f1f1;
 }
 
 .icon_link:hover {
@@ -62,23 +74,33 @@
 
 @media screen and (max-width: 600px) {
     .logo_nav {
-        width: 50px;
-        height: 50px;
-  }
+        width: 65px;
+        height: 65px;
+    }
 }
 
 @media screen and (max-width: 991px) {
     .search_pd {
-       padding-top: 20px;
-       padding-bottom: 20px;
-  }
-   .login_nav {    
-     text-align: center;     
-   }
-   .question_nav {
-    display: none;
-   }
-   .navbar_toggle {
-    background: #181717;    
-   }  
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .login_nav {
+        text-align: start;
+    }
+
+    .question_nav {
+        display: none;
+    }
+
+    .navbar_toggle {
+        background: #181717;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .nav_toggle {
+        display: none;
+    }
+
 }
