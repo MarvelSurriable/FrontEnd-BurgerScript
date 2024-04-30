@@ -1,12 +1,12 @@
 import CrearProductos from "./Components/Sections/CrearProductos"
 import Navbar from "./Components/Navbar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./Components/pages/Home/Home"
-import Administracion from "./Components/pages/AdministracionBS";
-import Contacto from "./Components/pages/Contacto/Contacto";
-import Nosotros from "./Components/pages/AcercaDeNosotros/Nosotros";
+import Home from "./Components/Pages/Home/Home"
+import Administracion from "./Components/Pages/AdministracionBS";
+import Contacto from "./Components/Pages/Contacto/Contacto";
+import Nosotros from "./Components/Pages/AcercaDeNosotros/Nosotros";
 import Footer from "./Components/Footer";
-import Error404 from "./Components/pages/Error404/Error404";
+import Error404 from "./Components/Pages/Error404/Error404";
 import Editar from "./Components/Sections/Editar";
 import UserContext from "./Context/UserContext";
 import { useEffect, useState } from "react";

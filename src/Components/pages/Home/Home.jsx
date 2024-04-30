@@ -1,17 +1,14 @@
-import { Carousel, Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Carousel, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../Home/home.css";
 import Dropdown from "react-bootstrap/Dropdown";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
-import UserContext from "../../../Context/UserContext";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
-function Home({getProductos, producto, buscador}) {
-  const {currentUser}=useContext(UserContext);
+function Home({ getProductos, producto, buscador }) {
   const [totalCards, setTotalCards] = useState(15);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
   const API = import.meta.env.VITE_API;
@@ -19,7 +16,6 @@ function Home({getProductos, producto, buscador}) {
   useEffect(() => {
     getProductos(buscador);
   }, [buscador]);
-  
 
   const handleCategoriaChange = (categoria) => {
     setCategoriaSeleccionada(categoria);
@@ -53,28 +49,26 @@ function Home({getProductos, producto, buscador}) {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false            
-          }
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
         },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            initialSlide: 2
-          }
-        },       
-      ]
-    };
-
-  
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+    ],
+  };
 
   return (
     <>
@@ -210,17 +204,17 @@ function Home({getProductos, producto, buscador}) {
           <Slider {...settings} className="text-center pb-4">
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>Bcrypt</h4>               
+                <h4>Bcrypt</h4>
                 <img
                   src="/src/assets/Images/Destacados/Bcrypt.jpg"
                   alt="Bcrypt Burger"
                   className="img-fluid border_img rounded-5 w-100"
-                />                
+                />
               </Link>
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>BigJson</h4>
+                <h4>BigJson</h4>
                 <img
                   src="/src/assets/Images/Destacados/Big Json.jpg"
                   alt="BigJson Burger"
@@ -230,7 +224,7 @@ function Home({getProductos, producto, buscador}) {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>BlackApi</h4>
+                <h4>BlackApi</h4>
                 <img
                   src="/src/assets/Images/Destacados/BlackApi .jpg"
                   alt="BlackApi Burger"
@@ -240,7 +234,7 @@ function Home({getProductos, producto, buscador}) {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>MongoCheese</h4>
+                <h4>MongoCheese</h4>
                 <img
                   src="/src/assets/Images/Destacados/MongoCheese.jpg"
                   alt="MongoCheese Burger"
@@ -250,7 +244,7 @@ function Home({getProductos, producto, buscador}) {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>Nodemon</h4>
+                <h4>Nodemon</h4>
                 <img
                   src="/src/assets/Images/Destacados/Nodemon Burger.jpeg"
                   alt="Nodemon Burger"
@@ -260,7 +254,7 @@ function Home({getProductos, producto, buscador}) {
             </div>
             <div className="pe-2">
               <Link className="text_carousel">
-              <h4>ChickeNode</h4>
+                <h4>ChickeNode</h4>
                 <img
                   src="/src/assets/Images/Destacados/ChickeNode.jpg"
                   alt="ChickeNode Burger"
@@ -272,7 +266,7 @@ function Home({getProductos, producto, buscador}) {
         </Container>
       </section>
       <section>
-      <Container fluid>
+        <Container fluid>
           <Row className="category">
             <Col sm={12} md={4} lg={4} className="text-center">
               <h2 className="title_burger pt-4">NUESTRO MENÚ</h2>
@@ -283,32 +277,60 @@ function Home({getProductos, producto, buscador}) {
                 de Pollo y Vegetarianas.
               </p>
               <Dropdown className="pt-2 ps-4 text-start">
-                <Dropdown.Toggle variant="transparent" id="dropdown-basic" className="fs-2 category_text">
+                <Dropdown.Toggle
+                  variant="transparent"
+                  id="dropdown-basic"
+                  className="fs-2 category_text"
+                >
                   CATEGORÍAS
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => handleCategoriaChange("Todas")}  className="category_text fs-4 bg-warning"><img
-                  src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
-                  alt="Hamburguesa categoría Todas"
-                  className="img_category me-2"
-                /> TODAS</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleCategoriaChange("Carne")}  className="category_text fs-4"><img
-                  src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
-                  alt="Hamburguesa categoría Carne"
-                  className="img_category me-2"
-                /> CARNE</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleCategoriaChange("Pollo")} className="category_text fs-4"><img
-                  src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
-                  alt="Hamburguesa categoría Pollo"
-                  className="img_category me-2"
-                /> POLLO</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleCategoriaChange("Vegetarianas")} className="category_text fs-4"><img
-                  src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
-                  alt="Hamburguesa categoría Vegetariana"
-                  className="img_category me-2"
-                /> VEGETARIANAS</Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => handleCategoriaChange("Todas")}
+                    className="category_text fs-4 bg-warning"
+                  >
+                    <img
+                      src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
+                      alt="Hamburguesa categoría Todas"
+                      className="img_category me-2"
+                    />{" "}
+                    TODAS
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => handleCategoriaChange("Carne")}
+                    className="category_text fs-4"
+                  >
+                    <img
+                      src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
+                      alt="Hamburguesa categoría Carne"
+                      className="img_category me-2"
+                    />{" "}
+                    CARNE
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => handleCategoriaChange("Pollo")}
+                    className="category_text fs-4"
+                  >
+                    <img
+                      src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
+                      alt="Hamburguesa categoría Pollo"
+                      className="img_category me-2"
+                    />{" "}
+                    POLLO
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => handleCategoriaChange("Vegetarianas")}
+                    className="category_text fs-4"
+                  >
+                    <img
+                      src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
+                      alt="Hamburguesa categoría Vegetariana"
+                      className="img_category me-2"
+                    />{" "}
+                    VEGETARIANAS
+                  </Dropdown.Item>
                 </Dropdown.Menu>
-              </Dropdown>             
+              </Dropdown>
             </Col>
             <Col md={8} lg={8} className="px-0">
               <img
@@ -318,7 +340,7 @@ function Home({getProductos, producto, buscador}) {
               />
             </Col>
           </Row>
-        </Container>        
+        </Container>
       </section>
       <section id="burgers" className="burgers_bg pt-0">
         <h2 className="text-center p-4 title_burger">Burgers</h2>
@@ -342,7 +364,9 @@ function Home({getProductos, producto, buscador}) {
                 DESCARGÁ NUESTRA APP Y OBTENÉ UN 20% DE DESCUENTO.
               </h2>
               <p className="promotion_text py-lg-3">
-                Promoción válida para la República Argentina, desde el 23/04/24 hasta el 23/06/24 o hasta agotar stock de 500 unidades. Aplica para Burgers de todas las categorías.
+                Promoción válida para la República Argentina, desde el 23/04/24
+                hasta el 23/06/24 o hasta agotar stock de 500 unidades. Aplica
+                para Burgers de todas las categorías.
               </p>
               <Link to="/error">
                 <img

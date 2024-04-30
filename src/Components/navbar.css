@@ -13,23 +13,19 @@
 }
 
 .header_bg {
-    /* background: rgb(10, 10, 10); */
     background: #181717;
 }
 
 .nav_bg {
-    /* background: #e3000e; */
-    /* background: #ed4548;    */
     background: #2e2d2d;
 }
 
 .nav_link {
-    /* color: #fcfafa; */
-    font-family: "Oswald", sans-serif;   
+    font-family: "Oswald", sans-serif;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.125rem;
-    font-weight: 500;  
+    font-weight: 500;
 }
 
 .navbar_link {
@@ -38,7 +34,7 @@
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.125rem;
-    font-weight: 500;   
+    font-weight: 500;
 }
 
 .navbar_link:hover {
@@ -49,7 +45,7 @@
     color: #f7be27;
 }
 
-.search_nav{
+.search_nav {
     border-radius: 20px;
     background: #181717;
 }
@@ -61,7 +57,7 @@
 }
 
 .bg_button {
-   background: #f7be27;
+    background: #f7be27;
 }
 
 .border_button {
@@ -80,28 +76,31 @@
     .logo_nav {
         width: 65px;
         height: 65px;
-  }
+    }
 }
 
 @media screen and (max-width: 991px) {
     .search_pd {
-       padding-top: 20px;
-       padding-bottom: 20px;
-  }
-   .login_nav {    
-     text-align: start;           
-   }
-   .question_nav {
-    display: none;
-   }
-   .navbar_toggle {
-    background: #181717;    
-   }  
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .login_nav {
+        text-align: start;
+    }
+
+    .question_nav {
+        display: none;
+    }
+
+    .navbar_toggle {
+        background: #181717;
+    }
 }
 
 @media screen and (min-width: 992px) {
     .nav_toggle {
         display: none;
     }
-   
+
 }
