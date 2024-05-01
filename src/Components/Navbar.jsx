@@ -95,7 +95,7 @@ function App({ getProductos, producto }) {
                     >
                       <NavLink to="/" onClick={scrollToTop}>
                         <Image
-                          src="/src/assets/Logo/logoBurgerScript.png"
+                          src={logo}
                           width="60"
                           height="60"
                           alt="Logo BurgerScript"

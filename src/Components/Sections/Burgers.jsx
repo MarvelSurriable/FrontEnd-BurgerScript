@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import CardProductos from "./CardProductos";
+import burg_all from "../../assets/Images/Category/burg_All1-removebg-preview.png";
+import burgercarne1 from "../../assets/Images/Category/burg_carne1-removebg-preview.png";
+import burgerchicken1 from "../../assets/Images/Category/burg_chicken1-removebg-preview.png";
+import burgervegie1 from "../../assets/Images/Category/burg_veggie1-removebg-preview.png";
+
 
 const Burgers = ({ getProductos, producto, buscador }) => {
   const API = import.meta.env.VITE_API;
@@ -39,7 +44,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                   className="category_text fs-4 bg-warning"
                 >
                   <img
-                    src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
+                    src={burg_all}
                     alt="Hamburguesa categoría Todas"
                     className="img_category me-2"
                   />{" "}
@@ -50,7 +55,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                   className="category_text fs-4"
                 >
                   <img
-                    src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
+                    src={burgercarne1}
                     alt="Hamburguesa categoría Carne"
                     className="img_category me-2"
                   />{" "}
@@ -61,7 +66,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                   className="category_text fs-4"
                 >
                   <img
-                    src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
+                    src={burgerchicken1}
                     alt="Hamburguesa categoría Pollo"
                     className="img_category me-2"
                   />{" "}
@@ -72,7 +77,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                   className="category_text fs-4"
                 >
                   <img
-                    src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
+                    src={burgervegie1}
                     alt="Hamburguesa categoría Vegetariana"
                     className="img_category me-2"
                   />{" "}

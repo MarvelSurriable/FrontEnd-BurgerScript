@@ -8,6 +8,10 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import appstore from "../../../assets/Images/Promotion/appstore.png";
+import googleplay from "../../../assets/Images/Promotion/googleplay.png";
+import e_shop from "../../../assets/Images/Promotion/e-shop.png";
+
 
 const DescripcionProductos = () => {
   const navigate = useNavigate();
@@ -109,14 +113,14 @@ const DescripcionProductos = () => {
               </p>
               <Link to="/">
                 <img
-                  src="/src/assets/Images/Promotion/appstore.png"
+                  src={appstore}
                   alt="IOS"
                   className="img-fluid store me-3"
                 />
               </Link>
               <Link to="/">
                 <img
-                  src="/src/assets/Images/Promotion/googleplay.png"
+                  src={googleplay}
                   alt="Android"
                   className="img-fluid store me-3"
                 />
@@ -124,7 +128,7 @@ const DescripcionProductos = () => {
             </Col>
             <Col lg={6}>
               <img
-                src="/src/assets/Images/Promotion/e-shop.png"
+                src={e_shop}
                 alt="e-shop"
                 className="img-fluid w-100 pt-lg-4"
               />

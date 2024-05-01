@@ -1,6 +1,7 @@
 import { Container, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Error404.css";
+import error from "../../../assets/Images/Error404/404Burger.jpg";
 
 const Error404 = () => {
   return (
@@ -10,13 +11,13 @@ const Error404 = () => {
       </h1>
       <div className="container d-flex justify-content-center align-items-center ">
         <Image
-          src="/src/assets/Images/Error404/404Burger.jpg"
+          src={error}
           alt="Error BurgerScript"
           className="d-none d-md-block"
           height="400vh"
         />
         <Image
-          src="/src/assets/Images/Error404/404Burger.jpg"
+          src={error}
           alt="Error BurgerScript"
           className="d-block d-md-none img-fluid pb-3"
         />
