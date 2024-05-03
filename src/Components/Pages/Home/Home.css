@@ -146,3 +146,10 @@
     text-decoration: none;
     color: #f1efef;
 }
+
+@media screen and (max-width: 600px) {
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+    }
+  }
