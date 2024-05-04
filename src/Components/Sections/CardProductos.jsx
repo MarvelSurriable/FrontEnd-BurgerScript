@@ -20,7 +20,7 @@ const CardProductos = ({ producto }) => {
 
   return (
     <div>
-      <Col className="my-2">
+      <Col className="py-2 h-100 d-flex flex-fill">
         <Card className="img_fluid">
 
           <Button variant="link" className="btn-img b-0 p-0" onClick={()=>{
