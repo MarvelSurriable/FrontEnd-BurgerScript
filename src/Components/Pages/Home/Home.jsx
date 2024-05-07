@@ -1,12 +1,34 @@
 import { Carousel, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../Home/home.css";
+import "./Home.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useEffect, useState } from "react";
 import CardProductos from "../../Sections/CardProductos";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import burgerfreg from "../../../assets/Images/Slider/burgerbeef.png";
+import burgerchicken from "../../../assets/Images/Slider/burgerchicken.png";
+import burgervegie from "../../../assets/Images/Slider/burgerveggie.png";
+import aboutburger from "../../../assets/Images/About/about-burger.jpg";
+import burger1 from "../../../assets/Images/About/Burguer1.png";
+import salad from  "../../../assets/Images/About/salad.png";
+import deliveryvite from "../../../assets/Images/About/delivery-bike.png";
+import bcrypt from "../../../assets/Images/Destacados/Bcrypt.jpg";
+import bigjson from "../../../assets/Images/Destacados/Big Json.jpg";
+import blackapi from "../../../assets/Images/Destacados/BlackApi .jpg";
+import mongocheese from "../../../assets/Images/Destacados/MongoCheese.jpg";
+import nodemonburger from "../../../assets/Images/Destacados/Nodemon Burger.jpeg";
+import chickennode from "../../../assets/Images/Destacados/ChickeNode.jpg";
+import category_text_w from "../../../assets/Images/Category/burg_All1-removebg-preview.png";
+import burgercarne1 from "../../../assets/Images/Category/burg_carne1-removebg-preview.png";
+import burgerchicken1 from "../../../assets/Images/Category/burg_chicken1-removebg-preview.png";
+import burgervegie1 from "../../../assets/Images/Category/burg_veggie1-removebg-preview.png";
+import promotionburgerscript from "../../../assets/Images/Promotion/promocionBurgerScript.jpeg";
+import appstore from "../../../assets/Images/Promotion/appstore.png";
+import googleplay from "../../../assets/Images/Promotion/googleplay.png";
+import e_shop from "../../../assets/Images/Promotion/e-shop.png";
+
 
 function Home({ getProductos, producto, buscador }) {
   const [totalCards, setTotalCards] = useState(15);
@@ -70,6 +92,12 @@ function Home({ getProductos, producto, buscador }) {
     ],
   };
 
+  const mensajeSinProductos = (
+    <p className="text-center text-warning fs-4 mt-3">
+     Lo sentimos esta burger no se encuentra en esta categoría.
+    </p>
+  );
+
   return (
     <>
       <Carousel>
@@ -79,7 +107,7 @@ function Home({ getProductos, producto, buscador }) {
               <Col lg={6} md={12} className="pb-2">
                 <img
                   className="d-block w-100 h-auto mt-3 img-fluid"
-                  src="/src/assets/Images/Slider/burgerbeef.png"
+                  src={burgerfreg}
                   alt="Hamburguesa de carne"
                 />
               </Col>
@@ -102,7 +130,7 @@ function Home({ getProductos, producto, buscador }) {
               <Col lg={6} md={12}>
                 <img
                   className="d-block w-100 h-auto mt-2 img-fluid"
-                  src="/src/assets/Images/Slider/burgerchicken.png"
+                  src={burgerchicken}
                   alt="Hamburguesa de pollo"
                 />
               </Col>
@@ -125,7 +153,7 @@ function Home({ getProductos, producto, buscador }) {
               <Col lg={6} md={12}>
                 <img
                   className="d-block w-100 h-auto mt-2 img-fluid"
-                  src="/src/assets/Images/Slider/burgerveggie.png"
+                  src={burgervegie}
                   alt="Hamburguesa vegetariana"
                 />
               </Col>
@@ -160,7 +188,7 @@ function Home({ getProductos, producto, buscador }) {
               <div className="text-center">
                 <div>
                   <img
-                    src="/src/assets/Images/About/about-burger.jpg"
+                    src={aboutburger}
                     className="img-fluid"
                     alt="imagen de hamburguesas"
                   />
@@ -173,7 +201,7 @@ function Home({ getProductos, producto, buscador }) {
           <Row className="justify-content-center">
             <Col xs={4} sm={4} md={4} lg={4} className="text-center">
               <img
-                src="/src/assets/Images/About/Burguer1.png"
+                src={burger1}
                 className="img-fluid img_aboutUs pt-2"
                 alt="imagen de hamburguesa"
               />
@@ -181,7 +209,7 @@ function Home({ getProductos, producto, buscador }) {
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} className="text-center">
               <img
-                src="/src/assets/Images/About/salad.png"
+                src={salad}
                 className="img-fluid img_aboutUs pt-2"
                 alt="imagen de verduras"
               />
@@ -189,7 +217,7 @@ function Home({ getProductos, producto, buscador }) {
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} className="text-center">
               <img
-                src="/src/assets/Images/About/delivery-bike.png"
+                src={deliveryvite}
                 className="img-fluid img_aboutUs pt-2"
                 alt="imagen de delivery"
               />
@@ -206,7 +234,7 @@ function Home({ getProductos, producto, buscador }) {
               <Link className="text_carousel">
                 <h4>Bcrypt</h4>
                 <img
-                  src="/src/assets/Images/Destacados/Bcrypt.jpg"
+                  src={bcrypt}
                   alt="Bcrypt Burger"
                   className="img-fluid border_img rounded-5 w-100"
                 />
@@ -216,7 +244,7 @@ function Home({ getProductos, producto, buscador }) {
               <Link className="text_carousel">
                 <h4>BigJson</h4>
                 <img
-                  src="/src/assets/Images/Destacados/Big Json.jpg"
+                  src={bigjson}
                   alt="BigJson Burger"
                   className="img-fluid border_img rounded-5 w-100"
                 />
@@ -226,7 +254,7 @@ function Home({ getProductos, producto, buscador }) {
               <Link className="text_carousel">
                 <h4>BlackApi</h4>
                 <img
-                  src="/src/assets/Images/Destacados/BlackApi .jpg"
+                  src={blackapi}
                   alt="BlackApi Burger"
                   className="img-fluid border_img rounded-5 w-100"
                 />
@@ -236,7 +264,7 @@ function Home({ getProductos, producto, buscador }) {
               <Link className="text_carousel">
                 <h4>MongoCheese</h4>
                 <img
-                  src="/src/assets/Images/Destacados/MongoCheese.jpg"
+                  src={mongocheese}
                   alt="MongoCheese Burger"
                   className="img-fluid border_img rounded-5 w-100"
                 />
@@ -246,7 +274,7 @@ function Home({ getProductos, producto, buscador }) {
               <Link className="text_carousel">
                 <h4>Nodemon</h4>
                 <img
-                  src="/src/assets/Images/Destacados/Nodemon Burger.jpeg"
+                  src={nodemonburger}
                   alt="Nodemon Burger"
                   className="img-fluid border_img rounded-5 w-100"
                 />
@@ -256,7 +284,7 @@ function Home({ getProductos, producto, buscador }) {
               <Link className="text_carousel">
                 <h4>ChickeNode</h4>
                 <img
-                  src="/src/assets/Images/Destacados/ChickeNode.jpg"
+                  src={chickennode}
                   alt="ChickeNode Burger"
                   className="img-fluid border_img rounded-5 w-100"
                 />
@@ -290,7 +318,7 @@ function Home({ getProductos, producto, buscador }) {
                     className="category_text fs-4 bg-warning"
                   >
                     <img
-                      src="/src/assets/Images/Category/burg_All1-removebg-preview.png"
+                      src={category_text_w}
                       alt="Hamburguesa categoría Todas"
                       className="img_category me-2"
                     />{" "}
@@ -301,7 +329,7 @@ function Home({ getProductos, producto, buscador }) {
                     className="category_text fs-4"
                   >
                     <img
-                      src="/src/assets/Images/Category/burg_carne1-removebg-preview.png"
+                      src={burgercarne1}
                       alt="Hamburguesa categoría Carne"
                       className="img_category me-2"
                     />{" "}
@@ -312,7 +340,7 @@ function Home({ getProductos, producto, buscador }) {
                     className="category_text fs-4"
                   >
                     <img
-                      src="/src/assets/Images/Category/burg_chicken1-removebg-preview.png"
+                      src={burgerchicken1}
                       alt="Hamburguesa categoría Pollo"
                       className="img_category me-2"
                     />{" "}
@@ -323,7 +351,7 @@ function Home({ getProductos, producto, buscador }) {
                     className="category_text fs-4"
                   >
                     <img
-                      src="/src/assets/Images/Category/burg_veggie1-removebg-preview.png"
+                      src={burgervegie1}
                       alt="Hamburguesa categoría Vegetariana"
                       className="img_category me-2"
                     />{" "}
@@ -334,7 +362,7 @@ function Home({ getProductos, producto, buscador }) {
             </Col>
             <Col md={8} lg={8} className="px-0">
               <img
-                src="/src/assets/Images/Promotion/promocionBurgerScript.jpeg"
+                src={promotionburgerscript}
                 alt="Imagen publicidad BurgerScript"
                 className="img_promotion w-100 img-fluid"
               />
@@ -344,6 +372,10 @@ function Home({ getProductos, producto, buscador }) {
       </section>
       <section id="burgers" className="burgers_bg pt-0">
         <h2 className="text-center p-4 title_burger">Burgers</h2>
+        <Col lg={{ span: 8, offset: 2 }} className="text-center">
+            <h3 className="text-center  text-warning  fs-1">{categoriaSeleccionada}:</h3> {/* Agregado */}
+            {productosFiltrados.length === 0 && mensajeSinProductos} {/* Mostrar el mensaje si no hay productos */}
+          </Col>
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">
             <Row xs={2} sm={2} md={3} lg={5} xl={5}>
@@ -370,14 +402,14 @@ function Home({ getProductos, producto, buscador }) {
               </p>
               <Link to="/error">
                 <img
-                  src="/src/assets/Images/Promotion/appstore.png"
+                  src={appstore}
                   alt="appstore"
                   className="img-fluid store me-3"
                 />
               </Link>
               <Link to="/error">
                 <img
-                  src="/src/assets/Images/Promotion/googleplay.png"
+                  src={googleplay}
                   alt="googleplay"
                   className="img-fluid store me-3"
                 />
@@ -385,7 +417,7 @@ function Home({ getProductos, producto, buscador }) {
             </Col>
             <Col lg={6}>
               <img
-                src="/src/assets/Images/Promotion/e-shop.png"
+                src={e_shop}
                 alt="e-shop"
                 className="img-fluid w-100 pt-lg-4"
               />

@@ -8,6 +8,7 @@
     background: #181717;
     background-size: cover;
     background-position: center;
+    margin-bottom: 1.1em;
 }
 
 
@@ -146,3 +147,10 @@
     text-decoration: none;
     color: #f1efef;
 }
+
+@media screen and (max-width: 600px) {
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+    }
+  }

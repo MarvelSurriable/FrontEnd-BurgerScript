@@ -27,7 +27,7 @@ const Login = ({ isOpen, handleClose }) => {
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
-      .email("Formato invalido")
+      .email("Formato inválido")
       .min(7)
       .max(128)
       .required("El email es requerido"),
@@ -47,7 +47,7 @@ const Login = ({ isOpen, handleClose }) => {
     validateOnChange: true,
     onSubmit: async (values) => {
       Swal.fire({
-        title: "Iniciando sesion...",
+        title: "Iniciando sesión...",
         allowEscapeKey: false,
         allowOutsideClick: false,
         showConfirmButton: false,
@@ -89,7 +89,7 @@ const Login = ({ isOpen, handleClose }) => {
       <Register isOpen={isOpen1} handleClose={handleClose1}></Register>
       <Modal show={isOpen} onHide={handleCloseAndReset} className="background">
         <Modal.Header closeButton>
-          <Modal.Title>Es hora de una Script! Ingresa y disfruta! </Modal.Title>
+          <Modal.Title>Es hora de una Script! Ingresá y disfrutá! </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
@@ -124,7 +124,7 @@ const Login = ({ isOpen, handleClose }) => {
               <Form.Label>Contraseña:</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Ingrese su contraseña"
+                placeholder="Ingresa tu contraseña"
                 maxLength={16}
                 minLength={8}
                 required
@@ -160,7 +160,7 @@ const Login = ({ isOpen, handleClose }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <p>No tenes una cuenta?</p>
+          <p>No tienes una cuenta?</p>
           <Button
             variant="link"
             onClick={() => {
@@ -169,7 +169,7 @@ const Login = ({ isOpen, handleClose }) => {
             }}
           >
             {" "}
-            Registrate
+            Regístrate
           </Button>
         </Modal.Footer>
       </Modal>

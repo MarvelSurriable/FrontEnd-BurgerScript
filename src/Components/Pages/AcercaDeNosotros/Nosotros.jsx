@@ -1,6 +1,11 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Nosotros.css";
+import marvel from "../../../assets/Images/Nosotros/Marvel.jpeg";
+import andrea from "../../../assets/Images/Nosotros/Andrea.jpeg";
+import leandro from "../../../assets/Images/Nosotros/Leandro.jpeg";
+import javier from "../../../assets/Images/Nosotros/Javier.jpg";
+import kelvin from "../../../assets/Images/Nosotros/Kelvin.png";
 
 const Nosotros = () => {
   return (
@@ -20,7 +25,7 @@ const Nosotros = () => {
           <Card className="avatar_card">
             <Card.Img
               variant="top"
-              src="/src/assets/Images/Nosotros/Marvel.jpeg"
+              src={marvel}
               className="img-fluid avatar_img"
               alt="foto de Marvel"
             />
@@ -40,7 +45,7 @@ const Nosotros = () => {
           <Card className="avatar_card">
             <Card.Img
               variant="top"
-              src="/src/assets/Images/Nosotros/Andrea.jpeg"
+              src={andrea}
               className="img-fluid avatar_img"
               alt="foto de Marvel"
             />
@@ -62,7 +67,7 @@ const Nosotros = () => {
           <Card className="avatar_card">
             <Card.Img
               variant="top"
-              src="/src/assets/Images/Nosotros/Leandro.jpeg"
+              src={leandro}
               className="img-fluid avatar_img"
               alt="foto de Marvel"
             />
@@ -82,7 +87,7 @@ const Nosotros = () => {
           <Card className="avatar_card">
             <Card.Img
               variant="top"
-              src="/src/assets/Images/Nosotros/Javier.jpg"
+              src={javier}
               className="img-fluid avatar_img"
               alt="foto de Marvel"
             />
@@ -102,7 +107,7 @@ const Nosotros = () => {
           <Card className="avatar_card">
             <Card.Img
               variant="top"
-              src="/src/assets/Images/Nosotros/Kelvin.png"
+              src={kelvin}
               className="img-fluid avatar_img"
               alt="foto de Marvel"
             />

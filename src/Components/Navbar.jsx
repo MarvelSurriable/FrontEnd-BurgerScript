@@ -15,6 +15,7 @@ import {
   QuestionCircle,
   PersonCircle,
   BoxArrowDownRight,
+  Cart,
 } from "react-bootstrap-icons";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -24,8 +25,10 @@ import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-function App({ getProductos, producto }) {
-  const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
+
+function App({getProductos, producto}) {
+  const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
+    useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const [busqueda, setBusqueda] = useState("");
   const handleShow = () => {
@@ -36,8 +39,11 @@ function App({ getProductos, producto }) {
   };
 
   const Logout = () => {
+    sessionStorage.removeItem('cart');
     RemoveAuth();
     setCurrentUser(undefined);
+    window.location.reload();
+    window.location.replace('/');
   };
 
   const scrollToTop = () => {
@@ -47,9 +53,11 @@ function App({ getProductos, producto }) {
     });
   };
 
-  useEffect(() => {
+  useEffect(()=>{
     getProductos(busqueda);
-  }, [busqueda]);
+  },[busqueda])
+
+  
 
   return (
     <>
@@ -129,11 +137,7 @@ function App({ getProductos, producto }) {
                       >
                         Burgers
                       </NavLink>
-                      <NavLink
-                        to="/contacto"
-                        onClick={scrollToTop}
-                        className="navbar_link pe-4"
-                      >
+                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4">
                         Contacto
                       </NavLink>
                       {currentUser !== undefined &&
@@ -167,7 +171,7 @@ function App({ getProductos, producto }) {
                       <Form
                         data-bs-theme="dark"
                         className="d-flex  pe-3 search_pd"
-                        onSubmit={(e) => {
+                        onSubmit={(e)=>{
                           e.preventDefault();
                         }}
                       >
@@ -177,7 +181,7 @@ function App({ getProductos, producto }) {
                           placeholder="Buscar por nombre"
                           className="search_nav"
                           aria-label="Search"
-                          onChange={(e) => {
+                          onChange={(e)=>{
                             setBusqueda(e.currentTarget.value);
                           }}
                         />
@@ -282,6 +286,19 @@ function App({ getProductos, producto }) {
                     <BoxArrowDownRight className="icon_link fs-3" />
                   </NavLink>
                 </OverlayTrigger>
+                
+              )}
+
+              {currentUser !== undefined && (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip id="tooltip">Carrito</Tooltip>}
+                >
+                  <NavLink to='/carrito' className="pe-3 py-1 login_nav" >
+                    <Cart className="icon_link fs-3" />
+                  </NavLink>
+                </OverlayTrigger>
+                
               )}
 
               <OverlayTrigger

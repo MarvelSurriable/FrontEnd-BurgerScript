@@ -11,6 +11,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
+import logo from "../assets/Logo/logoBurgerScript.png"
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -28,7 +29,7 @@ const Footer = () => {
               <div>
                 <Link to="/" onClick={scrollToTop}>
                   <Image
-                    src="/src/assets/Logo/logoBurgerScript.png"
+                    src={logo}
                     width="80"
                     height="80"
                     alt="Logo BurgerScript"
@@ -82,7 +83,7 @@ const Footer = () => {
           </Col>
           <Col>
             <p className="text-center footer_font mt-5 pt-5 d-none d-sm-block">
-              Todos los derechos reservados
+              &copy; Todos los derechos reservados
             </p>
           </Col>
           <Col xs={12} md={4}>
@@ -137,7 +138,7 @@ const Footer = () => {
           <div className="pb-3">
             <Link to="/" onClick={scrollToTop}>
               <Image
-                src="/src/assets/Logo/logoBurgerScript.png"
+                src={logo}
                 width="80"
                 height="80"
                 alt="Logo BurgerScript"
@@ -166,7 +167,7 @@ const Footer = () => {
           </Col>
         </Row>
         <Row>
-          <p className="pt-5"> Todos los derechos reservados </p>
+          <p className="pt-5">&copy; Todos los derechos reservados </p>
         </Row>
       </div>
     </Container>

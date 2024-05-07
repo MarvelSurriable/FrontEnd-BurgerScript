@@ -14,6 +14,7 @@ import axios from "axios";
 import DescripcionProductos from "./Components/Sections/DescripcionProductos/DescripcionProductos";
 import Burgers from "./Components/Sections/Burgers";
 import CrearUsuarioAdmin from "./Components/Sections/CrearUsuarioAdmin";
+import Carrito from "./Components/Sections/Carrito/Carrito";
 
 function App() {
   const API = import.meta.env.VITE_API;
@@ -87,6 +88,8 @@ function App() {
             <Route path="/descripcion/:id" element={<DescripcionProductos></DescripcionProductos>}></Route>
             <Route path="/burgers" element={<Burgers getProductos={getProductos} producto={productos} buscador={buscador}></Burgers>}></Route>
             {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/crear-usuarioadm" element={<CrearUsuarioAdmin></CrearUsuarioAdmin>}></Route>}
+            {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/carrito" element={<Carrito />}></Route>}
+            {(currentUser !== undefined && currentUser.role === "User") && <Route path="/carrito" element={<Carrito />}></Route>}
           </Routes>
         </main>
         <footer>
