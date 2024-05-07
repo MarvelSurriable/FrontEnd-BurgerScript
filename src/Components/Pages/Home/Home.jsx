@@ -315,7 +315,7 @@ function Home({ getProductos, producto, buscador }) {
                 <Dropdown.Menu>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Todas")}
-                    className="category_text fs-4 bg-warning"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={category_text_w}
@@ -326,7 +326,7 @@ function Home({ getProductos, producto, buscador }) {
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Carne")}
-                    className="category_text fs-4"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={burgercarne1}
@@ -337,7 +337,7 @@ function Home({ getProductos, producto, buscador }) {
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Pollo")}
-                    className="category_text fs-4"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={burgerchicken1}
@@ -348,7 +348,7 @@ function Home({ getProductos, producto, buscador }) {
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Vegetarianas")}
-                    className="category_text fs-4"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={burgervegie1}

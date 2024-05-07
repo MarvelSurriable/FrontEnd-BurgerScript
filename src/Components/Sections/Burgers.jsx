@@ -47,7 +47,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
               <Dropdown.Menu>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Todas")}
-                  className="category_text fs-4 bg-warning"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burg_all}
@@ -58,7 +58,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Carne")}
-                  className="category_text fs-4"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burgercarne1}
@@ -69,7 +69,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Pollo")}
-                  className="category_text fs-4"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burgerchicken1}
@@ -80,7 +80,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Vegetarianas")}
-                  className="category_text fs-4"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burgervegie1}
