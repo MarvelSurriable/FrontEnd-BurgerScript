@@ -122,7 +122,7 @@ function App({getProductos, producto}) {
                       </NavLink>
                       <Nav.Link
                         as={Link}
-                        smooth
+                        smooth="true"
                         to="/#destacados"
                         className="navbar_link pe-4 pt-1"
                       >
@@ -130,7 +130,7 @@ function App({getProductos, producto}) {
                       </Nav.Link>
                       <NavLink
                         as={Link}
-                        smooth
+                        smooth="true"
                         to="/Burgers"
                         onClick={scrollToTop}
                         className="navbar_link pe-4 pb-1"
@@ -228,7 +228,7 @@ function App({getProductos, producto}) {
               </NavLink>
               <Nav.Link
                 as={Link}
-                smooth
+                smooth="true"
                 to="/#destacados"
                 className="navbar_link ps-4 fs-5"
               >
@@ -236,7 +236,7 @@ function App({getProductos, producto}) {
               </Nav.Link>
               <NavLink
                 as={Link}
-                smooth
+                smooth="true"
                 to="/Burgers"
                 onClick={scrollToTop}
                 className="navbar_link ps-4 fs-5 pt-2 pe-1"
