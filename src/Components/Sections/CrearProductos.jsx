@@ -260,9 +260,10 @@ const CrearProductos = () => {
                 <Form.Label className="admin_label fs-5">Precio</Form.Label>
                 <Form.Control
                   type="number"
+                  min="3000"
                   placeholder="Ingrese el precio del producto"
                   required
-                  minLength={2}
+                  minLength={4}
                   maxLength={11}
                   name="price"
                   {...formik.getFieldProps("price")}

@@ -92,6 +92,12 @@ function Home({ getProductos, producto, buscador }) {
     ],
   };
 
+  const mensajeSinProductos = (
+    <p className="text-center text-warning fs-4 mt-3">
+     Lo sentimos esta burger no se encuentra en esta categoría.
+    </p>
+  );
+
   return (
     <>
       <Carousel>
@@ -366,6 +372,10 @@ function Home({ getProductos, producto, buscador }) {
       </section>
       <section id="burgers" className="burgers_bg pt-0">
         <h2 className="text-center p-4 title_burger">Burgers</h2>
+        <Col lg={{ span: 8, offset: 2 }} className="text-center">
+            <h3 className="text-center  text-warning  fs-1">{categoriaSeleccionada}:</h3> {/* Agregado */}
+            {productosFiltrados.length === 0 && mensajeSinProductos} {/* Mostrar el mensaje si no hay productos */}
+          </Col>
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">
             <Row xs={2} sm={2} md={3} lg={5} xl={5}>

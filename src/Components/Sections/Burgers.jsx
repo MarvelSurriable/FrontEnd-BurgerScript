@@ -24,6 +24,12 @@ const Burgers = ({ getProductos, producto, buscador }) => {
     return producto.category === categoriaSeleccionada;
   });
 
+  const mensajeSinProductos = (
+    <p className="text-center text-warning fs-4 mt-3">
+      Lo sentimos esta burger no se encuentra en esta categoría.
+    </p>
+  );
+
   return (
     <>
       <Container fluid className="burgers_bg pt-0">
@@ -85,6 +91,12 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={{ span: 8, offset: 2 }} className="text-center">
+            <h3 className="text-center text-warning fs-1">{categoriaSeleccionada}:</h3>
+            {productosFiltrados.length === 0 && mensajeSinProductos} {/* Mostrar el mensaje si no hay productos */}
           </Col>
         </Row>
       </Container>
