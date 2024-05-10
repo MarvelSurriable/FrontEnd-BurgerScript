@@ -51,6 +51,7 @@ const Editar = () => {
       stock: Yup.number()
         .required("El stock es requerido")
         .min(0, "El stock no puede ser menor a cero"),
+        distinguish: Yup.string().required("Este campo es obligatorio"),
     });
   
     const initialValues =  {
@@ -60,6 +61,7 @@ const Editar = () => {
       price: "",
       category: "",
       stock: "",
+      distinguish: ""
     };
   
     const formik = useFormik({
@@ -69,7 +71,6 @@ const Editar = () => {
       validateOnChange: true,
   
       onSubmit: (values) => {
-        console.log(values);
         Swal.fire({
           title: "¿Estas seguro que quieres editar el producto?",
           icon: "warning",
@@ -92,7 +93,6 @@ const Editar = () => {
             try {
               const validateRepeat = await axios.get(`${API}/products/get-products`)
         const existeTitle = validateRepeat.data.some(producto => producto.title === values.title);
-        console.log(existeTitle);
         
     if (existeTitle && values.title !== producto.title) {
       Swal.fire({
@@ -132,6 +132,7 @@ const Editar = () => {
             formik.setFieldValue("stock", producto.stock, true);
             formik.setFieldValue("image", producto.image, true);
             formik.setFieldValue("price", producto.price, true);  
+            formik.setFieldValue("distinguish", producto.distinguish, true);
         }     
     },[producto])
 
@@ -309,11 +310,39 @@ const Editar = () => {
             )}
           </Form.Group>
 
-          <Button type="submit" variant="primary" className="admin_btn">
+          <Form.Label className="admin_label fs-5 mb-3">¿Destacar producto?</Form.Label>
+              <Form.Select
+                aria-label="distinguish"
+                required
+                name="distinguish"
+                {...formik.getFieldProps("distinguish")}
+                className={clsx(
+                  "form-control",
+                  {
+                    "is-invalid":
+                      formik.touched.distinguish && formik.errors.distinguish,
+                  },
+                  {
+                    "is-valid":
+                      formik.touched.distinguish && !formik.errors.distinguish,
+                  }
+                )}
+              >
+                <option value="">Seleccione</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+              </Form.Select>
+              {formik.touched.distinguish && formik.errors.distinguish && (
+                <div className="mt-2 text-danger">
+                  <span role="alert">{formik.errors.distinguish}</span>
+                </div>
+              )}
+
+          <Button type="submit" variant="primary" className="admin_btn mt-3">
             Editar
           </Button>
           <Button
-            className="mx-3"
+            className="mx-3 mt-3"
             variant="secondary"
             onClick={() => {
               navigate(-1);
