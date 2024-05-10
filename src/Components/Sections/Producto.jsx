@@ -21,6 +21,7 @@ const Producto = ({ producto, index, getProductos }) => {
         <td>{producto.title}</td>
         <td>{producto.category}</td>
         <td>${producto.price}</td>
+        <td>{producto.distinguish}</td>
         <td>{producto.stock}</td>
         <td>{formatDate(producto.controlStock.timestamp)}</td>
         <td className="d-flex justify-content-araund">

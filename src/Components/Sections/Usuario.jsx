@@ -14,8 +14,7 @@ const Usuario = ({ usuario, index, getUsuarios }) => {
                 <td>{usuario.email}</td>
                 <td>{usuario.role}</td>
                 <td className="d-flex justify-content-around">
-                    {/* Mostrar el componente EliminarUsuario solo si no es un admin */}
-                    {!isAdmin && <EliminarUsuario id={usuario._id} getUsuarios={getUsuarios} />}
+                    <EliminarUsuario id={usuario._id} isAdmin={isAdmin} getUsuarios={getUsuarios} />
                 </td>
             </tr>
         </>

@@ -162,3 +162,8 @@
 .dropdown_bg:active {
     background: #f7be27;
 }
+
+.btn:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}

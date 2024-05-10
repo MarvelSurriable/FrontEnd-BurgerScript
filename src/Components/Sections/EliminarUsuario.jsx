@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { Trash3Fill } from "react-bootstrap-icons";
 
-const EliminarUsuario = ({ id, getUsuarios }) => {
+const EliminarUsuario = ({ id, isAdmin, getUsuarios }) => {
   const API = import.meta.env.VITE_API;
   const handleDelete = () => {
     Swal.fire({
@@ -39,6 +39,7 @@ const EliminarUsuario = ({ id, getUsuarios }) => {
         onClick={() => {
           handleDelete();
         }}
+        disabled={isAdmin}
       >
         <Trash3Fill />
       </Button>
