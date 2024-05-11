@@ -319,10 +319,10 @@ function Home({ getProductos, producto, buscador }) {
         </Container>
       </section>
       <section id="burgers" className="burgers_bg pt-0">
-        <h2 className="text-center p-4 title_burger">Burgers</h2>
+        <h2 className="text-center pt-4 pb-2 title_burger">Burgers</h2>
         <Col lg={{ span: 8, offset: 2 }} className="text-center">
-            <h3 className="text-center  text-warning  fs-1">{categoriaSeleccionada}:</h3> {/* Agregado */}
-            {productosFiltrados.length === 0 && mensajeSinProductos} {/* Mostrar el mensaje si no hay productos */}
+            <h3 className="text-center text-warning fs-1">{categoriaSeleccionada}:</h3> 
+            {productosFiltrados.length === 0 && mensajeSinProductos}
           </Col>
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">

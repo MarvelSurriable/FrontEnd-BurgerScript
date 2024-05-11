@@ -124,7 +124,7 @@ function App({getProductos, producto}) {
                         as={Link}
                         smooth="true"
                         to="/#destacados"
-                        className="navbar_link pe-4 pt-1"
+                        className="navbar_link pe-4 pb-1"
                       >
                         Destacados
                       </Nav.Link>
@@ -137,15 +137,18 @@ function App({getProductos, producto}) {
                       >
                         Burgers
                       </NavLink>
-                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4">
+                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4 pb-1">
                         Contacto
+                      </NavLink>
+                      <NavLink to="/nosotros" onClick={scrollToTop} className="navbar_link pe-4 pb-1">
+                        Nosotros
                       </NavLink>
                       {currentUser !== undefined &&
                         currentUser.role === "Admin" && (
                           <NavLink
                             to="/administracion"
                             onClick={scrollToTop}
-                            className="navbar_link pe-4 pt-1"
+                            className="navbar_link pe-4 pb-1"
                           >
                             Administración
                           </NavLink>
