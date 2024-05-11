@@ -25,8 +25,7 @@ import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-
-function App({getProductos, producto}) {
+function App({ getProductos, producto, actualizarContador, contador }) {
   const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
     useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -39,11 +38,11 @@ function App({getProductos, producto}) {
   };
 
   const Logout = () => {
-    sessionStorage.removeItem('cart');
+    sessionStorage.removeItem("cart");
     RemoveAuth();
     setCurrentUser(undefined);
     window.location.reload();
-    window.location.replace('/');
+    window.location.replace("/");
   };
 
   const scrollToTop = () => {
@@ -53,11 +52,13 @@ function App({getProductos, producto}) {
     });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getProductos(busqueda);
-  },[busqueda])
+  }, [busqueda]);
 
-  
+  useEffect(()=>{
+    actualizarContador();
+  },[]);
 
   return (
     <>
@@ -114,7 +115,7 @@ function App({getProductos, producto}) {
                     <Nav className="justify-content-end flex-grow-1 pe-4 nav_toggle">
                       <NavLink
                         to="/"
-                        onClick={scrollToTop}
+                        onClick={()=>{scrollToTop}}
                         activeclassname="active"
                         className="navbar_link pe-4 pt-1"
                       >
@@ -137,7 +138,11 @@ function App({getProductos, producto}) {
                       >
                         Burgers
                       </NavLink>
-                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4">
+                      <NavLink
+                        to="/contacto"
+                        onClick={scrollToTop}
+                        className="navbar_link pe-4"
+                      >
                         Contacto
                       </NavLink>
                       {currentUser !== undefined &&
@@ -166,12 +171,19 @@ function App({getProductos, producto}) {
                           <BoxArrowDownRight className="icon_link fs-3" />
                         </NavLink>
                       )}
+
+                      {currentUser !== undefined && (
+                        <NavLink to="/carrito" className="pe-3 py-1 login_nav">
+                          <Cart className="icon_link fs-3" />
+                          {contador > 0 && (<span className="cart-item-count">{contador}</span>)}
+                        </NavLink>
+                      )}
                     </Nav>
                     <Nav className="col justify-content-end">
                       <Form
                         data-bs-theme="dark"
                         className="d-flex  pe-3 search_pd"
-                        onSubmit={(e)=>{
+                        onSubmit={(e) => {
                           e.preventDefault();
                         }}
                       >
@@ -181,7 +193,7 @@ function App({getProductos, producto}) {
                           placeholder="Buscar por nombre"
                           className="search_nav"
                           aria-label="Search"
-                          onChange={(e)=>{
+                          onChange={(e) => {
                             setBusqueda(e.currentTarget.value);
                           }}
                         />
@@ -286,7 +298,6 @@ function App({getProductos, producto}) {
                     <BoxArrowDownRight className="icon_link fs-3" />
                   </NavLink>
                 </OverlayTrigger>
-                
               )}
 
               {currentUser !== undefined && (
@@ -294,11 +305,11 @@ function App({getProductos, producto}) {
                   placement="top"
                   overlay={<Tooltip id="tooltip">Carrito</Tooltip>}
                 >
-                  <NavLink to='/carrito' className="pe-3 py-1 login_nav" >
+                  <NavLink to="/carrito" className="pe-3 py-1 login_nav">
                     <Cart className="icon_link fs-3" />
+                    {contador > 0 && (<span className="cart-item-count">{contador}</span>)}
                   </NavLink>
                 </OverlayTrigger>
-                
               )}
 
               <OverlayTrigger
