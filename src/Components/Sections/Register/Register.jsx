@@ -29,7 +29,7 @@ const Register = ({ isOpen, handleClose }) => {
         "Ingrese un correo electrónico válido"
       ),
     password: Yup.string()
-      .required()
+      .required("La contraseña es requerida")
       .matches(
         /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
         "Ingrese una contraseña válida"
