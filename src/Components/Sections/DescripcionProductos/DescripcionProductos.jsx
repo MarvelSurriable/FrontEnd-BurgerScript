@@ -105,11 +105,11 @@ const DescripcionProductos = ({actualizarContador}) => {
                   onClick={() => {
                     navigate("/error");
                   }}
-                  className="subtitle_burger btn_burger px-4 fs-5 bg-success text-light me-3 fs-3"
+                  className="subtitle_burger btn_burger px-4 fs-5 bg-success text-light me-3"
                 >
                   Comprar
                 </button>
-                <button onClick={handleAddToCart} className="subtitle_burger btn_burger px-4 fs-3">
+                <button onClick={handleAddToCart} className="subtitle_burger btn_burger px-2 fs-5">
                   Agregar al carrito
                 </button>
               </div>
