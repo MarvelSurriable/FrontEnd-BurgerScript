@@ -23,6 +23,14 @@ const Editar = () => {
             console.log("ERROR => ", error);
         }
     }
+
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
     useEffect(()=>{
         getProducto();
     },[])
@@ -338,7 +346,7 @@ const Editar = () => {
                 </div>
               )}
 
-          <Button type="submit" variant="primary" className="admin_btn mt-3">
+          <Button type="submit" variant="primary" className="admin_btn mt-3" onClick={scrollToTop}>
             Editar
           </Button>
           <Button
@@ -346,6 +354,7 @@ const Editar = () => {
             variant="secondary"
             onClick={() => {
               navigate(-1);
+              scrollToTop();
             }}
           >
             Volver

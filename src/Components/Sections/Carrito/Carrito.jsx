@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Carrito.css';
 import { useNavigate } from 'react-router-dom';
 import { Trash3Fill } from 'react-bootstrap-icons';
+import Table from "react-bootstrap/Table";
+import { Button } from 'react-bootstrap';
 
 const Carrito = ({actualizarContador}) => {
     const navigate = useNavigate();
@@ -52,7 +54,7 @@ const Carrito = ({actualizarContador}) => {
     };
 
     return (
-        <div>
+        <div className='burgers_bg'>
             <button
             className="mx-3 mt-3 rounded-3 fs-4 ms-5 bg-warning"
             variant="secondary"
@@ -64,7 +66,7 @@ const Carrito = ({actualizarContador}) => {
           </button>
             <h1 className="text-center mt-3 text-danger fs-1">Carrito de Compras</h1>
             <div className="cart table-responsive-sm">
-                <table className="table text-center">
+                <Table className="table text-center" variant='dark'>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -91,17 +93,17 @@ const Carrito = ({actualizarContador}) => {
                                 </td>
                                 <td>${(parseFloat(product.price)).toFixed(2)}</td>
                                 <td>
-                                    <button className="bg-danger text-light rounded-3 px-2" onClick={() => handleRemoveProduct(index)}>
+                                    <Button type='button' className="mx-3" variant="danger" onClick={() => handleRemoveProduct(index)}>
                                     <Trash3Fill/>
-                                    </button>
+                                    </Button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </Table>
             </div>
             <div className="text-center mt-3">
-                <div className="fs-1">Total: ${total.toFixed(2)}</div>
+                <div className="fs-1 text-white pb-3">Total: ${total.toFixed(2)}</div>
                 <button onClick={() => { 
                     handleRemoveProduct();
                     navigate('/error') }} className="subtitle_burger btn_burger px-4 fs-5 bg-success text-light me-3 fs-3 mb-5">Comprar</button>

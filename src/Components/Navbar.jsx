@@ -25,7 +25,7 @@ import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-function App({ getProductos, producto, actualizarContador, contador }) {
+function App({ getProductos, actualizarContador, contador }) {
   const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
     useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -174,7 +174,7 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                       )}
 
                       {currentUser !== undefined && (
-                        <NavLink to="/carrito" className="pe-3 py-1 login_nav">
+                        <NavLink to="/carrito" className="pe-3 py-1 login_nav text-decoration-none" onClick={scrollToTop}>
                           <div className="cart-container">
                             <Cart className="icon_link fs-3" />
                             {contador > 0 && (
@@ -183,8 +183,6 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                               </span>
                             )}
                           </div>
-                          {/* <Cart className="icon_link fs-3" />
-                          {contador > 0 && (<span className="cart-item-count">{contador}</span>)} */}
                         </NavLink>
                       )}
                     </Nav>
@@ -314,7 +312,7 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                   placement="top"
                   overlay={<Tooltip id="tooltip">Carrito</Tooltip>}
                 >
-                  <NavLink to="/carrito" className="pe-3 py-1 login_nav">
+                  <NavLink to="/carrito" className="pe-3 py-1 login_nav text-decoration-none" onClick={scrollToTop}>
                     <Cart className="icon_link fs-3" />
                     {contador > 0 && (
                       <span className="cart-item-count">{contador}</span>
