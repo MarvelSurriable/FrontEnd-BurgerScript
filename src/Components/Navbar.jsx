@@ -25,7 +25,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 import logo from '../assets/Logo/logoBurgerScript.png';
 
-function App({ getProductos, producto }) {
+function App({ getProductos}) {
   const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const [busqueda, setBusqueda] = useState("");
