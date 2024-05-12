@@ -24,8 +24,7 @@ import "./navbar.css";
 import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
-import logo from "../assets/Logo/logoBurgerScript.png"
-
+import logo from "../assets/Logo/logoBurgerScript.png";
 
 function App({ getProductos, producto, actualizarContador, contador }) {
   const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
@@ -54,6 +53,9 @@ function App({ getProductos, producto, actualizarContador, contador }) {
     });
   };
 
+  const [expanded, setExpanded] = useState(false);
+  const closeNavbar = () => setExpanded(false);
+
   useEffect(() => {
     getProductos(busqueda);
   }, [busqueda]);
@@ -74,6 +76,7 @@ function App({ getProductos, producto, actualizarContador, contador }) {
               className="sticky py-0"
               data-bs-theme="dark"
               sticky="top"
+              expanded={expanded}
             >
               <Container fluid className="header_bg">
                 <Navbar.Brand className="ps-lg-4 ps-sm-2">
@@ -89,6 +92,7 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                 </Navbar.Brand>
                 <Navbar.Toggle
                   aria-controls={`offcanvasNavbar-expand-${expand}`}
+                  onClick={() => setExpanded(!expanded)}
                 />
                 <Navbar.Offcanvas
                   id={`offcanvasNavbar-expand-${expand}`}
@@ -97,13 +101,17 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                 >
                   <Offcanvas.Header
                     closeButton
+                    onClick={closeNavbar}
                     className="navbar_bg navbar_toggle"
                     data-bs-theme="dark"
                   >
                     <Offcanvas.Title
                       id={`offcanvasNavbarLabel-expand-${expand}`}
                     >
-                      <NavLink to="/" onClick={scrollToTop}>
+                      <NavLink to="/" onClick={()=>{
+                          scrollToTop();
+                          closeNavbar()
+                        }}>
                         <Image
                           src={logo}
                           width="60"
@@ -118,7 +126,8 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                       <NavLink
                         to="/"
                         onClick={() => {
-                          scrollToTop;
+                          scrollToTop();
+                          closeNavbar();
                         }}
                         activeclassname="active"
                         className="navbar_link pe-4 pt-1"
@@ -130,6 +139,7 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                         smooth="true"
                         to="/#destacados"
                         className="navbar_link pe-4 pb-1"
+                        onClick={closeNavbar}
                       >
                         Destacados
                       </Nav.Link>
@@ -137,22 +147,42 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                         as={Link}
                         smooth="true"
                         to="/Burgers"
-                        onClick={scrollToTop}
+                        onClick={() => {
+                          scrollToTop();
+                          closeNavbar();
+                        }}
                         className="navbar_link pe-4 pb-1"
                       >
                         Burgers
                       </NavLink>
-                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4 pb-1">
+                      <NavLink
+                        to="/contacto"
+                        onClick={() => {
+                          scrollToTop();
+                          closeNavbar();
+                        }}
+                        className="navbar_link pe-4 pb-1"
+                      >
                         Contacto
                       </NavLink>
-                      <NavLink to="/nosotros" onClick={scrollToTop} className="navbar_link pe-4 pb-1">
+                      <NavLink
+                        to="/nosotros"
+                        onClick={() => {
+                          scrollToTop();
+                          closeNavbar();
+                        }}
+                        className="navbar_link pe-4 pb-1"
+                      >
                         Nosotros
                       </NavLink>
                       {currentUser !== undefined &&
                         currentUser.role === "Admin" && (
                           <NavLink
                             to="/administracion"
-                            onClick={scrollToTop}
+                            onClick={() => {
+                              scrollToTop();
+                              closeNavbar();
+                            }}
                             className="navbar_link pe-4 pb-1"
                           >
                             Administración
@@ -176,8 +206,14 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                       )}
 
                       {currentUser !== undefined && (
-                        <NavLink to="/carrito" className="pe-3 py-1 login_nav text-decoration-none" onClick={scrollToTop}>
-
+                        <NavLink
+                          to="/carrito"
+                          className="pe-3 py-1 login_nav text-decoration-none"
+                          onClick={() => {
+                            scrollToTop();
+                            closeNavbar();
+                          }}
+                        >
                           <div className="cart-container">
                             <Cart className="icon_link fs-3" />
                             {contador > 0 && (
@@ -315,7 +351,11 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                   placement="top"
                   overlay={<Tooltip id="tooltip">Carrito</Tooltip>}
                 >
-                  <NavLink to="/carrito" className="pe-3 py-1 login_nav text-decoration-none" onClick={scrollToTop}>
+                  <NavLink
+                    to="/carrito"
+                    className="pe-3 py-1 login_nav text-decoration-none"
+                    onClick={scrollToTop}
+                  >
                     <Cart className="icon_link fs-3" />
                     {contador > 0 && (
                       <span className="cart-item-count">{contador}</span>
