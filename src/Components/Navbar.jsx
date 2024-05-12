@@ -15,6 +15,7 @@ import {
   QuestionCircle,
   PersonCircle,
   BoxArrowDownRight,
+  Cart,
 } from "react-bootstrap-icons";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -23,10 +24,10 @@ import "./navbar.css";
 import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
-import logo from '../assets/Logo/logoBurgerScript.png';
 
-function App({ getProductos}) {
-  const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
+function App({ getProductos, producto, actualizarContador, contador }) {
+  const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
+    useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const [busqueda, setBusqueda] = useState("");
   const handleShow = () => {
@@ -37,8 +38,11 @@ function App({ getProductos}) {
   };
 
   const Logout = () => {
+    sessionStorage.removeItem("cart");
     RemoveAuth();
     setCurrentUser(undefined);
+    window.location.reload();
+    window.location.replace("/");
   };
 
   const scrollToTop = () => {
@@ -51,6 +55,10 @@ function App({ getProductos}) {
   useEffect(() => {
     getProductos(busqueda);
   }, [busqueda]);
+
+  useEffect(() => {
+    actualizarContador();
+  }, []);
 
   return (
     <>
@@ -69,7 +77,7 @@ function App({ getProductos}) {
                 <Navbar.Brand className="ps-lg-4 ps-sm-2">
                   <NavLink to="/" onClick={scrollToTop}>
                     <Image
-                      src={logo}
+                      src="/src/assets/Logo/logoBurgerScript.png"
                       width="60"
                       height="60"
                       alt="Logo BurgerScript"
@@ -95,7 +103,7 @@ function App({ getProductos}) {
                     >
                       <NavLink to="/" onClick={scrollToTop}>
                         <Image
-                          src={logo}
+                          src="/src/assets/Logo/logoBurgerScript.png"
                           width="60"
                           height="60"
                           alt="Logo BurgerScript"
@@ -107,7 +115,9 @@ function App({ getProductos}) {
                     <Nav className="justify-content-end flex-grow-1 pe-4 nav_toggle">
                       <NavLink
                         to="/"
-                        onClick={scrollToTop}
+                        onClick={() => {
+                          scrollToTop;
+                        }}
                         activeclassname="active"
                         className="navbar_link pe-4 pt-1"
                       >
@@ -115,34 +125,33 @@ function App({ getProductos}) {
                       </NavLink>
                       <Nav.Link
                         as={Link}
-                        smooth
+                        smooth="true"
                         to="/#destacados"
-                        className="navbar_link pe-4 pt-1"
+                        className="navbar_link pe-4 pb-1"
                       >
                         Destacados
                       </Nav.Link>
                       <NavLink
                         as={Link}
-                        smooth
+                        smooth="true"
                         to="/Burgers"
                         onClick={scrollToTop}
                         className="navbar_link pe-4 pb-1"
                       >
                         Burgers
                       </NavLink>
-                      <NavLink
-                        to="/contacto"
-                        onClick={scrollToTop}
-                        className="navbar_link pe-4"
-                      >
+                      <NavLink to="/contacto" onClick={scrollToTop} className="navbar_link pe-4 pb-1">
                         Contacto
+                      </NavLink>
+                      <NavLink to="/nosotros" onClick={scrollToTop} className="navbar_link pe-4 pb-1">
+                        Nosotros
                       </NavLink>
                       {currentUser !== undefined &&
                         currentUser.role === "Admin" && (
                           <NavLink
                             to="/administracion"
                             onClick={scrollToTop}
-                            className="navbar_link pe-4 pt-1"
+                            className="navbar_link pe-4 pb-1"
                           >
                             Administración
                           </NavLink>
@@ -161,6 +170,19 @@ function App({ getProductos}) {
                           onClick={Logout}
                         >
                           <BoxArrowDownRight className="icon_link fs-3" />
+                        </NavLink>
+                      )}
+
+                      {currentUser !== undefined && (
+                        <NavLink to="/carrito" className="pe-3 py-1 login_nav text" onClick={scrollToTop}>
+                          <div className="cart-container">
+                            <Cart className="icon_link fs-3" />
+                            {contador > 0 && (
+                              <span className="cart-item-count">
+                                {contador}
+                              </span>
+                            )}
+                          </div>
                         </NavLink>
                       )}
                     </Nav>
@@ -225,7 +247,7 @@ function App({ getProductos}) {
               </NavLink>
               <Nav.Link
                 as={Link}
-                smooth
+                smooth="true"
                 to="/#destacados"
                 className="navbar_link ps-4 fs-5"
               >
@@ -233,7 +255,7 @@ function App({ getProductos}) {
               </Nav.Link>
               <NavLink
                 as={Link}
-                smooth
+                smooth="true"
                 to="/Burgers"
                 onClick={scrollToTop}
                 className="navbar_link ps-4 fs-5 pt-2 pe-1"
@@ -281,6 +303,20 @@ function App({ getProductos}) {
                 >
                   <NavLink className="pe-3 py-1 login_nav" onClick={Logout}>
                     <BoxArrowDownRight className="icon_link fs-3" />
+                  </NavLink>
+                </OverlayTrigger>
+              )}
+
+              {currentUser !== undefined && (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip id="tooltip">Carrito</Tooltip>}
+                >
+                  <NavLink to="/carrito" className="pe-3 py-1 login_nav text-decoration-none" onClick={scrollToTop}>
+                    <Cart className="icon_link fs-3" />
+                    {contador > 0 && (
+                      <span className="cart-item-count">{contador}</span>
+                    )}
                   </NavLink>
                 </OverlayTrigger>
               )}
