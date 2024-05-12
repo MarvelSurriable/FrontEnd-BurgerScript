@@ -24,12 +24,18 @@ const Burgers = ({ getProductos, producto, buscador }) => {
     return producto.category === categoriaSeleccionada;
   });
 
+  const mensajeSinProductos = (
+    <p className="text-center text-warning fs-4 mt-3">
+      Lo sentimos esta burger no se encuentra en esta categoría.
+    </p>
+  );
+
   return (
     <>
-      <Container fluid className="burgers_bg pt-0">
-        <h2 className="text-center p-4 title_burger">Burgers</h2>
-        <Row>
-          <Col lg={{ span: 8, offset: 2 }} className="text-center">
+      <Container fluid className="burgers_bg pt-0 pb-3">
+        <h2 className="text-center pt-4 pb-1 title_burger">Burgers</h2>
+        <Row className="text-center">
+          <Col lg={6} md={6} sm={6} xs={6} className="text-end pt-1">
             <Dropdown>
               <Dropdown.Toggle
                 variant="transparent"
@@ -41,7 +47,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
               <Dropdown.Menu>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Todas")}
-                  className="category_text fs-4 bg-warning"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burg_all}
@@ -52,7 +58,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Carne")}
-                  className="category_text fs-4"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burgercarne1}
@@ -63,7 +69,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Pollo")}
-                  className="category_text fs-4"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burgerchicken1}
@@ -74,7 +80,7 @@ const Burgers = ({ getProductos, producto, buscador }) => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => handleCategoriaChange("Vegetarianas")}
-                  className="category_text fs-4"
+                  className="category_text fs-4 dropdown_bg"
                 >
                   <img
                     src={burgervegie1}
@@ -86,17 +92,19 @@ const Burgers = ({ getProductos, producto, buscador }) => {
               </Dropdown.Menu>
             </Dropdown>
           </Col>
+          <Col lg={6} md={6} sm={6} xs={6} className="text-center pt-1">
+            <h3 className="text-start text-warning fs-1 pt-1 ps-4">{categoriaSeleccionada}</h3>
+            {productosFiltrados.length === 0 && mensajeSinProductos} 
+          </Col>
         </Row>
-      </Container>
-      <Container fluid className="pb-4 burgers_bg">
-        <Row xs={2} sm={2} md={3} lg={5} xl={5}>
+        <Row xs={2} sm={2} md={3} lg={5} xl={5} className="pt-2">
           {productosFiltrados.map((element, index) => {
             return (
               <CardProductos producto={element} key={index}></CardProductos>
             );
           })}
-        </Row>
-      </Container>
+        </Row>        
+      </Container>      
     </>
   );
 };

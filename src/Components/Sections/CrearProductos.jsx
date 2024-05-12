@@ -29,11 +29,13 @@ const CrearProductos = () => {
       ),
     price: Yup.number()
       .required("El precio es requerido")
-      .positive("El precio debe ser mayor a cero"),
+      .positive("El precio debe ser mayor a cero").min(3000, "El precio no puede ser menor a 3000"),
+
     category: Yup.string().required("La categoría es requerida"),
     stock: Yup.number()
       .required("El stock es requerido")
       .min(0, "El stock no puede ser menor a cero"),
+      distinguish: Yup.string().required("Este campo es obligatorio"),
   });
 
   const initialValues = {
@@ -43,6 +45,7 @@ const CrearProductos = () => {
     price: "",
     category: "",
     stock: "",
+    distinguish: ""
   };
 
   const formik = useFormik({
@@ -260,9 +263,10 @@ const CrearProductos = () => {
                 <Form.Label className="admin_label fs-5">Precio</Form.Label>
                 <Form.Control
                   type="number"
+                  min="3000"
                   placeholder="Ingrese el precio del producto"
                   required
-                  minLength={2}
+                  minLength={4}
                   maxLength={11}
                   name="price"
                   {...formik.getFieldProps("price")}
@@ -283,11 +287,39 @@ const CrearProductos = () => {
                 )}
               </Form.Group>
 
-              <Button type="submit" variant="primary" className="admin_btn">
+              <Form.Label className="admin_label fs-5 mb-3">¿Destacar producto?</Form.Label>
+              <Form.Select
+                aria-label="distinguish"
+                required
+                name="distinguish"
+                {...formik.getFieldProps("distinguish")}
+                className={clsx(
+                  "form-control",
+                  {
+                    "is-invalid":
+                      formik.touched.distinguish && formik.errors.distinguish,
+                  },
+                  {
+                    "is-valid":
+                      formik.touched.distinguish && !formik.errors.distinguish,
+                  }
+                )}
+              >
+                <option value="">Seleccione</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+              </Form.Select>
+              {formik.touched.distinguish && formik.errors.distinguish && (
+                <div className="mt-2 text-danger">
+                  <span role="alert">{formik.errors.distinguish}</span>
+                </div>
+              )}
+
+              <Button type="submit" variant="primary" className="admin_btn mt-3">
                 Crear
               </Button>
               <Button
-                className="mx-3"
+                className="mx-3 mt-3"
                 variant="secondary"
                 onClick={() => {
                   navigate(-1);

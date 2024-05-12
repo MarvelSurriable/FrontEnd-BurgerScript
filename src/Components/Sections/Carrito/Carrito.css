@@ -1,0 +1,13 @@
+
+.cart {
+  padding-top: 6rem;
+  min-height: 24vh;
+  max-width: 60rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.table-quantity{
+  width: 2.5rem;
+  margin-right: 1rem;
+}

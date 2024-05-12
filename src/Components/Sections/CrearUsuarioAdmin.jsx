@@ -12,6 +12,13 @@ const CrearUsuarioAdmin = () => {
   const API = import.meta.env.VITE_API;
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const ProductSchema = Yup.object().shape({
     name: Yup.string()
       .min(4, "Mínimo 4 caracteres")
@@ -109,6 +116,7 @@ const CrearUsuarioAdmin = () => {
               });
               formik.resetForm();
               navigate("/administracion");
+              scrollToTop();
             }
           } catch (error) {
             console.log("ERROR => ", error);
@@ -280,6 +288,7 @@ const CrearUsuarioAdmin = () => {
                 variant="secondary"
                 onClick={() => {
                   navigate(-1);
+                  scrollToTop();
                 }}
               >
                 Volver

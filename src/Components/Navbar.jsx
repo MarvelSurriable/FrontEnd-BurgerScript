@@ -25,6 +25,7 @@ import Login from "./Sections/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
+
 function App({ getProductos, producto, actualizarContador, contador }) {
   const { currentUser, setCurrentUser, RemoveAuth, SaveAuth } =
     useContext(UserContext);
@@ -174,7 +175,8 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                       )}
 
                       {currentUser !== undefined && (
-                        <NavLink to="/carrito" className="pe-3 py-1 login_nav text" onClick={scrollToTop}>
+                        <NavLink to="/carrito" className="pe-3 py-1 login_nav text-decoration-none" onClick={scrollToTop}>
+
                           <div className="cart-container">
                             <Cart className="icon_link fs-3" />
                             {contador > 0 && (

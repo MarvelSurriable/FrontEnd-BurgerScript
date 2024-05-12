@@ -7,6 +7,12 @@ import "./Administracion.css";
 
 const Administracion = () => {
   const navigate = useNavigate();
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <Container fluid className="admin_bg py-4">
@@ -30,6 +36,7 @@ const Administracion = () => {
             variant="primary"
             onClick={() => {
               navigate("/crear-usuarioadm");
+              scrollToTop();
             }}
             className="admin_btn mt-3"
           >

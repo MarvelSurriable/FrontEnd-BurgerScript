@@ -28,6 +28,7 @@ import promotionburgerscript from "../../../assets/Images/Promotion/promocionBur
 import appstore from "../../../assets/Images/Promotion/appstore.png";
 import googleplay from "../../../assets/Images/Promotion/googleplay.png";
 import e_shop from "../../../assets/Images/Promotion/e-shop.png";
+import ProductoDestacado from "../../Sections/ProductoDestacado";
 
 
 function Home({ getProductos, producto, buscador }) {
@@ -47,6 +48,8 @@ function Home({ getProductos, producto, buscador }) {
     if (categoriaSeleccionada === "Todas") return true;
     return producto.category === categoriaSeleccionada;
   });
+
+  const productosDestacados = producto.filter(producto => producto.distinguish === "true")
 
   useEffect(() => {
     function handleResize() {
@@ -91,6 +94,12 @@ function Home({ getProductos, producto, buscador }) {
       },
     ],
   };
+
+  const mensajeSinProductos = (
+    <p className="text-center text-warning fs-4 mt-3">
+     Lo sentimos esta burger no se encuentra en esta categoría.
+    </p>
+  );
 
   return (
     <>
@@ -224,66 +233,11 @@ function Home({ getProductos, producto, buscador }) {
         <h2 className="text-center p-4 title_burger">Destacados</h2>
         <Container>
           <Slider {...settings} className="text-center pb-4">
-            <div className="pe-2">
-              <Link className="text_carousel">
-                <h4>Bcrypt</h4>
-                <img
-                  src={bcrypt}
-                  alt="Bcrypt Burger"
-                  className="img-fluid border_img rounded-5 w-100"
-                />
-              </Link>
-            </div>
-            <div className="pe-2">
-              <Link className="text_carousel">
-                <h4>BigJson</h4>
-                <img
-                  src={bigjson}
-                  alt="BigJson Burger"
-                  className="img-fluid border_img rounded-5 w-100"
-                />
-              </Link>
-            </div>
-            <div className="pe-2">
-              <Link className="text_carousel">
-                <h4>BlackApi</h4>
-                <img
-                  src={blackapi}
-                  alt="BlackApi Burger"
-                  className="img-fluid border_img rounded-5 w-100"
-                />
-              </Link>
-            </div>
-            <div className="pe-2">
-              <Link className="text_carousel">
-                <h4>MongoCheese</h4>
-                <img
-                  src={mongocheese}
-                  alt="MongoCheese Burger"
-                  className="img-fluid border_img rounded-5 w-100"
-                />
-              </Link>
-            </div>
-            <div className="pe-2">
-              <Link className="text_carousel">
-                <h4>Nodemon</h4>
-                <img
-                  src={nodemonburger}
-                  alt="Nodemon Burger"
-                  className="img-fluid border_img rounded-5 w-100"
-                />
-              </Link>
-            </div>
-            <div className="pe-2">
-              <Link className="text_carousel">
-                <h4>ChickeNode</h4>
-                <img
-                  src={chickennode}
-                  alt="ChickeNode Burger"
-                  className="img-fluid border_img rounded-5 w-100"
-                />
-              </Link>
-            </div>
+           {productosDestacados.map((element, index)=> {
+            return(
+              <ProductoDestacado producto={element} key={index}></ProductoDestacado>
+            )
+           })}   
           </Slider>
         </Container>
       </section>
@@ -309,7 +263,7 @@ function Home({ getProductos, producto, buscador }) {
                 <Dropdown.Menu>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Todas")}
-                    className="category_text fs-4 bg-warning"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={category_text_w}
@@ -320,7 +274,7 @@ function Home({ getProductos, producto, buscador }) {
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Carne")}
-                    className="category_text fs-4"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={burgercarne1}
@@ -331,7 +285,7 @@ function Home({ getProductos, producto, buscador }) {
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Pollo")}
-                    className="category_text fs-4"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={burgerchicken1}
@@ -342,7 +296,7 @@ function Home({ getProductos, producto, buscador }) {
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => handleCategoriaChange("Vegetarianas")}
-                    className="category_text fs-4"
+                    className="category_text fs-4 dropdown_bg"
                   >
                     <img
                       src={burgervegie1}
@@ -365,7 +319,11 @@ function Home({ getProductos, producto, buscador }) {
         </Container>
       </section>
       <section id="burgers" className="burgers_bg pt-0">
-        <h2 className="text-center p-4 title_burger">Burgers</h2>
+        <h2 className="text-center pt-4 pb-2 title_burger">Burgers</h2>
+        <Col lg={{ span: 8, offset: 2 }} className="text-center">
+            <h3 className="text-center text-warning fs-1">{categoriaSeleccionada}:</h3> 
+            {productosFiltrados.length === 0 && mensajeSinProductos}
+          </Col>
         <div className="d-flex justify-content-center">
           <Container fluid className="pb-4">
             <Row xs={2} sm={2} md={3} lg={5} xl={5}>

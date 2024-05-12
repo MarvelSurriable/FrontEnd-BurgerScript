@@ -36,6 +36,7 @@ const ListarProductos = () => {
               <th>Título</th>
               <th>Categoria</th>
               <th>Precio</th>
+              <th>Destacado</th>
               <th>Stock</th>
               <th>Ultimo control de Stock</th>
               <th>Acciones</th>

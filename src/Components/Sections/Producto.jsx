@@ -13,6 +13,12 @@ const Producto = ({ producto, index, getProductos }) => {
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
     return `${day}/${month}/${year} ${hours}:${minutes}`;
+  }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
   return (
     <>
@@ -21,6 +27,7 @@ const Producto = ({ producto, index, getProductos }) => {
         <td>{producto.title}</td>
         <td>{producto.category}</td>
         <td>${producto.price}</td>
+        <td>{producto.distinguish}</td>
         <td>{producto.stock}</td>
         <td>{formatDate(producto.controlStock.timestamp)}</td>
         <td className="d-flex justify-content-araund">
@@ -30,6 +37,7 @@ const Producto = ({ producto, index, getProductos }) => {
             className="mx-3"
             onClick={() => {
               navigate(`/editar/${producto._id}`);
+              scrollToTop();
             }}
           >
             <PencilFill />
