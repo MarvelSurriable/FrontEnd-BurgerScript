@@ -23,7 +23,7 @@ Cuando se clone este repositorio se deben ejecutar los siguientes comandos:
 npm i
 
 ### 2.Para ejecutar nuestra app de react
-npm start
+npm run dev
 
 ### 3.Variables de Entorno
 VITE_API="https://backend-burgerscript-dev.onrender.com/"
