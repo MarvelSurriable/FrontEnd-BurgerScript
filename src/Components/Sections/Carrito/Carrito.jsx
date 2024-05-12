@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Trash3Fill } from 'react-bootstrap-icons';
 import Table from "react-bootstrap/Table";
 import { Button } from 'react-bootstrap';
+import Swal from "sweetalert2";
 
 const Carrito = ({actualizarContador}) => {
     const navigate = useNavigate();
@@ -51,6 +52,22 @@ const Carrito = ({actualizarContador}) => {
         updateTotal(updatedProducts);
         sessionStorage.setItem('cart', JSON.stringify(updatedProducts)); // Update cart in sessionStorage
         actualizarContador();
+    };
+
+    const handlePurchase = () => {
+        if (products.length === 0) {
+            Swal.fire({
+                text: "¡Agrega al menos un producto al carrito para realizar la compra!",
+                icon: "warning",
+            });
+        } else {
+            Swal.fire({
+                text: "¡Muchas gracias por tu compra!",
+                icon: "success",
+            });
+            handleRemoveProduct();
+            navigate("/")
+        }
     };
 
     return (
@@ -104,9 +121,7 @@ const Carrito = ({actualizarContador}) => {
             </div>
             <div className="text-center mt-3">
                 <div className="fs-1 text-white pb-3">Total: ${total.toFixed(2)}</div>
-                <button onClick={() => { 
-                    handleRemoveProduct();
-                    navigate('/error') }} className="subtitle_burger btn_burger px-4 fs-5 bg-success text-light me-3 fs-3 mb-5">Comprar</button>
+                <button onClick={handlePurchase} className="subtitle_burger btn_burger px-4 fs-5 bg-success text-light me-3 fs-3 mb-5">Comprar</button>
             </div>
         </div>
     );
