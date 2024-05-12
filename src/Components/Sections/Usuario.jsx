@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import EliminarUsuario from './EliminarUsuario';
 
 const Usuario = ({ usuario, index, getUsuarios }) => {

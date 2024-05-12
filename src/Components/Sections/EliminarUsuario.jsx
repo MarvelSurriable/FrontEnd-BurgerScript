@@ -7,7 +7,7 @@ const EliminarUsuario = ({ id, isAdmin, getUsuarios }) => {
   const API = import.meta.env.VITE_API;
   const handleDelete = () => {
     Swal.fire({
-      title: "¿Estas seguro de eliminar este usuario?",
+      title: "¿Estás seguro de eliminar este usuario?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -20,8 +20,8 @@ const EliminarUsuario = ({ id, isAdmin, getUsuarios }) => {
           await axios.delete(`${API}/users/delete-user/` + id);
           getUsuarios();
           Swal.fire({
-            title: "¡Exito!",
-            text: "Se elimino el usuario correctamente",
+            title: "¡Éxito!",
+            text: "Se eliminó el usuario correctamente",
             icon: "success",
           });
         } catch (error) {

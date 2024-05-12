@@ -19,7 +19,7 @@ const Administracion = () => {
         <div className="container">
           <div className="text-center">
             <h1 className="admin_title">
-              Administracion de productos y usuarios
+              Administración de productos y usuarios
             </h1>
           </div>
           <Button

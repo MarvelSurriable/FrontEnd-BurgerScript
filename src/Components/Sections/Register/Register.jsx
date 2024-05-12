@@ -17,7 +17,7 @@ const Register = ({ isOpen, handleClose }) => {
   const ProductSchema = Yup.object().shape({
     name: Yup.string()
       .min(4, "Mínimo 4 caracteres")
-      .max(20, "Maximo 20 caracteres")
+      .max(20, "Máximo 20 caracteres")
       .required("El nombre es requerido"),
     username: Yup.string()
       .required("El nombre de usuario es requerido")
@@ -26,13 +26,13 @@ const Register = ({ isOpen, handleClose }) => {
       .required()
       .matches(
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-        "Ingrese un correo electronico valido"
+        "Ingrese un correo electrónico válido"
       ),
     password: Yup.string()
       .required()
       .matches(
         /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
-        "ingrese una contraseña valida"
+        "Ingrese una contraseña válida"
       ),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Las contraseñas deben coincidir")
@@ -67,7 +67,7 @@ const Register = ({ isOpen, handleClose }) => {
         if (existemail) {
           Swal.fire({
             title: "Error",
-            text: "Ya se encuentra registrado, inicie sesion",
+            text: "Ya se encuentra registrado, inicie sesión",
             icon: "error",
           });
           return;
@@ -85,8 +85,8 @@ const Register = ({ isOpen, handleClose }) => {
         if (response.status === 201) {
           formik.resetForm();
           Swal.fire({
-            title: "¡Exito!",
-            text: "Usuario registrado, por favor inicie sesion",
+            title: "¡Éxito!",
+            text: "Usuario registrado, por favor inicie sesión",
             icon: "success",
           });
           formik.resetForm();

@@ -83,7 +83,7 @@ const Footer = () => {
           </Col>
           <Col>
             <p className="text-center footer_font mt-5 pt-5 d-none d-sm-block">
-              &copy; Todos los derechos reservados
+              &copy; Todos los derechos reservados.
             </p>
           </Col>
           <Col xs={12} md={4}>
@@ -167,7 +167,7 @@ const Footer = () => {
           </Col>
         </Row>
         <Row>
-          <p className="pt-5">&copy; Todos los derechos reservados </p>
+          <p className="pt-5">&copy; Todos los derechos reservados. </p>
         </Row>
       </div>
     </Container>

@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const Editar = () => {
     
     const [producto, setProducto] = useState(undefined);
-    const [lastEdited, setLastEdited] = useState(undefined); // Nuevo estado para el timestamp
+    const [lastEdited, setLastEdited] = useState(undefined); 
     const API = import.meta.env.VITE_API;
     const {id} = useParams();
     const getProducto = async()=>{
@@ -80,7 +80,7 @@ const Editar = () => {
   
       onSubmit: (values) => {
         Swal.fire({
-          title: "¿Estas seguro que quieres editar el producto?",
+          title: "¿Estás seguro que quieres editar el producto?",
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
@@ -116,10 +116,10 @@ const Editar = () => {
           };
               const response = await axios.put(`${API}/products/update-product/${id}`, values);
               if (response.status === 200) {
-                setLastEdited(fecha); // Actualizar el timestamp
+                setLastEdited(fecha); 
                 Swal.fire({
                   title: "¡Exito!",
-                  text: "Se edito el producto correctamente",
+                  text: "Se editó el producto correctamente",
                   icon: "success",
                 });
                 navigate("/administracion");
