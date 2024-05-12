@@ -7,48 +7,65 @@ Para acceder a las funcionalidades de los usuarios se implementó un método de 
 -	El resto de usuarios, tienen acceso y permiso a la visualización y compra de los productos
 
 ## Estructura general del sitio
--	Página principal
--	Página Quienes somos
--	Página Burgers
--	Página Contacto
--	Página administración: gestión de productos y usuarios
--	Página Detalle de producto y posibilidad de compra
--	Página Error 404
--	Modal login y registrarse
+
+- Modal login: permite al usuario ingresar a su cuenta personal
+- Modal de registro: en caso de no contar con una cuenta, el usuario puede crearse una
+
+Según el rol del usuario:
+  
+### Modo usuario:
+-	Página principal: presenta un carrusel, muestra los productos con sus respectivas categorías y ademas tiene una vista de los productos destacados
+-	Página Quienes somos: presenta a los integrantes, dando una pequeña descripción de cada uno
+-	Página Burgers: muestra todos los productos, pudiendo mostrarlas por categorías
+-	Página Contacto: permite al usuario mandar una consulta sobre la página y muestra ademas la ubicación del local
+-	Página Detalle de producto: muestra en detalle el producto y permite al usuario agregar al carrito de comprar
+-	Página Error 404: indica al usuario que ocurrió un error y la página no fué encontrada.
+
+
+### Modo administrador
+Los administradores tienen acceso a una pestaña exclusiva en el navbar llamada "Administración". Aquí pueden administrar los siguientes aspectos:
+- Usuarios: Muestra una lista con todos los usuarios indicando su nombre, nombre de usuario, correo electrónico y rol. Los administradores pueden eliminar usuarios que no tengan el rol de administrador.
+- Productos: Muestra una lista con todos los productos creados, con sus datos correspondientes(nombre, categoría, precio, posibilidad de destacar el producto y stock ). Los administradores tienen la opción crear , editar o eliminar productos existentes.
+
 
 ## Comandos
-Cuando se clone este repositorio se deben ejecutar los siguientes comandos:
+Para utilizar este proyecto se debe:
 
-### 1. Para instalar las dependencias
+### 1. Clonar el repositorio:
+#### Clona este repositorio desde GitHub ejecutando el siguiente comando en tu terminal:
+#### git clone [URL del repositorio]
+
+### 2. Para instalar las dependencias
 npm i
 
-### 2.Para ejecutar nuestra app de react
+### 3. Para ejecutar nuestra app de react
 npm run dev
 
-### 3.Variables de Entorno
-VITE_API="https://backend-burgerscript-dev.onrender.com/"
+### 4. Variables de Entorno
+#### Se debe crear un archivo ".env" y copiar la siguiente variable de entorno:
+#### VITE_API="https://backend-burgerscript-dev.onrender.com/"
 
 ## Demo
 - https://burgerscript.netlify.app
 - Usuario Administrador (Mail: admin@admin.com , Password: Admin123#)
 
 ## Librerias utilizadas
--	axios
--	bootstrap
--	bootstrap-icons
--	clsx
--	formik
--	react
--	react-bootstrap
--	react-bootstrap-icons
--	react-dom
--	react-responsive
--	react-router-dom
--	react-router-hash-link
--	react-slick
--	slick-carousel
--	sweetalert2 
--	yup
+- "axios": "^1.6.8"
+- "bootstrap": "^5.3.3"
+- "bootstrap-icons": "^1.11.3"
+- "clsx": "^2.1.0"
+- "formik": "^2.4.5"
+- "react": "^18.2.0"
+- "react-bootstrap": "^2.10.2"
+- "react-bootstrap-icons": "^1.11.4"
+- "react-dom": "^18.2.0"
+- "react-responsive": "^10.0.0"
+- "react-router-dom": "^6.22.3"
+- "react-router-hash-link": "^2.4.3"
+- "react-slick": "^0.30.2"
+- "slick-carousel": "^1.8.1"
+- "sweetalert2": "^11.10.8"
+- "yup": "^1.4.0"
 
 ## Desarrolladores
 -	Leandro Bader
