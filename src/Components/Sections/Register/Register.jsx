@@ -23,7 +23,7 @@ const Register = ({ isOpen, handleClose }) => {
       .required("El nombre de usuario es requerido")
       .matches(/^[a-zA-Z0-9_]{4,20}$/),
     email: Yup.string()
-      .required()
+      .required("El email es requerido")
       .matches(
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
         "Ingrese un correo electrónico válido"
