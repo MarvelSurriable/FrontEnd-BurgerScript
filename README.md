@@ -38,12 +38,12 @@ Para utilizar este proyecto se debe:
 ### 2. Para instalar las dependencias
 npm i
 
-### 3. Para ejecutar nuestra app de react
-npm run dev
-
-### 4. Variables de Entorno
+### 3. Variables de Entorno
 #### Se debe crear un archivo ".env" y copiar la siguiente variable de entorno:
 #### VITE_API="https://backend-burgerscript-dev.onrender.com/"
+
+### 4. Para ejecutar nuestra app de react
+npm run dev
 
 ## Demo
 - https://burgerscript.netlify.app
