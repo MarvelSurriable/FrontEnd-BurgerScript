@@ -21,6 +21,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(undefined);//aqui guardamos lo que recibimos del back (email, username, password, role)
   const [productos, setProductos] = useState([]);
   const [buscador, setBuscador] = useState("")
+  const [contadorCarrito, setContadorCarrito] = useState(0);
   const SaveAuth=(auth)=>{
     sessionStorage.setItem("auth", JSON.stringify(auth));
   }
@@ -67,12 +68,23 @@ function App() {
     }
   };
 
+  const actualizarContador = ()=>{
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+      setContadorCarrito(0)
+    }else{
+      setContadorCarrito(cart.length);
+    }
+    
+    
+  }
+
   return (
     <>
     <UserContext.Provider value={{currentUser, setCurrentUser, SaveAuth, GetAuth, RemoveAuth}}>
       <BrowserRouter>      
         <header className="sticky-top">
-          <Navbar getProductos={getProductos} producto={productos}  />
+          <Navbar getProductos={getProductos} producto={productos} actualizarContador={actualizarContador} contador={contadorCarrito} />
         </header>
         <main>
           <Routes>
@@ -85,11 +97,11 @@ function App() {
             {(currentUser !== undefined && currentUser === "Admin")&& <Route path="/editar/:id" element={<Editar></Editar>}></Route>}
             <Route path="/*" element={<Error404></Error404>}></Route>
             <Route path="/editar/:id" element={<Editar></Editar>}></Route>
-            <Route path="/descripcion/:id" element={<DescripcionProductos></DescripcionProductos>}></Route>
+            <Route path="/descripcion/:id" element={<DescripcionProductos actualizarContador={actualizarContador}></DescripcionProductos>}></Route>
             <Route path="/burgers" element={<Burgers getProductos={getProductos} producto={productos} buscador={buscador}></Burgers>}></Route>
             {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/crear-usuarioadm" element={<CrearUsuarioAdmin></CrearUsuarioAdmin>}></Route>}
-            {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/carrito" element={<Carrito />}></Route>}
-            {(currentUser !== undefined && currentUser.role === "User") && <Route path="/carrito" element={<Carrito />}></Route>}
+            {(currentUser !== undefined && currentUser.role === "Admin") && <Route path="/carrito" element={<Carrito actualizarContador={actualizarContador} />}></Route>}
+            {(currentUser !== undefined && currentUser.role === "User") && <Route path="/carrito" element={<Carrito actualizarContador={actualizarContador} />}></Route>}
           </Routes>
         </main>
         <footer>

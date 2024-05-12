@@ -15,7 +15,7 @@ import UserContext from "../../../Context/UserContext";
 import Swal from "sweetalert2";
 
 
-const DescripcionProductos = () => {
+const DescripcionProductos = ({actualizarContador}) => {
   const navigate = useNavigate();
   const [producto, setProducto] = useState(undefined);
   const API = import.meta.env.VITE_API;
@@ -47,6 +47,7 @@ const DescripcionProductos = () => {
       const existingCart = JSON.parse(sessionStorage.getItem("cart")) || [];
       const updatedCart = [...existingCart, cartItem];
       sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+      actualizarContador();
       Swal.fire({
         icon: "success",
         title: "¡Burger añadida al carrito!",
