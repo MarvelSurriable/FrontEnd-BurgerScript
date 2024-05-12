@@ -32,10 +32,10 @@ const Burgers = ({ getProductos, producto, buscador }) => {
 
   return (
     <>
-      <Container fluid className="burgers_bg pt-0">
-        <h2 className="text-center p-4 title_burger">Burgers</h2>
-        <Row>
-          <Col lg={{ span: 8, offset: 2 }} className="text-center">
+      <Container fluid className="burgers_bg pt-0 pb-3">
+        <h2 className="text-center pt-4 pb-1 title_burger">Burgers</h2>
+        <Row className="text-center">
+          <Col lg={6} md={6} sm={6} xs={6} className="text-end pt-1">
             <Dropdown>
               <Dropdown.Toggle
                 variant="transparent"
@@ -92,23 +92,19 @@ const Burgers = ({ getProductos, producto, buscador }) => {
               </Dropdown.Menu>
             </Dropdown>
           </Col>
-        </Row>
-        <Row>
-          <Col lg={{ span: 8, offset: 2 }} className="text-center">
-            <h3 className="text-center text-warning fs-1">{categoriaSeleccionada}:</h3>
-            {productosFiltrados.length === 0 && mensajeSinProductos} {/* Mostrar el mensaje si no hay productos */}
+          <Col lg={6} md={6} sm={6} xs={6} className="text-center pt-1">
+            <h3 className="text-start text-warning fs-1 pt-1 ps-4">{categoriaSeleccionada}</h3>
+            {productosFiltrados.length === 0 && mensajeSinProductos} 
           </Col>
         </Row>
-      </Container>
-      <Container fluid className="pb-4 burgers_bg">
-        <Row xs={2} sm={2} md={3} lg={5} xl={5}>
+        <Row xs={2} sm={2} md={3} lg={5} xl={5} className="pt-2">
           {productosFiltrados.map((element, index) => {
             return (
               <CardProductos producto={element} key={index}></CardProductos>
             );
           })}
-        </Row>
-      </Container>
+        </Row>        
+      </Container>      
     </>
   );
 };
