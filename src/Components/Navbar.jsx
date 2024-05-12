@@ -56,9 +56,9 @@ function App({ getProductos, producto, actualizarContador, contador }) {
     getProductos(busqueda);
   }, [busqueda]);
 
-  useEffect(()=>{
+  useEffect(() => {
     actualizarContador();
-  },[]);
+  }, []);
 
   return (
     <>
@@ -115,7 +115,9 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                     <Nav className="justify-content-end flex-grow-1 pe-4 nav_toggle">
                       <NavLink
                         to="/"
-                        onClick={()=>{scrollToTop}}
+                        onClick={() => {
+                          scrollToTop;
+                        }}
                         activeclassname="active"
                         className="navbar_link pe-4 pt-1"
                       >
@@ -174,8 +176,16 @@ function App({ getProductos, producto, actualizarContador, contador }) {
 
                       {currentUser !== undefined && (
                         <NavLink to="/carrito" className="pe-3 py-1 login_nav">
-                          <Cart className="icon_link fs-3" />
-                          {contador > 0 && (<span className="cart-item-count">{contador}</span>)}
+                          <div className="cart-container">
+                            <Cart className="icon_link fs-3" />
+                            {contador > 0 && (
+                              <span className="cart-item-count">
+                                {contador}
+                              </span>
+                            )}
+                          </div>
+                          {/* <Cart className="icon_link fs-3" />
+                          {contador > 0 && (<span className="cart-item-count">{contador}</span>)} */}
                         </NavLink>
                       )}
                     </Nav>
@@ -307,7 +317,9 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                 >
                   <NavLink to="/carrito" className="pe-3 py-1 login_nav">
                     <Cart className="icon_link fs-3" />
-                    {contador > 0 && (<span className="cart-item-count">{contador}</span>)}
+                    {contador > 0 && (
+                      <span className="cart-item-count">{contador}</span>
+                    )}
                   </NavLink>
                 </OverlayTrigger>
               )}

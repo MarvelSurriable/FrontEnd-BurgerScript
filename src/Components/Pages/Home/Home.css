@@ -167,16 +167,18 @@
     background-color: gray;
     cursor: not-allowed;
 }
+.cart-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
 .cart-item-count {
-    position: absolute;
-    top: 3px;
-    right: 83px;
-    z-index: 1;
     background-color: red;
     color: white;
     font-size: 12px;
     font-weight: bold;
     border-radius: 50%;
-    padding: 4px 8px;
+    padding: 4px 7px;
+    margin-left: -10px;
   }
