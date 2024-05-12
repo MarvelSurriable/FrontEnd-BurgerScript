@@ -7,7 +7,7 @@ const EliminarProducto = ({ id, getProductos }) => {
   const API = import.meta.env.VITE_API;
   const handleDelete = () => {
     Swal.fire({
-      title: "¿Estas seguro de eliminar este producto?",
+      title: "¿Estás seguro de eliminar este producto?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -20,8 +20,8 @@ const EliminarProducto = ({ id, getProductos }) => {
           await axios.delete(`${API}/products/delete-product/` + id);
           getProductos();
           Swal.fire({
-            title: "¡Exito!",
-            text: "Se elimino el producto correctamente",
+            title: "¡Éxito!",
+            text: "Se eliminó el producto correctamente",
             icon: "success",
           });
         } catch (error) {

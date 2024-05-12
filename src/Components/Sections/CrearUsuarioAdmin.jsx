@@ -22,7 +22,7 @@ const CrearUsuarioAdmin = () => {
   const ProductSchema = Yup.object().shape({
     name: Yup.string()
       .min(4, "Mínimo 4 caracteres")
-      .max(20, "Maximo 20 caracteres")
+      .max(20, "Máximo 20 caracteres")
       .required("El nombre es requerido"),
     username: Yup.string()
       .required("El nombre de usuario es requerido")
@@ -31,13 +31,13 @@ const CrearUsuarioAdmin = () => {
       .required()
       .matches(
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-        "Ingrese un correo electronico valido"
+        "Ingrese un correo electrónico válido"
       ),
     password: Yup.string()
       .required()
       .matches(
         /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
-        "ingrese una contraseña valida"
+        "ingrese una contraseña válida"
       ),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Las contraseñas deben coincidir")
@@ -110,7 +110,7 @@ const CrearUsuarioAdmin = () => {
             if (response.status === 201) {
               formik.resetForm();
               Swal.fire({
-                title: "¡Exito!",
+                title: "¡Éxito!",
                 text: "Usuario creado",
                 icon: "success",
               });
@@ -193,7 +193,7 @@ const CrearUsuarioAdmin = () => {
               </Form.Group>
               <Form.Group className="mb-3" controlId="email">
                 <Form.Label className="admin_label fs-5">
-                  Correo Electronico
+                  Correo Electrónico
                 </Form.Label>
                 <Form.Control
                   type="email"

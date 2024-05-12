@@ -15,12 +15,12 @@ const CrearProductos = () => {
   const ProductSchema = Yup.object().shape({
     title: Yup.string()
       .min(4, "Mínimo 4 caracteres")
-      .max(20, "Maximo 20 caracteres")
+      .max(20, "Máximo 20 caracteres")
       .required("El título es requerido"),
     description: Yup.string()
       .min(4, "Mínimo 4 caracteres")
-      .max(400, "Maximo 200 caracteres")
-      .required("La descripcion es requerida"),
+      .max(400, "Máximo 200 caracteres")
+      .required("La descripción es requerida"),
     image: Yup.string()
       .required("La URL de la imagen es requerida")
       .matches(
@@ -56,7 +56,7 @@ const CrearProductos = () => {
 
     onSubmit: (values) => {
       Swal.fire({
-        title: "¿Estas seguro que quieres crear el producto?",
+        title: "¿Estás seguro que quieres crear el producto?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -98,8 +98,8 @@ const CrearProductos = () => {
             if (response.status === 201) {
               formik.resetForm();
               Swal.fire({
-                title: "¡Exito!",
-                text: "Se creo el producto",
+                title: "¡Éxito!",
+                text: "Se creó el producto",
                 icon: "success",
               });
               navigate("/administracion");

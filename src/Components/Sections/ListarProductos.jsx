@@ -34,11 +34,11 @@ const ListarProductos = () => {
             <tr>
               <th>#</th>
               <th>Título</th>
-              <th>Categoria</th>
+              <th>Categoría</th>
               <th>Precio</th>
               <th>Destacado</th>
               <th>Stock</th>
-              <th>Ultimo control de Stock</th>
+              <th>Último control de Stock</th>
               <th>Acciones</th>
             </tr>
           </thead>
