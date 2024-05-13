@@ -221,11 +221,11 @@ const Register = ({ isOpen, handleClose }) => {
                 )}
               />
               <button
-                      className="btn btn-outline-secondary mx-2"
+                      className="btn btn-outline-dark mx-2 px-2 py-1"
                       type="button"
                       onClick={toggleShowPassword}
                     >
-                      {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+                      {showPassword ? <AiFillEye className="fs-3" /> : <AiFillEyeInvisible className="fs-3" />}
                     </button>
                     </div>
               {formik.touched.password && formik.errors.password && (
@@ -260,11 +260,11 @@ const Register = ({ isOpen, handleClose }) => {
                 )}
               />
               <button
-                      className="btn btn-outline-secondary mx-2"
+                      className="btn btn-outline-dark mx-2 px-2 py-1"
                       type="button"
                       onClick={toggleShowPasswordR}
                     >
-                      {showPasswordR ? <AiFillEyeInvisible /> : <AiFillEye />}
+                      {showPasswordR ? <AiFillEye className="fs-3" /> : <AiFillEyeInvisible className="fs-3" />}
                     </button>
                     </div>
               {formik.touched.confirmPassword &&
