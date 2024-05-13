@@ -190,7 +190,10 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                         )}
                       {currentUser === undefined && (
                         <Nav.Link
-                          onClick={handleShow}
+                            onClick={() => {
+                              handleShow();
+                              closeNavbar();
+                        }}                          
                           className="pe-2 py-1 login_nav"
                         >
                           <PersonCircle className="icon_link fs-3" />
