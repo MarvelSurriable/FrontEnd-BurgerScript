@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import clsx from "clsx";
 import * as Yup from "yup";
@@ -11,6 +12,7 @@ import Register from "../Register/Register";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = ({ isOpen, handleClose }) => {
+  const navigate = useNavigate();
   const [isOpen1, setIsOpen1] = useState(false);
   const handleShow1 = () => {
     setIsOpen1(true);
@@ -169,7 +171,10 @@ const Login = ({ isOpen, handleClose }) => {
               <Button variant="success" type="submit" className="me-1">
                 Ingresar
               </Button>
-              <Button variant="danger" href="/error">
+              <Button variant="danger" onClick={() => {
+              handleClose();
+              navigate("/error");
+            }}>
                 Olvidé mi contraseña
               </Button>
             </div>
