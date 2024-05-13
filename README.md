@@ -59,6 +59,7 @@ npm run dev
 - "react-bootstrap": "^2.10.2"
 - "react-bootstrap-icons": "^1.11.4"
 - "react-dom": "^18.2.0"
+- "react-icons": "^5.2.1"
 - "react-responsive": "^10.0.0"
 - "react-router-dom": "^6.22.3"
 - "react-router-hash-link": "^2.4.3"
