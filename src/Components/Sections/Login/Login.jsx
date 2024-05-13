@@ -8,6 +8,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import UserContext from "../../../Context/UserContext";
 import Register from "../Register/Register";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
 const Login = ({ isOpen, handleClose }) => {
   const [isOpen1, setIsOpen1] = useState(false);
   const handleShow1 = () => {
@@ -84,6 +86,11 @@ const Login = ({ isOpen, handleClose }) => {
     },
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
   return (
     <>
       <Register isOpen={isOpen1} handleClose={handleClose1}></Register>
@@ -119,11 +126,11 @@ const Login = ({ isOpen, handleClose }) => {
                 </div>
               )}
             </Form.Group>
-
             <Form.Group className="mb-4" controlId="password">
               <Form.Label>Contraseña:</Form.Label>
+              <div className="groupPassword">
               <Form.Control
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Ingresa tu contraseña"
                 maxLength={16}
                 minLength={8}
@@ -142,11 +149,20 @@ const Login = ({ isOpen, handleClose }) => {
                   }
                 )}
               />
+              <button
+                  className="btn btn-outline-dark mx-2 px-2 py-1"
+                  type="button"
+                  onClick={toggleShowPassword}
+                >
+                  {showPassword ? <AiFillEye className="fs-3" /> : <AiFillEyeInvisible className="fs-3" />}
+                </button>
+                </div>
               {formik.touched.password && formik.errors.password && (
                 <div className="mt-2 text-danger fw-bolder">
                   <span role="alert">{formik.errors.password}</span>
                 </div>
               )}
+              
             </Form.Group>
 
             <div style={{ textAlign: "right" }}>

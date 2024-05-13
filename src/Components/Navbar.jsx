@@ -239,6 +239,7 @@ function App({ getProductos, producto, actualizarContador, contador }) {
                           placeholder="Buscar por nombre"
                           className="search_nav"
                           aria-label="Search"
+                          maxLength={20}
                           onChange={(e) => {
                             setBusqueda(e.currentTarget.value);
                           }}
