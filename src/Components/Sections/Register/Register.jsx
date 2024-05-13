@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
 import clsx from "clsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Register = ({ isOpen, handleClose }) => {
   const API = import.meta.env.VITE_API;
@@ -98,6 +99,16 @@ const Register = ({ isOpen, handleClose }) => {
     },
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordR, setShowPasswordR] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+  const toggleShowPasswordR = () => {
+    setShowPasswordR((prevShowPassword) => !prevShowPassword);
+  };
+
   return (
     <>
       <Modal show={isOpen} onHide={handleCloseAndReset} className="background">
@@ -188,8 +199,9 @@ const Register = ({ isOpen, handleClose }) => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Contraseña *</Form.Label>
+              <div className="groupPassword">
               <Form.Control
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Ingrese la contraseña"
                 required
                 minLength={8}
@@ -208,6 +220,14 @@ const Register = ({ isOpen, handleClose }) => {
                   }
                 )}
               />
+              <button
+                      className="btn btn-outline-secondary mx-2"
+                      type="button"
+                      onClick={toggleShowPassword}
+                    >
+                      {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+                    </button>
+                    </div>
               {formik.touched.password && formik.errors.password && (
                 <div className="mt-2 text-danger">
                   <span role="alert">{formik.errors.password}</span>
@@ -216,8 +236,9 @@ const Register = ({ isOpen, handleClose }) => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="confirmPassword">
               <Form.Label>Repetir contraseña *</Form.Label>
+              <div className="groupPassword">
               <Form.Control
-                type="password"
+                type={showPasswordR ? "text" : "password"}
                 placeholder="Repetir contraseña"
                 required
                 minLength={8}
@@ -238,6 +259,14 @@ const Register = ({ isOpen, handleClose }) => {
                   }
                 )}
               />
+              <button
+                      className="btn btn-outline-secondary mx-2"
+                      type="button"
+                      onClick={toggleShowPasswordR}
+                    >
+                      {showPasswordR ? <AiFillEyeInvisible /> : <AiFillEye />}
+                    </button>
+                    </div>
               {formik.touched.confirmPassword &&
                 formik.errors.confirmPassword && (
                   <div className="mt-2 text-danger">

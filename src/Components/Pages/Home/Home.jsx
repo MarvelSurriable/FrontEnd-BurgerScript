@@ -29,12 +29,30 @@ import appstore from "../../../assets/Images/Promotion/appstore.png";
 import googleplay from "../../../assets/Images/Promotion/googleplay.png";
 import e_shop from "../../../assets/Images/Promotion/e-shop.png";
 import ProductoDestacado from "../../Sections/ProductoDestacado";
+import axios from "axios";
 
 
 function Home({ getProductos, producto, buscador }) {
   const [totalCards, setTotalCards] = useState(15);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
+  const [productoDestacado, setProductoDestacado] = useState([]);
   const API = import.meta.env.VITE_API;
+
+  useEffect(()=>{
+    getProducto();
+    },[]);
+
+  const getProducto = async()=>{
+    try {
+        const {data} = await axios.get(`${API}/products/get-products`);
+        setProductoDestacado(data);
+    } catch (error) {
+        console.log("ERROR => ", error);
+    }
+}
+ const productosDestacados = productoDestacado.filter(producto => producto.distinguish === "true")
+
+  
 
   useEffect(() => {
     getProductos(buscador);
@@ -49,7 +67,7 @@ function Home({ getProductos, producto, buscador }) {
     return producto.category === categoriaSeleccionada;
   });
 
-  const productosDestacados = producto.filter(producto => producto.distinguish === "true")
+  
 
   useEffect(() => {
     function handleResize() {
