@@ -16,13 +16,14 @@ const Register = ({ isOpen, handleClose }) => {
   };
 
   const ProductSchema = Yup.object().shape({
-    name: Yup.string()
+    name: Yup.string().
+    matches(/^[a-zA-Z\sáéíóúÁÉÍÓÚñÑ]*$/, "El campo nombre solo puede contener letras")
       .min(4, "Mínimo 4 caracteres")
       .max(20, "Máximo 20 caracteres")
       .required("El nombre es requerido"),
     username: Yup.string()
       .required("El nombre de usuario es requerido")
-      .matches(/^[a-zA-Z0-9_]{4,20}$/),
+      .matches(/^[a-zA-Z0-9_]{4,20}$/, "El nombre de usuario debe tener entre 4 y 20 caracteres"),
     email: Yup.string()
       .required("El email es requerido")
       .matches(
@@ -33,7 +34,7 @@ const Register = ({ isOpen, handleClose }) => {
       .required("La contraseña es requerida")
       .matches(
         /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
-        "Ingrese una contraseña válida"
+        "Entre 8 y 16 caracteres, al menos una minuscula, una mayuscula y un caracter especial"
       ),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Las contraseñas deben coincidir")
