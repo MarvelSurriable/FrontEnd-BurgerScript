@@ -11,7 +11,8 @@ const Contacto = () => {
   const navigate = useNavigate();
 
   const LoginSchema = Yup.object().shape({
-    nombre: Yup.string()
+    nombre: Yup.string().
+    matches(/^[a-zA-Z\sáéíóúÁÉÍÓÚñÑ]*$/, "El campo nombre solo puede contener letras")
       .min(3, "Escribe un nombre con más de 3 caracteres")
       .required("Contanos como te llamas!"),
     email: Yup.string()
